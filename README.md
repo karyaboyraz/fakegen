@@ -7,10 +7,10 @@ A simple and efficient fake data generator for Java applications with multi-lang
 - Generate realistic fake data for testing and development
 - Support for multiple locales (currently EN-US and TR-TR)
 - Various data categories:
-  - Names (first name, last name, full name, username)
-  - Addresses (street, city, country, postal code, etc.)
-  - Companies (company name, industry, catch phrase)
-  - Internet (email, URL, IP address)
+  - Names (first name, last name, full name)
+  - Addresses (street, city, district, country, postal code)
+  - Companies (company name, industry)
+  - Internet (email, username)
 
 ## Installation
 
@@ -28,7 +28,7 @@ Add the following to your project's `pom.xml`:
     <dependency>
         <groupId>com.fakegen</groupId>
         <artifactId>fakegen</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </dependency>
 </dependencies>
 ```
@@ -47,6 +47,12 @@ Also, make sure to add your GitHub credentials to your `~/.m2/settings.xml`:
 </settings>
 ```
 
+To generate a GitHub token with the required permissions:
+1. Go to GitHub.com → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. Click "Generate new token" → "Generate new token (classic)"
+3. Select the following permissions: `read:packages`, `write:packages`
+4. Copy the generated token and use it in your settings.xml
+
 ## Usage
 
 ```java
@@ -57,25 +63,55 @@ import com.fakegen.locale.FakerLocale;
 Faker faker = new Faker(FakerLocale.TR_TR);
 
 // Generate fake data
-String fullName = faker.name().fullName();
-String address = faker.address().fullAddress();
-String company = faker.company().companyName();
-String email = faker.internet().email();
+String fullName = faker.name().fullName();         // "Ahmet Yılmaz"
+String address = faker.address().fullAddress();     // "1234 Atatürk Caddesi, İstanbul/Kadıköy, Türkiye 34700"
+String company = faker.company().companyName();     // "Yılmaz Teknoloji A.Ş."
+String email = faker.internet().email();           // "ahmet.yilmaz@example.com"
 
 // Switch to English locale
 faker.setLocale(FakerLocale.EN_US);
+String englishName = faker.name().fullName();      // "John Smith"
 ```
 
-## Requirements
+## Available Data Types
 
-- Java 11 or higher
-- Maven for dependency management
+### Name
+- `fullName()`
+- `firstName()`
+- `lastName()`
+
+### Address
+- `fullAddress()`
+- `street()`
+- `city()`
+- `district()`
+- `country()`
+- `postalCode()`
+- `districtOfCity(String city)`
+
+### Company
+- `companyName()`
+- `industry()`
+
+### Internet
+- `email()`
+- `username()`
 
 ## Building from Source
 
 ```bash
+git clone https://github.com/karyaboyraz/fakegen.git
+cd fakegen
 mvn clean install
 ```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
