@@ -56,21 +56,21 @@ To generate a GitHub token with the required permissions:
 ## Usage
 
 ```java
-import com.fakegen.Faker;
+import com.fakegen.FakeGen;
 import com.fakegen.locale.FakerLocale;
 
-// Create a Faker instance with Turkish locale
-Faker faker = new Faker(FakerLocale.TR_TR);
+// Create a FakeGen instance with Turkish locale
+FakeGen fakeGen = new FakeGen(FakerLocale.TR_TR);
 
 // Generate fake data
-String fullName = faker.name().fullName();         // "Ahmet Yılmaz"
-String address = faker.address().fullAddress();     // "1234 Atatürk Caddesi, İstanbul/Kadıköy, Türkiye 34700"
-String company = faker.company().companyName();     // "Yılmaz Teknoloji A.Ş."
-String email = faker.internet().email();           // "ahmet.yilmaz@example.com"
+String fullName = fakeGen.name().fullName();         // "Ahmet Yılmaz"
+String address = fakeGen.address().fullAddress();     // "1234 Atatürk Caddesi, İstanbul/Kadıköy, Türkiye 34700"
+String company = fakeGen.company().companyName();     // "Yılmaz Teknoloji A.Ş."
+String email = fakeGen.internet().email();           // "ahmet.yilmaz@example.com"
 
 // Switch to English locale
-faker.setLocale(FakerLocale.EN_US);
-String englishName = faker.name().fullName();      // "John Smith"
+fakeGen.setLocale(FakerLocale.EN_US);
+String englishName = fakeGen.name().fullName();      // "John Smith"
 ```
 
 ## Available Data Types

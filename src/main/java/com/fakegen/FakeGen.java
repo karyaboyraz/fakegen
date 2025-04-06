@@ -4,7 +4,7 @@ import com.fakegen.providers.*;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 
-public class Faker {
+public class FakeGen {
     private static final RandomService random = new RandomService();
     
     private NameProvider nameProvider;
@@ -12,11 +12,11 @@ public class Faker {
     private CompanyProvider companyProvider;
     private InternetProvider internetProvider;
 
-    public Faker() {
+    public FakeGen() {
         this(FakerLocale.EN_US);
     }
 
-    public Faker(FakerLocale locale) {
+    public FakeGen(FakerLocale locale) {
         DataLoader.setLocale(locale);
         this.nameProvider = new NameProvider(random);
         this.addressProvider = new AddressProvider(random);

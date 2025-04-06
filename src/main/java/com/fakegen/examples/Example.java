@@ -1,34 +1,34 @@
 package com.fakegen.examples;
 
-import com.fakegen.Faker;
+import com.fakegen.FakeGen;
 import com.fakegen.locale.FakerLocale;
 
 public class Example {
     public static void main(String[] args) {
         // English data
         System.out.println("=== English Data ===");
-        Faker faker = new Faker(FakerLocale.EN_US);
-        printFakeData(faker);
+        FakeGen fakeGen = new FakeGen(FakerLocale.EN_US);
+        printFakeData(fakeGen);
         
         // Turkish data
         System.out.println("\n=== Turkish Data ===");
-        faker.setLocale(FakerLocale.TR_TR);
-        printFakeData(faker);
+        fakeGen.setLocale(FakerLocale.TR_TR);
+        printFakeData(fakeGen);
     }
     
-    private static void printFakeData(Faker faker) {
-        System.out.println("Full Name: " + faker.name().fullName());
-        System.out.println("Username: " + faker.name().username());
+    private static void printFakeData(FakeGen fakeGen) {
+        System.out.println("Full Name: " + fakeGen.name().fullName());
+        System.out.println("Username: " + fakeGen.name().username());
         
         System.out.println("\nAddress:");
-        System.out.println(faker.address().fullAddress());
+        System.out.println(fakeGen.address().fullAddress());
         
-        System.out.println("\nCompany: " + faker.company().companyName());
-        System.out.println("Industry: " + faker.company().industry());
-        System.out.println("Catch Phrase: " + faker.company().catchPhrase());
+        System.out.println("\nCompany: " + fakeGen.company().companyName());
+        System.out.println("Industry: " + fakeGen.company().industry());
+        System.out.println("Catch Phrase: " + fakeGen.company().catchPhrase());
         
-        System.out.println("\nEmail: " + faker.internet().email());
-        System.out.println("Website: " + faker.internet().url());
-        System.out.println("IP Address: " + faker.internet().ipV4());
+        System.out.println("\nEmail: " + fakeGen.internet().email());
+        System.out.println("Website: " + fakeGen.internet().url());
+        System.out.println("IP Address: " + fakeGen.internet().ipV4());
     }
 }
