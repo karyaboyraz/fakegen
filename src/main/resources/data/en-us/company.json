@@ -1,0 +1,14 @@
+{
+    "prefixes": [
+        "Tech", "Global", "Smart", "Digital", "Innovative",
+        "Future", "Next", "Advanced", "Elite", "Prime"
+    ],
+    "suffixes": [
+        "Solutions", "Systems", "Technologies", "Industries", "Corporation",
+        "Inc", "LLC", "Group", "Labs", "Enterprises"
+    ],
+    "industry_types": [
+        "Software", "Consulting", "Healthcare", "Finance", "Manufacturing",
+        "Education", "Retail", "Media", "Energy", "Transportation"
+    ]
+}

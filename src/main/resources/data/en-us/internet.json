@@ -1,0 +1,20 @@
+{
+    "email_domains": [
+        "gmail.com",
+        "yahoo.com",
+        "hotmail.com",
+        "outlook.com",
+        "example.com",
+        "company.com",
+        "business.net"
+    ],
+    "top_level_domains": [
+        "com",
+        "net",
+        "org",
+        "io",
+        "tech",
+        "app",
+        "dev"
+    ]
+}
