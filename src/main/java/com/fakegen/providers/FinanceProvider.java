@@ -23,7 +23,6 @@ public class FinanceProvider {
             number.append(random.nextInt(10));
         }
         
-        // Calculate Luhn checksum
         int sum = 0;
         boolean alternate = false;
         for (int i = number.length() - 1; i >= 0; i--) {

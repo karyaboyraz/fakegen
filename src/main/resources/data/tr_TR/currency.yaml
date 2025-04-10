@@ -1,0 +1,79 @@
+currency:
+  fiat:
+    names:
+      - "Türk Lirası"
+      - "Amerikan Doları"
+      - "Euro"
+      - "İngiliz Sterlini"
+      - "Japon Yeni"
+      - "Kanada Doları"
+      - "Avustralya Doları"
+      - "İsviçre Frangı"
+      - "Çin Yuanı"
+      - "Rus Rublesi"
+
+    codes:
+      - "TRY"
+      - "USD"
+      - "EUR"
+      - "GBP"
+      - "JPY"
+      - "CAD"
+      - "AUD"
+      - "CHF"
+      - "CNY"
+      - "RUB"
+
+    symbols:
+      - "₺"
+      - "$"
+      - "€"
+      - "£"
+      - "¥"
+      - "C$"
+      - "A$"
+      - "Fr"
+      - "¥"
+      - "₽"
+
+  crypto:
+    coins:
+      - "Bitcoin"
+      - "Ethereum"
+      - "Ripple"
+      - "Litecoin"
+      - "Cardano"
+      - "Polkadot"
+      - "Solana"
+      - "Dogecoin"
+      - "Binance Coin"
+      - "Chainlink"
+
+    symbols:
+      - "BTC"
+      - "ETH"
+      - "XRP"
+      - "LTC"
+      - "ADA"
+      - "DOT"
+      - "SOL"
+      - "DOGE"
+      - "BNB"
+      - "LINK"
+
+    blockchains:
+      - "Bitcoin"
+      - "Ethereum"
+      - "Binance Smart Chain"
+      - "Polygon"
+      - "Avalanche"
+      - "Solana"
+      - "Polkadot"
+      - "Cardano"
+      - "Tron"
+      - "Arbitrum"
+
+  coin:
+    sides:
+      - "Yazı"
+      - "Tura" 

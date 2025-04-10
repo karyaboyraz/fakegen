@@ -1,0 +1,260 @@
+animals:
+  - name: Aslan
+    type: Memeli
+    scientific_name: Panthera leo
+    family: Felidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Carnivora
+    genus: Panthera
+    species: leo
+    habitat: Savan
+    sound: Kükreme
+
+  - name: Kaplan
+    type: Memeli
+    scientific_name: Panthera tigris
+    family: Felidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Carnivora
+    genus: Panthera
+    species: tigris
+    habitat: Orman
+    sound: Kükreme
+
+  - name: Fil
+    type: Memeli
+    scientific_name: Loxodonta africana
+    family: Elephantidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Proboscidea
+    genus: Loxodonta
+    species: africana
+    habitat: Savan
+    sound: Trompet
+
+  - name: Zürafa
+    type: Memeli
+    scientific_name: Giraffa camelopardalis
+    family: Giraffidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Artiodactyla
+    genus: Giraffa
+    species: camelopardalis
+    habitat: Savan
+    sound: Homurtu
+
+  - name: Zebra
+    type: Memeli
+    scientific_name: Equus zebra
+    family: Equidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Perissodactyla
+    genus: Equus
+    species: zebra
+    habitat: Savan
+    sound: Kişneme
+
+  - name: Gergedan
+    type: Memeli
+    scientific_name: Rhinoceros unicornis
+    family: Rhinocerotidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Perissodactyla
+    genus: Rhinoceros
+    species: unicornis
+    habitat: Savan
+    sound: Homurtu
+
+  - name: Hipopotam
+    type: Memeli
+    scientific_name: Hippopotamus amphibius
+    family: Hippopotamidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Artiodactyla
+    genus: Hippopotamus
+    species: amphibius
+    habitat: Nehir
+    sound: Homurtu
+
+  - name: Kanguru
+    type: Memeli
+    scientific_name: Macropus giganteus
+    family: Macropodidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Diprotodontia
+    genus: Macropus
+    species: giganteus
+    habitat: Çayır
+    sound: Homurtu
+
+  - name: Koala
+    type: Memeli
+    scientific_name: Phascolarctos cinereus
+    family: Phascolarctidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Diprotodontia
+    genus: Phascolarctos
+    species: cinereus
+    habitat: Orman
+    sound: Homurtu
+
+  - name: Panda
+    type: Memeli
+    scientific_name: Ailuropoda melanoleuca
+    family: Ursidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Carnivora
+    genus: Ailuropoda
+    species: melanoleuca
+    habitat: Orman
+    sound: Homurtu
+
+  - name: Papağan
+    type: Kuş
+    scientific_name: Psittaciformes
+    family: Psittacidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Aves
+    order: Psittaciformes
+    genus: Psittacus
+    species: erithacus
+    habitat: Orman
+    sound: Konuşma
+
+  - name: Kartal
+    type: Kuş
+    scientific_name: Aquila chrysaetos
+    family: Accipitridae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Aves
+    order: Accipitriformes
+    genus: Aquila
+    species: chrysaetos
+    habitat: Dağ
+    sound: Çığlık
+
+  - name: Şahin
+    type: Kuş
+    scientific_name: Buteo buteo
+    family: Accipitridae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Aves
+    order: Accipitriformes
+    genus: Buteo
+    species: buteo
+    habitat: Orman
+    sound: Çığlık
+
+  - name: Baykuş
+    type: Kuş
+    scientific_name: Bubo bubo
+    family: Strigidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Aves
+    order: Strigiformes
+    genus: Bubo
+    species: bubo
+    habitat: Orman
+    sound: Ötüş
+
+  - name: Yunus
+    type: Memeli
+    scientific_name: Delphinus delphis
+    family: Delphinidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Cetacea
+    genus: Delphinus
+    species: delphis
+    habitat: Okyanus
+    sound: Cıvıltı
+
+  - name: Balina
+    type: Memeli
+    scientific_name: Balaenoptera musculus
+    family: Balaenopteridae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Mammalia
+    order: Cetacea
+    genus: Balaenoptera
+    species: musculus
+    habitat: Okyanus
+    sound: Şarkı
+
+  - name: Köpekbalığı
+    type: Balık
+    scientific_name: Carcharodon carcharias
+    family: Lamnidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Chondrichthyes
+    order: Lamniformes
+    genus: Carcharodon
+    species: carcharias
+    habitat: Okyanus
+    sound: Sessiz
+
+  - name: Denizatı
+    type: Balık
+    scientific_name: Hippocampus hippocampus
+    family: Syngnathidae
+    kingdom: Animalia
+    phylum: Chordata
+    class: Actinopterygii
+    order: Syngnathiformes
+    genus: Hippocampus
+    species: hippocampus
+    habitat: Deniz
+    sound: Sessiz
+
+  - name: Ahtapot
+    type: Omurgasız
+    scientific_name: Octopus vulgaris
+    family: Octopodidae
+    kingdom: Animalia
+    phylum: Mollusca
+    class: Cephalopoda
+    order: Octopoda
+    genus: Octopus
+    species: vulgaris
+    habitat: Deniz
+    sound: Sessiz
+
+  - name: Istakoz
+    type: Omurgasız
+    scientific_name: Homarus gammarus
+    family: Nephropidae
+    kingdom: Animalia
+    phylum: Arthropoda
+    class: Malacostraca
+    order: Decapoda
+    genus: Homarus
+    species: gammarus
+    habitat: Deniz
+    sound: Sessiz 

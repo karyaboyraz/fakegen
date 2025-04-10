@@ -1,0 +1,143 @@
+elements:
+  - Hydrogen
+  - Helium
+  - Lithium
+  - Beryllium
+  - Boron
+  - Carbon
+  - Nitrogen
+  - Oxygen
+  - Fluorine
+  - Neon
+  - Sodium
+  - Magnesium
+  - Aluminum
+  - Silicon
+  - Phosphorus
+  - Sulfur
+  - Chlorine
+  - Argon
+  - Potassium
+  - Calcium
+
+symbols:
+  - H
+  - He
+  - Li
+  - Be
+  - B
+  - C
+  - N
+  - O
+  - F
+  - Ne
+  - Na
+  - Mg
+  - Al
+  - Si
+  - P
+  - S
+  - Cl
+  - Ar
+  - K
+  - Ca
+
+formulas:
+  - H2O
+  - CO2
+  - CH4
+  - NH3
+  - NaCl
+  - C6H12O6
+  - H2SO4
+  - HCl
+  - NaOH
+  - CaCO3
+
+units:
+  - meter
+  - kilogram
+  - second
+  - ampere
+  - kelvin
+  - mole
+  - candela
+  - newton
+  - joule
+  - watt
+  - pascal
+  - hertz
+  - volt
+  - ohm
+  - farad
+  - tesla
+  - weber
+  - henry
+  - siemens
+  - becquerel
+
+unit_symbols:
+  - m
+  - kg
+  - s
+  - A
+  - K
+  - mol
+  - cd
+  - N
+  - J
+  - W
+  - Pa
+  - Hz
+  - V
+  - Ω
+  - F
+  - T
+  - Wb
+  - H
+  - S
+  - Bq
+
+unit_prefixes:
+  - yotta
+  - zetta
+  - exa
+  - peta
+  - tera
+  - giga
+  - mega
+  - kilo
+  - hecto
+  - deca
+  - deci
+  - centi
+  - milli
+  - micro
+  - nano
+  - pico
+  - femto
+  - atto
+  - zepto
+  - yocto
+
+unit_prefix_symbols:
+  - Y
+  - Z
+  - E
+  - P
+  - T
+  - G
+  - M
+  - k
+  - h
+  - da
+  - d
+  - c
+  - m
+  - μ
+  - n
+  - p
+  - f
+  - a
+  - z
+  - y 

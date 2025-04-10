@@ -2,109 +2,104 @@ package com.fakegen.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fakegen.locale.FakerLocale;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class DataLoader {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+public final class DataLoader {
+    private static final ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
     private static final Map<String, Map<String, Object>> dataCache = new ConcurrentHashMap<>();
-    private static FakerLocale currentLocale = FakerLocale.EN_US;
+    private static FakerLocale currentLocale = FakerLocale.TR_TR;
+    private static final String DATA_PATH = "data/";
+    private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static final String NUMERIC = "0123456789";
+    private static final String SAMPLE_CHARACTERS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+    private DataLoader() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static void setLocale(FakerLocale locale) {
-        if (locale != currentLocale) {
-            currentLocale = locale;
-            dataCache.clear();
-        }
+        currentLocale = locale;
+        dataCache.clear();
     }
 
     public static FakerLocale getCurrentLocale() {
         return currentLocale;
     }
 
-    @SuppressWarnings("unchecked")
-    public static List<String> loadData(String category, String subCategory) {
-        Map<String, Object> categoryData = loadCategoryData(category);
-        Object data = categoryData.get(subCategory);
-        
-        if (data == null && currentLocale != FakerLocale.EN_US) {
-            // Fallback to EN_US if data not found in current locale
-            String fallbackKey = FakerLocale.EN_US.getCode() + ":" + category;
-            categoryData = dataCache.computeIfAbsent(fallbackKey, k -> loadCategoryData(category));
-            data = categoryData.get(subCategory);
-        }
-        
-        if (data == null) {
-            // Instead of throwing an exception, return an empty list
-            return new ArrayList<>();
-        }
-
-        if (data instanceof List) {
-            return (List<String>) data;
-        }
-        throw new RuntimeException("Data is not a list for category: " + category +
-                                ", subCategory: " + subCategory);
+    public static String getAlphabet() {
+        return ALPHABET;
     }
 
-    @SuppressWarnings("unchecked")
-    public static Map<String, List<String>> loadDataAsMap(String category, String subCategory) {
-        Map<String, Object> categoryData = loadCategoryData(category);
-        Object data = categoryData.get(subCategory);
-        
-        if (data == null && currentLocale != FakerLocale.EN_US) {
-            // Fallback to EN_US if data not found in current locale
-            String fallbackKey = FakerLocale.EN_US.getCode() + ":" + category;
-            categoryData = dataCache.computeIfAbsent(fallbackKey, k -> loadCategoryData(category));
-            data = categoryData.get(subCategory);
-        }
-        
-        if (data == null) {
-            throw new RuntimeException("Map data not found for category: " + category + 
-                                    ", subCategory: " + subCategory + 
-                                    ", locale: " + currentLocale.getCode());
-        }
-
-        if (data instanceof Map) {
-            return (Map<String, List<String>>) data;
-        }
-        throw new RuntimeException("Data is not a map for category: " + category +
-                                ", subCategory: " + subCategory);
+    public static String getNumeric() {
+        return NUMERIC;
     }
 
-    private static Map<String, Object> loadCategoryData(String category) {
-        String cacheKey = currentLocale.getCode() + ":" + category;
-        return dataCache.computeIfAbsent(cacheKey, k -> {
-            String path = String.format("data/%s/%s.json", currentLocale.getCode().toLowerCase(), category);
-            InputStream is = null;
+    public static String getSampleCharacters() {
+        return SAMPLE_CHARACTERS;
+    }
+
+    public static Map<String, Object> loadYamlData(String category) {
+        String cacheKey = currentLocale.getCode() + "/" + category;
+        return dataCache.computeIfAbsent(cacheKey, key -> {
             try {
-                is = DataLoader.class.getClassLoader().getResourceAsStream(path);
-                if (is == null && currentLocale != FakerLocale.EN_US) {
-                    // Fallback to EN_US if locale file not found
-                    path = String.format("data/%s/%s.json", FakerLocale.EN_US.getCode().toLowerCase(), category);
-                    is = DataLoader.class.getClassLoader().getResourceAsStream(path);
-                }
-                
+                String fullPath = DATA_PATH + currentLocale.getCode() + "/" + category + ".yaml";
+                InputStream is = DataLoader.class.getClassLoader().getResourceAsStream(fullPath);
                 if (is == null) {
-                    throw new RuntimeException("Data file not found: " + path);
+                    System.out.println("Resource not found: " + fullPath);
+                    throw new RuntimeException("Data file not found: " + fullPath);
                 }
-                
-                return objectMapper.readValue(is, new TypeReference<Map<String, Object>>() {});
+                return objectMapper.readValue(is, new TypeReference<>() {
+                });
             } catch (IOException e) {
-                throw new RuntimeException("Failed to load data for category: " + category + 
-                                        ", locale: " + currentLocale.getCode(), e);
-            } finally {
-                if (is != null) {
-                    try {
-                        is.close();
-                    } catch (IOException e) {
-                        // Ignore close error
-                    }
-                }
+                System.out.println("Error loading data: " + e.getMessage());
+                throw new RuntimeException("Error loading data from " + category, e);
             }
         });
+    }
+
+    @SuppressWarnings("unchecked")
+    public static List<String> getListData(String category, String field) {
+        Map<String, Object> data = loadYamlData(category);
+        String[] fieldParts = field.split("\\.");
+        Object current = data;
+        
+        for (String part : fieldParts) {
+            if (current instanceof Map) {
+                current = ((Map<String, Object>) current).get(part);
+                if (current == null) {
+                    System.out.println("Field " + part + " not found in current map");
+                    throw new RuntimeException("Field " + field + " not found in " + category);
+                }
+            } else {
+                System.out.println("Current object is not a map: " + current);
+                throw new RuntimeException("Field " + field + " is not a map in " + category);
+            }
+        }
+        
+        if (current instanceof List) {
+            return Collections.unmodifiableList((List<String>) current);
+        }
+        System.out.println("Current object is not a list: " + current);
+        throw new RuntimeException("Field " + field + " is not a list in " + category);
+    }
+
+    public static <T> T getMapData(String category, String field, TypeReference<T> typeReference) {
+        Map<String, Object> data = loadYamlData(category);
+        Object value = data.get(field);
+        if (value == null) {
+            throw new RuntimeException("Field " + field + " not found in " + category);
+        }
+        try {
+            return objectMapper.convertValue(value, typeReference);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Error converting value for field " + field + " in " + category, e);
+        }
     }
 }

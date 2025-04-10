@@ -1,0 +1,83 @@
+file_names:
+  - document
+  - report
+  - presentation
+  - spreadsheet
+  - image
+  - video
+  - audio
+  - archive
+  - backup
+  - log
+
+file_extensions:
+  - txt
+  - pdf
+  - docx
+  - xlsx
+  - pptx
+  - jpg
+  - png
+  - mp4
+  - mp3
+  - zip
+
+directory_paths:
+  - /home/user/documents
+  - /var/log
+  - /tmp
+  - /usr/local/bin
+  - /etc
+  - /opt
+  - /mnt/data
+  - /backup
+  - /downloads
+  - /projects
+
+mime_types:
+  - text/plain
+  - application/pdf
+  - application/msword
+  - application/vnd.ms-excel
+  - application/vnd.ms-powerpoint
+  - image/jpeg
+  - image/png
+  - video/mp4
+  - audio/mpeg
+  - application/zip
+
+common_file_types:
+  - Text Document
+  - PDF Document
+  - Word Document
+  - Excel Spreadsheet
+  - PowerPoint Presentation
+  - JPEG Image
+  - PNG Image
+  - MP4 Video
+  - MP3 Audio
+  - ZIP Archive
+
+common_file_extensions:
+  - .txt
+  - .pdf
+  - .docx
+  - .xlsx
+  - .pptx
+  - .jpg
+  - .png
+  - .mp4
+  - .mp3
+  - .zip
+
+common_file_names:
+  - README
+  - LICENSE
+  - CHANGELOG
+  - config
+  - settings
+  - backup
+  - log
+  - data
+  - index
+  - main 

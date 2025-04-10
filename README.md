@@ -1,118 +1,122 @@
 # FakeGen
 
-A simple and efficient fake data generator for Java applications with multi-language support.
+FakeGen, Java uygulamaları için basit ve verimli bir sahte veri üretecidir. Çoklu dil desteği ile birlikte gelir ve çeşitli veri türleri için rastgele veriler üretir.
 
-## Features
+## Özellikler
 
-- Generate realistic fake data for testing and development
-- Support for multiple locales (currently EN-US and TR-TR)
-- Various data categories:
-  - Names (first name, last name, full name)
-  - Addresses (street, city, district, country, postal code)
-  - Companies (company name, industry)
-  - Internet (email, username)
+- Çoklu dil desteği (TR, EN, DE, FR, ES, IT, PT, RU, JA, KO, ZH, AR)
+- Çeşitli veri türleri için rastgele veri üretimi
+- Kolay kullanım
+- Yüksek performans
+- Genişletilebilir yapı
 
-## Installation
+## Kurulum
 
-Add the following to your project's `pom.xml`:
+### Maven
 
 ```xml
-<repositories>
-    <repository>
-        <id>github</id>
-        <url>https://maven.pkg.github.com/karyaboyraz/fakegen</url>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>com.fakegen</groupId>
-        <artifactId>fakegen</artifactId>
-        <version>1.0.0</version>
-    </dependency>
-</dependencies>
+<dependency>
+    <groupId>com.fakegen</groupId>
+    <artifactId>fakegen</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
-Also, make sure to add your GitHub credentials to your `~/.m2/settings.xml`:
-
-```xml
-<settings>
-  <servers>
-    <server>
-      <id>github</id>
-      <username>YOUR_GITHUB_USERNAME</username>
-      <password>YOUR_GITHUB_TOKEN</password>
-    </server>
-  </servers>
-</settings>
-```
-
-To generate a GitHub token with the required permissions:
-1. Go to GitHub.com → Settings → Developer settings → Personal access tokens → Tokens (classic)
-2. Click "Generate new token" → "Generate new token (classic)"
-3. Select the following permissions: `read:packages`, `write:packages`
-4. Copy the generated token and use it in your settings.xml
-
-## Usage
+## Kullanım
 
 ```java
-import com.fakegen.FakeGen;
-import com.fakegen.locale.FakerLocale;
+// Varsayılan dil (Türkçe) ile başlatma
+FakeGen fakeGen = new FakeGen();
 
-// Create a FakeGen instance with Turkish locale
-FakeGen fakeGen = new FakeGen(FakerLocale.TR_TR);
+// Belirli bir dil ile başlatma
+FakeGen fakeGen = new FakeGen(FakerLocale.EN_US);
 
-// Generate fake data
-String fullName = fakeGen.name().fullName();         // "Ahmet Yılmaz"
-String address = fakeGen.address().fullAddress();     // "1234 Atatürk Caddesi, İstanbul/Kadıköy, Türkiye 34700"
-String company = fakeGen.company().companyName();     // "Yılmaz Teknoloji A.Ş."
-String email = fakeGen.internet().email();           // "ahmet.yilmaz@example.com"
+// İsim üretimi
+String firstName = fakeGen.name().firstName();
+String lastName = fakeGen.name().lastName();
+String fullName = fakeGen.name().fullName();
 
-// Switch to English locale
-fakeGen.setLocale(FakerLocale.EN_US);
-String englishName = fakeGen.name().fullName();      // "John Smith"
+// Adres üretimi
+String streetAddress = fakeGen.address().streetAddress();
+String city = fakeGen.address().city();
+String country = fakeGen.address().country();
+String fullAddress = fakeGen.address().fullAddress();
+
+// Şirket üretimi
+String companyName = fakeGen.company().name();
+String industry = fakeGen.company().industry();
+String catchPhrase = fakeGen.company().catchPhrase();
+
+// İnternet üretimi
+String email = fakeGen.internet().email();
+String username = fakeGen.internet().username();
+String url = fakeGen.internet().url();
+
+// Kitap üretimi
+String title = fakeGen.book().title();
+String author = fakeGen.book().author();
+String publisher = fakeGen.book().publisher();
+
+// Renk üretimi
+String colorName = fakeGen.color().name();
+String hexColor = fakeGen.color().hex();
+String rgbColor = fakeGen.color().rgb();
+
+// Yemek üretimi
+String ingredient = fakeGen.food().ingredient();
+String dish = fakeGen.food().dish();
+String recipe = fakeGen.food().recipe();
+
+// Müzik üretimi
+String genre = fakeGen.music().genre();
+String instrument = fakeGen.music().instrument();
+String key = fakeGen.music().key();
+
+// Telefon numarası üretimi
+String cellPhone = fakeGen.phoneNumber().cellPhone();
+String landline = fakeGen.phoneNumber().landline();
+String international = fakeGen.phoneNumber().international();
+
+// Hava durumu üretimi
+String description = fakeGen.weather().description();
+String forecast = fakeGen.weather().forecast();
+
+// Lorem ipsum üretimi
+String word = fakeGen.lorem().word();
+String sentence = fakeGen.lorem().sentence(10);
+String paragraph = fakeGen.lorem().paragraph(5);
+String text = fakeGen.lorem().text(3);
+
+// Film üretimi
+String filmTitle = fakeGen.film().title();
+String director = fakeGen.film().director();
+String actor = fakeGen.film().actor();
+String plot = fakeGen.film().plot();
 ```
 
-## Available Data Types
+## Veri Türleri
 
-### Name
-- `fullName()`
-- `firstName()`
-- `lastName()`
+- İsimler (ad, soyad, tam ad, önek, sonek, unvan)
+- Adresler (sokak, şehir, eyalet, ülke, posta kodu)
+- Şirketler (isim, sektör, slogan, açıklama)
+- İnternet (e-posta, kullanıcı adı, alan adı, URL, IP adresi)
+- Kitaplar (başlık, yazar, yayınevi, tür, ISBN)
+- Renkler (isim, HEX, RGB, HSL)
+- Yemekler (malzeme, baharat, ölçü, yemek, tarif)
+- Müzik (tür, enstrüman, nota, akor, ölçek)
+- Telefon numaraları (cep, sabit, uluslararası)
+- Hava durumu (açıklama, sıcaklık, nem, rüzgar)
+- Lorem ipsum (kelime, cümle, paragraf, metin)
+- Filmler (başlık, yönetmen, oyuncu, tür, alıntı)
 
-### Address
-- `fullAddress()`
-- `street()`
-- `city()`
-- `district()`
-- `country()`
-- `postalCode()`
-- `districtOfCity(String city)`
+## Katkıda Bulunma
 
-### Company
-- `companyName()`
-- `industry()`
+1. Bu depoyu fork edin
+2. Yeni bir özellik dalı oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Add some amazing feature'`)
+4. Dalınıza push edin (`git push origin feature/amazing-feature`)
+5. Bir Pull Request açın
 
-### Internet
-- `email()`
-- `username()`
+## Lisans
 
-## Building from Source
-
-```bash
-git clone https://github.com/karyaboyraz/fakegen.git
-cd fakegen
-mvn clean install
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is open source and available under the MIT License.
+Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.

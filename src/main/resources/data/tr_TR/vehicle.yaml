@@ -1,0 +1,72 @@
+# vehicles.yml
+
+
+  vehicles:
+    # Araç türleri
+    - Otomobil
+    - Kamyon
+    - Motosiklet
+    - Bisiklet
+    - Scooter
+    - Otobüs
+    - Minibüs
+    - SUV
+    - Traktör
+    - Römork
+
+  manufacturers:
+    # Üretici firmalar
+    - Toyota
+    - Ford
+    - Honda
+    - BMW
+    - Mercedes-Benz
+    - Tesla
+    - Audi
+    - Chevrolet
+    - Nissan
+    - Volkswagen
+
+  models:
+    # Model adları
+    - Corolla
+    - Fiesta
+    - CBR600
+    - Focus
+    - 3 Serisi
+    - A-Serisi
+    - Model 3
+    - A4
+    - Camaro
+    - Golf
+
+  types:
+    # Kasa tipleri
+    - Sedan
+    - Hatchback
+    - Coupe
+    - Cabriolet
+    - Pikap
+    - Minivan
+    - Station Wagon
+    - Crossover
+    - Roadster
+    - Elektrikli
+
+  fuels:
+    # Yakıt tipleri
+    - Benzin
+    - Dizel
+    - Elektrik
+    - Hibrit
+    - LPG
+    - CNG
+    - Hidrojen
+
+
+  license_plate_formats:
+    # Formatlar: "#" rakam, "?" harf ile değiştirilir
+    - "## !!! ###"
+    - "## !! ###"
+    - "## !! ##"
+    - "## !!! ##"

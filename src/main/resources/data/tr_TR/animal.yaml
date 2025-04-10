@@ -1,0 +1,321 @@
+animals:
+  - Aslan
+  - Kaplan
+  - Fil
+  - Zürafa
+  - Zebra
+  - Gergedan
+  - Su aygırı
+  - Çita
+  - Leopar
+  - Puma
+  - Jaguar
+  - Kurt
+  - Ayı
+  - Goril
+  - Şempanze
+  - Orangutan
+  - Deve
+  - Lama
+  - Kanguru
+  - Koala
+  - Panda
+  - Kutup ayısı
+  - Penguen
+  - Kartal
+  - Şahin
+  - Baykuş
+  - Pelikan
+  - Flamingo
+  - Timsah
+  - Yılan
+  - Kertenkele
+  - Kaplumbağa
+  - Yunus
+  - Balina
+  - Köpekbalığı
+  - Vatoz
+  - Denizanası
+  - Ahtapot
+  - Istakoz
+  - Karides
+
+types:
+  - Memeli
+  - Kuş
+  - Sürüngen
+  - Balık
+  - Omurgasız
+  - Amfibi
+  - Böcek
+  - Eklembacaklı
+  - Yumuşakça
+  - Kabuklu
+
+names:
+  - Simba
+  - Leo
+  - Max
+  - Charlie
+  - Rocky
+  - Duke
+  - Bear
+  - Zeus
+  - Apollo
+  - Thor
+  - Loki
+  - Odin
+  - Rex
+  - Bruno
+  - Milo
+  - Oscar
+  - Jack
+  - Toby
+  - Cooper
+  - Bentley
+  - Winston
+  - Oliver
+  - Teddy
+  - Gus
+  - Louie
+  - Jax
+  - Hank
+  - Ollie
+  - Bo
+  - Finn
+  - Harley
+  - Gunner
+  - Tyson
+  - Dexter
+  - Winston
+  - Sam
+  - Tucker
+  - Murphy
+  - Henry
+  - Riley
+
+scientific_names:
+  - Panthera leo
+  - Panthera tigris
+  - Loxodonta africana
+  - Giraffa camelopardalis
+  - Equus quagga
+  - Diceros bicornis
+  - Hippopotamus amphibius
+  - Acinonyx jubatus
+  - Panthera pardus
+  - Puma concolor
+  - Panthera onca
+  - Canis lupus
+  - Ursus arctos
+  - Gorilla gorilla
+  - Pan troglodytes
+  - Pongo pygmaeus
+  - Camelus dromedarius
+  - Lama glama
+  - Macropus giganteus
+  - Phascolarctos cinereus
+  - Ailuropoda melanoleuca
+  - Ursus maritimus
+  - Aptenodytes forsteri
+  - Aquila chrysaetos
+  - Buteo jamaicensis
+  - Bubo bubo
+  - Pelecanus onocrotalus
+  - Phoenicopterus roseus
+  - Crocodylus niloticus
+  - Python regius
+  - Varanus komodoensis
+  - Chelonia mydas
+  - Tursiops truncatus
+  - Balaenoptera musculus
+  - Carcharodon carcharias
+  - Manta birostris
+  - Aurelia aurita
+  - Octopus vulgaris
+  - Homarus gammarus
+  - Penaeus monodon
+
+families:
+  - Felidae
+  - Elephantidae
+  - Giraffidae
+  - Equidae
+  - Rhinocerotidae
+  - Hippopotamidae
+  - Canidae
+  - Ursidae
+  - Hominidae
+  - Camelidae
+  - Macropodidae
+  - Phascolarctidae
+  - Spheniscidae
+  - Accipitridae
+  - Strigidae
+  - Pelecanidae
+  - Phoenicopteridae
+  - Crocodylidae
+  - Pythonidae
+  - Varanidae
+  - Cheloniidae
+  - Delphinidae
+  - Balaenopteridae
+  - Lamnidae
+  - Mobulidae
+  - Ulmaridae
+  - Octopodidae
+  - Nephropidae
+  - Penaeidae
+  - Bovidae
+
+kingdoms:
+  - Animalia
+  - Plantae
+  - Fungi
+  - Protista
+  - Archaea
+  - Bacteria
+
+phyla:
+  - Chordata
+  - Arthropoda
+  - Mollusca
+  - Echinodermata
+  - Cnidaria
+  - Platyhelminthes
+  - Nematoda
+  - Annelida
+  - Porifera
+  - Ctenophora
+
+classes:
+  - Mammalia
+  - Aves
+  - Reptilia
+  - Amphibia
+  - Actinopterygii
+  - Chondrichthyes
+  - Insecta
+  - Arachnida
+  - Gastropoda
+  - Bivalvia
+
+orders:
+  - Carnivora
+  - Primates
+  - Artiodactyla
+  - Perissodactyla
+  - Proboscidea
+  - Rodentia
+  - Lagomorpha
+  - Chiroptera
+  - Cetacea
+  - Sirenia
+
+genera:
+  - Panthera
+  - Canis
+  - Ursus
+  - Elephas
+  - Giraffa
+  - Equus
+  - Diceros
+  - Hippopotamus
+  - Acinonyx
+  - Puma
+
+species:
+  - leo
+  - tigris
+  - lupus
+  - arctos
+  - maximus
+  - camelopardalis
+  - quagga
+  - bicornis
+  - amphibius
+  - jubatus
+
+sounds:
+  Aslan: [Kükreme, Homurtu, Hırlama]
+  Kaplan: [Kükreme, Miyavlama, Hırlama]
+  Fil: [Trompet sesi, Homurtu]
+  Zürafa: [Homurtu, Tıslama]
+  Zebra: [Kişneme, Hırlama]
+  Gergedan: [Homurtu, Bögürme]
+  Su aygırı: [Homurtu, Bögürme]
+  Çita: [Miyavlama, Hırlama]
+  Leopar: [Kükreme, Miyavlama]
+  Puma: [Miyavlama, Hırlama]
+  Jaguar: [Kükreme, Miyavlama]
+  Kurt: [Uluma, Hırlama]
+  Ayı: [Homurtu, Kükrüme]
+  Goril: [Homurtu, Bağırma]
+  Şempanze: [Çığlık, Homurtu]
+  Orangutan: [Homurtu, Bağırma]
+  Deve: [Homurtu, Bögürme]
+  Lama: [Homurtu, Tıslama]
+  Kanguru: [Homurtu, Tıslama]
+  Koala: [Homurtu, Miyavlama]
+  Panda: [Homurtu, Miyavlama]
+  Kutup ayısı: [Homurtu, Kükrüme]
+  Penguen: [Cıvıltı, Bağırma]
+  Kartal: [Cıvıltı, Çığlık]
+  Şahin: [Cıvıltı, Çığlık]
+  Baykuş: [Cıvıltı, Ötüş]
+  Pelikan: [Cıvıltı, Bağırma]
+  Flamingo: [Cıvıltı, Ötüş]
+  Timsah: [Homurtu, Tıslama]
+  Yılan: [Tıslama]
+  Kertenkele: [Tıslama]
+  Kaplumbağa: [Homurtu]
+  Yunus: [Cıvıltı, Islık]
+  Balina: [Şarkı, Cıvıltı]
+  Köpekbalığı: [Sessiz]
+  Vatoz: [Sessiz]
+  Denizanası: [Sessiz]
+  Ahtapot: [Sessiz]
+  Istakoz: [Sessiz]
+  Karides: [Sessiz]
+
+habitats:
+  Aslan: [Savana, Orman, Çalılık]
+  Kaplan: [Orman, Çalılık, Bataklık]
+  Fil: [Savana, Orman, Bataklık]
+  Zürafa: [Savana, Orman]
+  Zebra: [Savana, Çalılık]
+  Gergedan: [Savana, Orman, Bataklık]
+  Su aygırı: [Nehir, Göl, Bataklık]
+  Çita: [Savana, Çalılık]
+  Leopar: [Orman, Savana, Çalılık]
+  Puma: [Orman, Dağ, Çalılık]
+  Jaguar: [Orman, Bataklık]
+  Kurt: [Orman, Tundra, Çalılık]
+  Ayı: [Orman, Tundra, Dağ]
+  Goril: [Orman]
+  Şempanze: [Orman, Savana]
+  Orangutan: [Orman]
+  Deve: [Çöl, Stepler]
+  Lama: [Dağ, Çöl]
+  Kanguru: [Savana, Orman, Çalılık]
+  Koala: [Orman]
+  Panda: [Orman, Dağ]
+  Kutup ayısı: [Tundra, Buz]
+  Penguen: [Antarktika, Kıyı]
+  Kartal: [Dağ, Orman, Çalılık]
+  Şahin: [Orman, Çalılık, Dağ]
+  Baykuş: [Orman, Çalılık]
+  Pelikan: [Kıyı, Göl, Nehir]
+  Flamingo: [Göl, Lagün, Kıyı]
+  Timsah: [Nehir, Göl, Bataklık]
+  Yılan: [Orman, Çöl, Çalılık]
+  Kertenkele: [Orman, Çöl, Çalılık]
+  Kaplumbağa: [Orman, Çöl, Deniz]
+  Yunus: [Okyanus, Deniz]
+  Balina: [Okyanus]
+  Köpekbalığı: [Okyanus, Deniz]
+  Vatoz: [Okyanus, Deniz]
+  Denizanası: [Okyanus, Deniz]
+  Ahtapot: [Okyanus, Deniz]
+  Istakoz: [Okyanus, Deniz]
+  Karides: [Okyanus, Deniz] 

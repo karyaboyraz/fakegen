@@ -1,44 +1,71 @@
 package com.fakegen.providers;
 
-import com.fakegen.RandomService;
+import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
-import java.util.List;
+
 
 public class InternetProvider {
     private final RandomService random;
-    private final List<String> emailDomains;
-    private final List<String> topLevelDomains;
 
     public InternetProvider(RandomService random) {
         this.random = random;
-        this.emailDomains = DataLoader.loadData("internet", "email_domains");
-        this.topLevelDomains = DataLoader.loadData("internet", "top_level_domains");
     }
 
     public String email() {
-        return random.letterify("????") +
-               random.numerify("###") +
-               "@" +
-               random.nextElement(emailDomains);
+        String username = random.randomElement(DataLoader.getListData("internet", "usernames"));
+        String domain = random.randomElement(DataLoader.getListData("internet", "domainNames"));
+        return username + "@" + domain;
+    }
+
+    public String username() {
+        return random.randomElement(DataLoader.getListData("internet", "usernames"));
     }
 
     public String domainName() {
-        return random.letterify("??????") + "." + 
-               random.nextElement(topLevelDomains);
-    }
-
-    public String ipV4() {
-        return random.nextInt(256) + "." +
-               random.nextInt(256) + "." +
-               random.nextInt(256) + "." +
-               random.nextInt(256);
-    }
-
-    public String password() {
-        return random.bothify("????####!@");
+        return random.randomElement(DataLoader.getListData("internet", "domainNames"));
     }
 
     public String url() {
-        return "https://www." + domainName();
+        String protocol = random.nextBoolean() ? "https" : "http";
+        String domain = domainName();
+        return protocol + "://www." + domain;
+    }
+
+    public String ipv4() {
+        return random.nextInt(0, 255) + "." +
+               random.nextInt(0, 255) + "." +
+               random.nextInt(0, 255) + "." +
+               random.nextInt(0, 255);
+    }
+
+    public String ipv6() {
+        StringBuilder ipv6 = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            if (i > 0) {
+                ipv6.append(":");
+            }
+            ipv6.append(String.format("%04x", random.nextInt(0, 65535)));
+        }
+        return ipv6.toString();
+    }
+
+    public String macAddress() {
+        StringBuilder mac = new StringBuilder();
+        for (int i = 0; i < 6; i++) {
+            if (i > 0) {
+                mac.append(":");
+            }
+            mac.append(String.format("%02x", random.nextInt(0, 255)));
+        }
+        return mac.toString();
+    }
+
+    public String password() {
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+        StringBuilder password = new StringBuilder();
+        for (int i = 0; i < 12; i++) {
+            password.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+        }
+        return password.toString();
     }
 }

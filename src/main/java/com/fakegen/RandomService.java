@@ -14,6 +14,17 @@ public class RandomService {
         return random.nextInt(bound);
     }
 
+    public boolean nextBoolean() {
+        return random.nextBoolean();
+    }
+
+    public <T> T randomElement(List<T> list) {
+        if (list == null || list.isEmpty()) {
+            throw new IllegalArgumentException("List cannot be null or empty");
+        }
+        return list.get(nextInt(list.size()));
+    }
+
     public <T> T nextElement(List<T> list) {
         if (list == null || list.isEmpty()) {
             throw new IllegalArgumentException("List cannot be null or empty");
@@ -38,5 +49,22 @@ public class RandomService {
 
     public String bothify(String pattern) {
         return letterify(numerify(pattern));
+    }
+
+    public String formatPhoneNumber(String phoneFormat) {
+        if (phoneFormat == null || phoneFormat.isEmpty()) {
+            throw new IllegalArgumentException("Phone format cannot be null or empty");
+        }
+        
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < phoneFormat.length(); i++) {
+            char c = phoneFormat.charAt(i);
+            if (c == '#') {
+                result.append(nextInt(10));
+            } else {
+                result.append(c);
+            }
+        }
+        return result.toString();
     }
 }
