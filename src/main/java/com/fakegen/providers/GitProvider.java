@@ -20,13 +20,28 @@ public class GitProvider {
     }
 
     public String branch() {
-        gitBranches = LazyLoader.load("gitBranches", () -> DataLoader.getListData("git", "git_branches"));
-        return random.randomElement(gitBranches);
+        StringBuilder result = new StringBuilder();
+        String chars = "abcdefghijklmnopqrstuvwxyz0123456789-";
+        
+        // Branch adı en az 3 karakter olmalı
+        int length = random.nextInt(3, 20);
+        
+        for (int i = 0; i < length; i++) {
+            result.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+        }
+        
+        return result.toString();
     }
 
     public String commitSha() {
-        commitShas = LazyLoader.load("gitCommitShas", () -> DataLoader.getListData("git", "commit_shas"));
-        return random.randomElement(commitShas);
+        StringBuilder sha = new StringBuilder();
+        String hexChars = "0123456789abcdef";
+        
+        for (int i = 0; i < 40; i++) {
+            sha.append(hexChars.charAt(random.nextInt(0, hexChars.length() - 1)));
+        }
+        
+        return sha.toString();
     }
 
     public String commitMessage() {

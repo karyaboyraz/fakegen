@@ -70,3 +70,26 @@
     - "## !! ###"
     - "## !! ##"
     - "## !!! ##"
+
+  colors:
+    # Renkler
+    - Siyah
+    - Beyaz
+    - Gri
+    - Gümüş
+    - Kırmızı
+    - Mavi
+    - Yeşil
+    - Kahverengi
+    - Bej
+    - Bordo
+    - Lacivert
+    - Turkuaz
+    - Sarı
+    - Turuncu
+    - Mor
+    - Pembe
+    - Altın
+    - Bronz
+    - Bakır
+    - İnci Beyaz

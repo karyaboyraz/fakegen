@@ -52,11 +52,9 @@ public class RandomService {
         for (int i = 0; i < pattern.length(); i++) {
             char c = pattern.charAt(i);
             if (c == '?') {
-                result.append(random.nextBoolean() ? '1' : '0');
+                result.append((char) (random.nextInt(26) + 'A'));
             } else if (c == '#') {
                 result.append(random.nextInt(10));
-            } else if (c == '*') {
-                result.append(random.nextBoolean() ? random.nextInt(10) : (char) (random.nextInt(26) + 'a'));
             } else {
                 result.append(c);
             }
@@ -88,7 +86,7 @@ public class RandomService {
         for (int i = 0; i < pattern.length(); i++) {
             char c = pattern.charAt(i);
             if (c == '?') {
-                result.append((char) (random.nextInt(26) + 'a'));
+                result.append((char) (random.nextInt(26) + 'A'));
             } else {
                 result.append(c);
             }
@@ -97,6 +95,20 @@ public class RandomService {
     }
 
     public String bothify(String pattern) {
-        return letterify(numerify(pattern));
+        if (pattern == null) {
+            return null;
+        }
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < pattern.length(); i++) {
+            char c = pattern.charAt(i);
+            if (c == '?') {
+                result.append((char) (random.nextInt(26) + 'A'));
+            } else if (c == '#') {
+                result.append(random.nextInt(10));
+            } else {
+                result.append(c);
+            }
+        }
+        return result.toString();
     }
 }

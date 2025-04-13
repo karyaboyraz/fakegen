@@ -60,7 +60,33 @@ public class NameProvider {
     }
 
     public String username() {
-        return (firstName().toLowerCase() + random.randomize("###")).replace(" ", "");
+        String firstName = firstName().toLowerCase().replaceAll("[^a-z0-9]", "");
+        String lastName = lastName().toLowerCase().replaceAll("[^a-z0-9]", "");
+        String chars = "._-";
+        
+        StringBuilder result = new StringBuilder();
+        
+        // İsim ve soyisim kombinasyonu
+        if (random.nextBoolean()) {
+            result.append(firstName);
+            if (random.nextBoolean()) {
+                result.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+                result.append(lastName);
+            }
+        } else {
+            result.append(lastName);
+            if (random.nextBoolean()) {
+                result.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+                result.append(firstName);
+            }
+        }
+        
+        // Rastgele sayılar ekle
+        if (random.nextBoolean()) {
+            result.append(random.nextInt(0, 999));
+        }
+        
+        return result.toString();
     }
 
     public String turkeyGovIDN() {

@@ -31,7 +31,22 @@ public class CommerceProvider {
     }
 
     public String promotionCode() {
-        return random.bothify("PROMO-????-####");
+        StringBuilder code = new StringBuilder("PROMO-");
+        String chars = DataLoader.getAlphabet().toUpperCase();
+        
+        // Add 4 random uppercase letters
+        for (int i = 0; i < 4; i++) {
+            code.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+        }
+        
+        code.append("-");
+        
+        // Add 4 random digits
+        for (int i = 0; i < 4; i++) {
+            code.append(random.nextInt(0, 9));
+        }
+        
+        return code.toString();
     }
 
     public static void main(String[] args) {

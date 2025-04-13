@@ -45,10 +45,12 @@ public class VehicleProvider {
 
     public String vin() {
         StringBuilder vin = new StringBuilder();
-        String vinChars = DataLoader.getAlphabet().toUpperCase() + DataLoader.getNumeric();
+        String vinChars = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789";
+        
         for (int i = 0; i < 17; i++) {
             vin.append(vinChars.charAt(random.nextInt(0, vinChars.length() - 1)));
         }
+        
         return vin.toString();
     }
 
@@ -61,21 +63,31 @@ public class VehicleProvider {
     }
 
     public String licensePlateWithFormat() {
-        String format = licensePlate();
+        StringBuilder result = new StringBuilder();
         String alphabet = DataLoader.getAlphabet().toUpperCase();
         String numeric = DataLoader.getNumeric();
-        StringBuilder result = new StringBuilder();
         
-        for (int i = 0; i < format.length(); i++) {
-            char c = format.charAt(i);
-            if (c == '!') {
-                result.append(alphabet.charAt(random.nextInt(0, alphabet.length() - 1)));
-            } else if (c == '#') {
-                result.append(numeric.charAt(random.nextInt(0, numeric.length() - 1)));
-            } else {
-                result.append(c);
-            }
+        // İlk iki karakter harf
+        for (int i = 0; i < 2; i++) {
+            result.append(alphabet.charAt(random.nextInt(0, alphabet.length() - 1)));
         }
+        
+        // Tire işareti
+        result.append('-');
+        
+        // 3 rakam
+        for (int i = 0; i < 3; i++) {
+            result.append(numeric.charAt(random.nextInt(0, numeric.length() - 1)));
+        }
+        
+        // Tire işareti
+        result.append('-');
+        
+        // Son iki karakter harf
+        for (int i = 0; i < 2; i++) {
+            result.append(alphabet.charAt(random.nextInt(0, alphabet.length() - 1)));
+        }
+        
         return result.toString();
     }
 

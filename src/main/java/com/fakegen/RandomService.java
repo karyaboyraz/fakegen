@@ -25,13 +25,6 @@ public class RandomService {
         return list.get(nextInt(list.size()));
     }
 
-    public <T> T nextElement(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            throw new IllegalArgumentException("List cannot be null or empty");
-        }
-        return list.get(nextInt(list.size()));
-    }
-
     public <T> T nextElement(T[] array) {
         if (array == null || array.length == 0) {
             throw new IllegalArgumentException("Array cannot be null or empty");

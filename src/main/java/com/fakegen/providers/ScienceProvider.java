@@ -32,7 +32,22 @@ public class ScienceProvider {
     }
 
     public String chemicalFormula() {
-        return get("formulas");
+        StringBuilder formula = new StringBuilder();
+        String element = chemicalElement();
+        String symbol = chemicalSymbol();
+        
+        // İlk harf büyük, sonraki harfler küçük
+        formula.append(Character.toUpperCase(symbol.charAt(0)));
+        if (symbol.length() > 1) {
+            formula.append(Character.toLowerCase(symbol.charAt(1)));
+        }
+        
+        // Rastgele sayı ekle (0-9 arası)
+        if (random.nextBoolean()) {
+            formula.append(random.nextInt(1, 9));
+        }
+        
+        return formula.toString();
     }
 
     public String unit() {

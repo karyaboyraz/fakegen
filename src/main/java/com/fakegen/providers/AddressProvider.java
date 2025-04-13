@@ -12,7 +12,6 @@ public class AddressProvider {
     private List<String> countries;
     private List<String> streetSuffixes;
     private List<String> district;
-    private List<String> postalCode;
     private List<String> streets;
 
     public AddressProvider(RandomService random) {
@@ -29,9 +28,7 @@ public class AddressProvider {
     }
 
     public String postalCode() {
-        postalCode = LazyLoader.load("addressPostalCode", () -> DataLoader.getListData("address", "postal_codes"));
-        String postCodeFormat = random.randomElement(postalCode);
-        return random.randomize(postCodeFormat);
+        return String.format("%05d", random.nextInt(10000, 99999));
     }
 
     public String city() {
@@ -50,19 +47,21 @@ public class AddressProvider {
     }
 
     public String fullAddress() {
-        return String.format("%s %s %s, %s/%s %s",
-                streetName(),
-                streetSuffix(),
-                buildingNumber(),
-                district(),
-                city(),
-                postalCode()
+        String buildingNo = buildingNumber();
+        String street = streetName();
+        String suffix = streetSuffix();
+        String dist = district();
+        String cityName = city();
+        String postal = postalCode();
+        
+        return String.format("%s %s No:%s, %s/%s %s",
+                street,
+                suffix,
+                buildingNo,
+                dist,
+                cityName,
+                postal
         );
-    }
-
-    public static void main(String[] args) {
-        AddressProvider addressProvider = new AddressProvider(new RandomService());
-        System.out.println(addressProvider.fullAddress());
     }
 
     public String streetAddress() {

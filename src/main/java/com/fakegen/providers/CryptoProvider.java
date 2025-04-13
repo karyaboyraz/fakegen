@@ -31,11 +31,17 @@ public class CryptoProvider {
     }
 
     public String walletAddress() {
-        String chars = DataLoader.getAlphabet() + DataLoader.getAlphabet().toLowerCase() + DataLoader.getNumeric();
-        StringBuilder sb = new StringBuilder(34);
-        for (int i = 0; i < 34; i++) {
-            sb.append(chars.charAt(random.nextInt(0, chars.length())));
+        String chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+        StringBuilder sb = new StringBuilder();
+        
+        // Cüzdan adresi her zaman '1' veya '3' ile başlar
+        sb.append(random.nextBoolean() ? '1' : '3');
+        
+        // Kalan 33 karakter
+        for (int i = 0; i < 33; i++) {
+            sb.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
         }
+        
         return sb.toString();
     }
 

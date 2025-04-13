@@ -59,7 +59,7 @@ public class CodeProvider {
         int rem = sum % 11;
         char checkDigit = rem == 0 ? '0' : rem == 1 ? 'X' : (char) ('0' + (11 - rem));
         
-        return result.append('-').append(checkDigit).toString();
+        return result.substring(0, 4) + "-" + result.substring(4) + checkDigit;
     }
 
     public static void main(String[] args) {

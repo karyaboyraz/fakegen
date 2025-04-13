@@ -1,4 +1,4 @@
-<file name=1 path=animal.yaml>animal_names:
+animal_names:
   - Aslan
   - Kaplan
   - Fil
@@ -250,25 +250,25 @@ habitats:
   Jaguar: [Orman, Bataklık]
   Kurt: [Orman, Tundra, Çalılık]
   Ayı: [Orman, Tundra, Dağ]
-  Goril: [Orman]
+  Goril: [Orman, Dağ]
   Şempanze: [Orman, Savana]
   Orangutan: [Orman]
-  Deve: [Çöl, Stepler]
-  Lama: [Dağ, Çöl]
+  Deve: [Çöl, Yarı Çöl]
+  Lama: [Dağ, Yayla]
   Kanguru: [Savana, Orman, Çalılık]
   Koala: [Orman]
   Panda: [Orman, Dağ]
   Kutup ayısı: [Tundra, Buz]
   Penguen: [Antarktika, Kıyı]
   Kartal: [Dağ, Orman, Çalılık]
-  Şahin: [Orman, Çalılık, Dağ]
+  Şahin: [Orman, Çalılık]
   Baykuş: [Orman, Çalılık]
-  Pelikan: [Kıyı, Göl, Nehir]
-  Flamingo: [Göl, Lagün, Kıyı]
+  Pelikan: [Göl, Nehir, Kıyı]
+  Flamingo: [Göl, Lagün]
   Timsah: [Nehir, Göl, Bataklık]
-  Yılan: [Orman, Çöl, Çalılık]
-  Kertenkele: [Orman, Çöl, Çalılık]
-  Kaplumbağa: [Orman, Çöl, Deniz]
+  Yılan: [Orman, Çalılık, Çöl]
+  Kertenkele: [Orman, Çalılık, Çöl]
+  Kaplumbağa: [Orman, Çalılık, Deniz]
   Yunus: [Okyanus, Deniz]
   Balina: [Okyanus]
   Köpekbalığı: [Okyanus, Deniz]
@@ -276,4 +276,4 @@ habitats:
   Denizanası: [Okyanus, Deniz]
   Ahtapot: [Okyanus, Deniz]
   Istakoz: [Okyanus, Deniz]
-  Karides: [Okyanus, Deniz] </file>
+  Karides: [Okyanus, Deniz]
