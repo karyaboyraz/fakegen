@@ -2,6 +2,10 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class WeatherProvider {
     private static final int DEFAULT_MIN_TEMP_C = -30;
@@ -19,13 +23,22 @@ public class WeatherProvider {
     private static final String MPH_PARAM = " mph";
 
     private final RandomService random;
+    private final Map<String, List<String>> weatherData;
 
     public WeatherProvider(RandomService random) {
         this.random = random;
+        this.weatherData = new HashMap<>();
+    }
+
+    private String get(String category) {
+        if (!weatherData.containsKey(category)) {
+            weatherData.put(category, LazyLoader.load("weather" + category, () -> DataLoader.getListData("weather", category)));
+        }
+        return random.randomElement(weatherData.get(category));
     }
 
     public String getDescription() {
-        return random.randomElement(DataLoader.getListData("weather", "descriptions"));
+        return get("descriptions");
     }
 
     public String temperatureCelsius() {
@@ -49,7 +62,7 @@ public class WeatherProvider {
     }
 
     public String getWindDirection() {
-        return random.randomElement(DataLoader.getListData("weather", "wind_directions"));
+        return get("wind_directions");
     }
 
     public String windSpeedKm() {

@@ -2,20 +2,33 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class SystemProvider {
     private final RandomService random;
+    private final Map<String, List<String>> systemData;
 
     public SystemProvider(RandomService random) {
         this.random = random;
+        this.systemData = new HashMap<>();
+    }
+
+    private String get(String category) {
+        if (!systemData.containsKey(category)) {
+            systemData.put(category, LazyLoader.load("system" + category, () -> DataLoader.getListData("system", category)));
+        }
+        return random.randomElement(systemData.get(category));
     }
 
     public String fileName() {
-        return random.randomElement(DataLoader.getListData("system", "file_names"));
+        return get("file_names");
     }
 
     public String fileExtension() {
-        return random.randomElement(DataLoader.getListData("system", "file_extensions"));
+        return get("file_extensions");
     }
 
     public String fileNameWithExtension() {
@@ -26,7 +39,7 @@ public class SystemProvider {
     }
 
     public String directoryPath() {
-        return random.randomElement(DataLoader.getListData("system", "directory_paths"));
+        return get("directory_paths");
     }
 
     public String filePath() {
@@ -37,19 +50,19 @@ public class SystemProvider {
     }
 
     public String mimeType() {
-        return random.randomElement(DataLoader.getListData("system", "mime_types"));
+        return get("mime_types");
     }
 
     public String commonFileType() {
-        return random.randomElement(DataLoader.getListData("system", "common_file_types"));
+        return get("common_file_types");
     }
 
     public String commonFileExtension() {
-        return random.randomElement(DataLoader.getListData("system", "common_file_extensions"));
+        return get("common_file_extensions");
     }
 
     public String commonFileName() {
-        return random.randomElement(DataLoader.getListData("system", "common_file_names"));
+        return get("common_file_names");
     }
 
     public String commonFileNameWithExtension() {

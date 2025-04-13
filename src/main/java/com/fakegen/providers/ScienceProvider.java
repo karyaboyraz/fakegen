@@ -2,40 +2,53 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class ScienceProvider {
     private final RandomService random;
+    private final Map<String, List<String>> scienceData;
 
     public ScienceProvider(RandomService random) {
         this.random = random;
+        this.scienceData = new HashMap<>();
+    }
+
+    private String get(String category) {
+        if (!scienceData.containsKey(category)) {
+            scienceData.put(category, LazyLoader.load("science" + category, () -> DataLoader.getListData("science", category)));
+        }
+        return random.randomElement(scienceData.get(category));
     }
 
     public String chemicalElement() {
-        return random.randomElement(DataLoader.getListData("science", "elements"));
+        return get("elements");
     }
 
     public String chemicalSymbol() {
-        return random.randomElement(DataLoader.getListData("science", "symbols"));
+        return get("symbols");
     }
 
     public String chemicalFormula() {
-        return random.randomElement(DataLoader.getListData("science", "formulas"));
+        return get("formulas");
     }
 
     public String unit() {
-        return random.randomElement(DataLoader.getListData("science", "units"));
+        return get("units");
     }
 
     public String unitSymbol() {
-        return random.randomElement(DataLoader.getListData("science", "unit_symbols"));
+        return get("unit_symbols");
     }
 
     public String unitPrefix() {
-        return random.randomElement(DataLoader.getListData("science", "unit_prefixes"));
+        return get("unit_prefixes");
     }
 
     public String unitPrefixSymbol() {
-        return random.randomElement(DataLoader.getListData("science", "unit_prefix_symbols"));
+        return get("unit_prefix_symbols");
     }
 
     public String unitWithPrefix() {

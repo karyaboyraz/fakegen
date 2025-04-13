@@ -2,33 +2,45 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
-
+import com.fakegen.util.LazyLoader;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class VehicleProvider {
     private final RandomService random;
+    private final Map<String, List<String>> vehicleData;
 
     public VehicleProvider(RandomService random) {
         this.random = random;
+        this.vehicleData = new HashMap<>();
+    }
+
+    private String get(String category) {
+        if (!vehicleData.containsKey(category)) {
+            vehicleData.put(category, LazyLoader.load("vehicle" + category, () -> DataLoader.getListData("vehicle", category)));
+        }
+        return random.randomElement(vehicleData.get(category));
     }
 
     public String vehicle() {
-        return random.randomElement(DataLoader.getListData("vehicle", "vehicles"));
+        return get("vehicles");
     }
 
     public String manufacturer() {
-        return random.randomElement(DataLoader.getListData("vehicle", "manufacturers"));
+        return get("manufacturers");
     }
 
     public String model() {
-        return random.randomElement(DataLoader.getListData("vehicle", "models"));
+        return get("models");
     }
 
     public String type() {
-        return random.randomElement(DataLoader.getListData("vehicle", "types"));
+        return get("types");
     }
 
     public String fuel() {
-        return random.randomElement(DataLoader.getListData("vehicle", "fuels"));
+        return get("fuels");
     }
 
     public String vin() {
@@ -41,11 +53,11 @@ public class VehicleProvider {
     }
 
     public String color() {
-        return random.randomElement(DataLoader.getListData("color", "names"));
+        return get("colors");
     }
 
     public String licensePlate() {
-        return random.randomElement(DataLoader.getListData("vehicle", "license_plate_formats"));
+        return get("license_plate_formats");
     }
 
     public String licensePlateWithFormat() {
