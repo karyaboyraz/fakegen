@@ -41,136 +41,99 @@ artists:
   - Hande Yener
 
 albums:
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Aşkın Masalı
-  - Tam Zamanı
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
+  - Sonsuz Düş
+  - Rüya Bahçesi
+  - Güneşin Ardından
+  - Gece Yolcusu
+  - Dalgalarla Dans
+  - İçsel Yolculuk
+  - Renklerin Sesi
+  - Kalp Atışı
+  - Yolun Başlangıcı
+  - Sessiz Çığlık
+  - Hayalin Kanatları
+  - Umut Kervanı
+  - Deniz Yıldızı
+  - Ateşin İzleri
+  - Gölge Dansı
+  - Sonsuz Melodi
+  - Duygu Haritası
+  - Zaman Yolcusu
+  - Ruhun Sesi
+  - Melankoli Rüzgarı
+  - Gece Masalı
+  - Sabah Şarkısı
+  - Gül Bahçesi
+  - Karanlık Şiir
+  - Parıltı
+  - Sessizlik Kitabı
+  - Gözyaşı İzleri
+  - Kalp Güncesi
+  - Umut Penceresi
+  - Renkli Düşler
+  - Hayatın Renkleri
+  - Yıldız Haritası
+  - Gündoğumu Hikayesi
+  - Akşam Melodisi
+  - Düş Kütüphanesi
+  - Ruh Atlası
+  - Sevda Dansı
+  - Aşkın Rotası
+  - Melodi Köprüsü
+  - Zamanın Sığınağı
+  - Hayalin Yankısı
+  - Kalp Yolculuğu
+  - Sonsuzluk Defteri
+  - Umut Baharı
+  - Gece Yolculuğu
 
 songs:
-  - Gülümse
-  - Düş Bahçeleri
-  - Şımarık
-  - Kuzu Kuzu
-  - Dağlar Dağlar
-  - Beni Biraz Anlasaydın
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
-  - Gülümse
-  - Karma
-  - 2023
-  - Ben Bazen
-  - Dönence
-  - Aşkın Masalı
-  - Sakin Ol
-  - Yeni Ay
-  - Tam Zamanı
-  - Aşk Bu
-  - Yolun Açık Olsun
-  - İyi Ki Varsın
-  - Aşk İçin
-  - Beni Biraz Anlasaydın
-  - Yeni
+  - Umut Çiçeği
+  - Hayal Perdesi
+  - Kayıp Zaman
+  - Yıldız Tozu
+  - Ruhun Nefesi
+  - Sonsuzluk Türküsü
+  - Anı Defteri
+  - Düşler Ülkesi
+  - Yüreğimden Sesler
+  - Geceyi Dinle
+  - Gölge Oyunları
+  - Rüzgarın Sesi
+  - Deniz Fısıltısı
+  - Ateş Dansı
+  - Sessizlik Duası
+  - Gözyaşı Melodisi
+  - Kalp Haritası
+  - Umut Işığı
+  - Renkli Düşler
+  - Zamanın Ötesi
+  - Duygu Bulutu
+  - Sonsuz Yol
+  - Hayatın Ritmi
+  - Yalnızlık Şarkısı
+  - Gökyüzü Mavisi
+  - Aşkın Rüzgarı
+  - Hayalin Peşinde
+  - Gül Kokusu
+  - Sessiz Adımlar
+  - Karanlıkta Parlayan
+  - Gündoğumu Türküsü
+  - Akşam Yıldızı
+  - Umut Köprüsü
+  - Düş Bahçesi
+  - Kalp Kıyısı
+  - Ruh Yolculuğu
+  - Gecenin Rüyası
+  - Melankoli Sokağı
+  - Sevda Rüzgarı
+  - Aşk Yolu
+  - Gözlerinde Kaybolmak
+  - Hayat Defteri
+  - Gece Vardiyası
+  - Duygu Akışı
+  - Sonsuzluk Kapısı
+  - Umut Atlası
 
 instruments:
   - Gitar
