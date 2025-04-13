@@ -26,7 +26,7 @@ public class WordProvider {
      */
     public String word() {
         int length = random.nextInt(2, 8);
-        return random.randomString(length, true, true, false, false).toLowerCase();
+        return random.randomString(length, false, true, true, false).toLowerCase();
     }
 
     /**
@@ -53,21 +53,23 @@ public class WordProvider {
      * @return A randomly generated sentence
      */
     public String sentence(int wordCount) {
-        StringBuilder sentence = new StringBuilder();
-        
-        for (int i = 0; i < wordCount; i++) {
-            if (i > 0) {
-                sentence.append(" ");
-            }
-            sentence.append(word());
+        if (wordCount <= 0) {
+            return "";
         }
-        
-        // Capitalize first letter and add period
-        if (sentence.length() > 0) {
-            sentence.setCharAt(0, Character.toUpperCase(sentence.charAt(0)));
+
+        StringBuilder sentence = new StringBuilder();
+        String firstWord = word();
+        sentence.append(Character.toUpperCase(firstWord.charAt(0)))
+                .append(firstWord.substring(1));
+
+        for (int i = 1; i < wordCount; i++) {
+            sentence.append(" ").append(word());
+        }
+
+        if (!sentence.toString().endsWith(".")) {
             sentence.append(".");
         }
-        
+
         return sentence.toString();
     }
 
@@ -79,12 +81,20 @@ public class WordProvider {
      * @return A string containing the specified number of random sentences
      */
     public String sentences(int count) {
+        if (count <= 0) {
+            return "";
+        }
+
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            if (i > 0) {
+            String sentence = sentence(5);
+            if (!sentence.endsWith(".")) {
+                sentence += ".";
+            }
+            result.append(sentence);
+            if (i < count - 1) {
                 result.append(" ");
             }
-            result.append(sentence(random.nextInt(3, 10)));
         }
         return result.toString();
     }
@@ -96,16 +106,22 @@ public class WordProvider {
      * @return A randomly generated paragraph
      */
     public String paragraph(int sentenceCount) {
-        StringBuilder paragraph = new StringBuilder();
-        
-        for (int i = 0; i < sentenceCount; i++) {
-            if (i > 0) {
-                paragraph.append(" ");
-            }
-            paragraph.append(sentence(random.nextInt(5, 15)));
+        if (sentenceCount <= 0) {
+            return "";
         }
-        
-        return paragraph.toString();
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < sentenceCount; i++) {
+            String sentence = sentence(5);
+            if (!sentence.endsWith(".")) {
+                sentence += ".";
+            }
+            result.append(sentence);
+            if (i < sentenceCount - 1) {
+                result.append(" ");
+            }
+        }
+        return result.toString();
     }
 
     /**
@@ -116,12 +132,20 @@ public class WordProvider {
      * @return A string containing the specified number of random paragraphs
      */
     public String paragraphs(int count) {
+        if (count <= 0) {
+            return "";
+        }
+
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < count; i++) {
-            if (i > 0) {
+            String paragraph = paragraph(2);
+            if (!paragraph.endsWith(".")) {
+                paragraph += ".";
+            }
+            result.append(paragraph);
+            if (i < count - 1) {
                 result.append("\n\n");
             }
-            result.append(paragraph(random.nextInt(3, 7)));
         }
         return result.toString();
     }
@@ -133,21 +157,20 @@ public class WordProvider {
      * @return A randomly generated text
      */
     public String text(int maxCharacterCount) {
-        StringBuilder text = new StringBuilder();
-        
-        while (text.length() < maxCharacterCount) {
-            if (text.length() > 0) {
-                text.append(" ");
-            }
-            
-            String sentence = sentence(random.nextInt(3, 10));
-            if (text.length() + sentence.length() <= maxCharacterCount) {
-                text.append(sentence);
-            } else {
-                break;
-            }
+        if (maxCharacterCount <= 0) {
+            return "";
         }
-        
+
+        StringBuilder text = new StringBuilder();
+        String nextSentence = sentence(5);
+        if (!nextSentence.endsWith(".")) {
+            nextSentence += ".";
+        }
+
+        if (nextSentence.length() <= maxCharacterCount) {
+            text.append(nextSentence);
+        }
+
         return text.toString();
     }
 

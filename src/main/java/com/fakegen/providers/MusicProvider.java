@@ -19,11 +19,11 @@ public class MusicProvider {
     private List<String> songs;
     private List<String> instruments;
     private List<String> notes;
-    private final List<String> scales = Arrays.asList("major", "minor", "harmonic minor", "melodic minor", "pentatonic", "blues", "dorian", "phrygian", "lydian", "mixolydian", "locrian");
+    private List<String> scales;
     private List<String> chordTypes;
     private List<String> tempos;
     private List<String> dynamics;
-    private final List<String> timeSignatures = Arrays.asList("4/4", "3/4", "2/4", "6/8", "5/4", "7/8", "12/8");
+    private List<String> timeSignatures;
 
     /**
      * Constructs a new MusicProvider with the specified RandomService.
@@ -121,6 +121,7 @@ public class MusicProvider {
      * @return A randomly selected musical scale
      */
     public String scale() {
+        scales = LazyLoader.load("musicScales", () -> DataLoader.getListData("music", "scales"));
         return random.randomElement(scales);
     }
 
@@ -150,7 +151,9 @@ public class MusicProvider {
      * @return A randomly selected time signature
      */
     public String timeSignature() {
-        return random.randomElement(timeSignatures);
+        int numerator = random.nextInt(1, 60);
+        int denominator = random.nextInt(1, 16);
+        return numerator + "/" + denominator;
     }
 
     /**
@@ -196,7 +199,6 @@ public class MusicProvider {
             }
             phrase.append(note());
         }
-
         return phrase.toString();
     }
 

@@ -6,7 +6,7 @@
 
     <groupId>com.fakegen</groupId>
     <artifactId>fakegen</artifactId>
-    <version>1.0.0</version>
+    <version>1.3.0</version>
     <name>FakeGen</name>
     <description>A simple and efficient fake data generator for Java applications with multi-language support</description>
 

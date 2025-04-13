@@ -99,15 +99,12 @@ public final class DataLoader {
         return dataCache.computeIfAbsent(cacheKey, key -> {
             try {
                 String fullPath = DATA_PATH + currentLocale.getCode() + "/" + category + ".yaml";
-                System.out.println("Loading YAML file: " + fullPath);
                 InputStream is = DataLoader.class.getClassLoader().getResourceAsStream(fullPath);
                 if (is == null) {
                     System.out.println("Resource not found: " + fullPath);
                     throw new RuntimeException("Data file not found: " + fullPath);
                 }
-                Map<String, Object> data = objectMapper.readValue(is, new TypeReference<>() {});
-                System.out.println("Loaded data for category " + category + ": " + data.keySet());
-                return data;
+                return objectMapper.readValue(is, new TypeReference<>() {});
             } catch (IOException e) {
                 System.out.println("Error loading data: " + e.getMessage());
                 throw new RuntimeException("Error loading data from " + category, e);

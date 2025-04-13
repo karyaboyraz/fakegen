@@ -1,95 +1,319 @@
-# vehicles.yml
+vehicles:
+  - Otomobil
+  - Kamyon
+  - Motosiklet
+  - Bisiklet
+  - Scooter
+  - Otobüs
+  - Minibüs
+  - SUV
+  - Traktör
+  - Römork
+  - Kamyonet
+  - Panelvan
+  - Pickup
+  - Van
+  - Çekici
+  - Tır
+  - Ambulans
+  - İtfaiye Aracı
+  - Polis Aracı
+  - Çöp Kamyonu
+  - Beton Mikseri
+  - Vinç
+  - Forklift
+  - Ekskavatör
+  - Bulldozer
+  - Greyder
+  - Yol Silindiri
+  - Asfalt Finisher
+  - Damperli Kamyon
+  - Tanker
+  - Konteyner Taşıyıcı
+  - Otomobil Taşıyıcı
+  - Karavan
+  - Mobil Ev
+  - Golf Arabası
+  - ATV
+  - UTV
+  - Kar Aracı
+  - Su Aracı
+  - Hava Aracı
+  - Tramvay
+  - Metro
+  - Tren
+  - Trambüs
+  - Teleferik
+  - Füniküler
+  - Deniz Otobüsü
+  - Feribot
+  - Yat
+  - Tekne
 
+manufacturers:
+  - Toyota
+  - Ford
+  - Honda
+  - BMW
+  - Mercedes-Benz
+  - Tesla
+  - Audi
+  - Chevrolet
+  - Nissan
+  - Volkswagen
+  - Renault
+  - Fiat
+  - Peugeot
+  - Citroën
+  - Hyundai
+  - Kia
+  - Mazda
+  - Subaru
+  - Mitsubishi
+  - Suzuki
+  - Volvo
+  - Land Rover
+  - Jaguar
+  - Porsche
+  - Ferrari
+  - Lamborghini
+  - Maserati
+  - Alfa Romeo
+  - Bugatti
+  - Bentley
+  - Rolls-Royce
+  - Aston Martin
+  - Lotus
+  - McLaren
+  - Koenigsegg
+  - Pagani
+  - Dacia
+  - Lada
+  - Skoda
+  - Seat
+  - Opel
+  - Vauxhall
+  - Mini
+  - Smart
+  - Jeep
+  - Dodge
+  - Chrysler
+  - Cadillac
+  - Lincoln
+  - Buick
+  - GMC
 
-  vehicles:
-    # Araç türleri
-    - Otomobil
-    - Kamyon
-    - Motosiklet
-    - Bisiklet
-    - Scooter
-    - Otobüs
-    - Minibüs
-    - SUV
-    - Traktör
-    - Römork
+models:
+  - Corolla
+  - Fiesta
+  - CBR600
+  - Focus
+  - 3 Serisi
+  - A-Serisi
+  - Model 3
+  - A4
+  - Camaro
+  - Golf
+  - Clio
+  - Punto
+  - 208
+  - C3
+  - i30
+  - Rio
+  - MX-5
+  - Impreza
+  - Lancer
+  - Swift
+  - XC90
+  - Defender
+  - XE
+  - 911
+  - 488
+  - Huracan
+  - Ghibli
+  - Giulia
+  - Chiron
+  - Continental
+  - Phantom
+  - DB11
+  - Elise
+  - 720S
+  - Regera
+  - Huayra
+  - Sandero
+  - Niva
+  - Octavia
+  - Ibiza
+  - Corsa
+  - Astra
+  - Cooper
+  - Fortwo
+  - Wrangler
+  - Challenger
+  - 300C
+  - Escalade
+  - Navigator
+  - Enclave
+  - Sierra
 
-  manufacturers:
-    # Üretici firmalar
-    - Toyota
-    - Ford
-    - Honda
-    - BMW
-    - Mercedes-Benz
-    - Tesla
-    - Audi
-    - Chevrolet
-    - Nissan
-    - Volkswagen
+types:
+  - Sedan
+  - Hatchback
+  - Coupe
+  - Cabriolet
+  - Pikap
+  - Minivan
+  - Station Wagon
+  - Crossover
+  - Roadster
+  - Elektrikli
+  - Limuzin
+  - Fastback
+  - Shooting Brake
+  - Targa
+  - Spider
+  - Barchetta
+  - MPV
+  - SUV
+  - SAV
+  - SAC
+  - Off-Road
+  - All-Terrain
+  - Sports
+  - Grand Tourer
+  - Supercar
+  - Hypercar
+  - Muscle Car
+  - Hot Hatch
+  - Compact
+  - Subcompact
+  - Mid-size
+  - Full-size
+  - Luxury
+  - Premium
+  - Executive
+  - Family
+  - City Car
+  - Microcar
+  - Kei Car
+  - Classic
+  - Vintage
+  - Antique
+  - Concept
+  - Prototype
+  - Race Car
+  - Rally Car
+  - Drift Car
+  - Drag Car
+  - Track Car
+  - Show Car
 
-  models:
-    # Model adları
-    - Corolla
-    - Fiesta
-    - CBR600
-    - Focus
-    - 3 Serisi
-    - A-Serisi
-    - Model 3
-    - A4
-    - Camaro
-    - Golf
+fuels:
+  - Benzin
+  - Dizel
+  - Elektrik
+  - Hibrit
+  - LPG
+  - CNG
+  - Hidrojen
+  - Biyodizel
+  - Etanol
+  - Metanol
+  - Propan
+  - Bütün
+  - Biyogaz
+  - Sentez Gazı
+  - Gaz Yağı
+  - Fuel Oil
+  - Jet Yakıtı
+  - Deniz Yakıtı
+  - Kömür
+  - Odun
+  - Güneş Enerjisi
+  - Rüzgar Enerjisi
+  - Nükleer Enerji
+  - Jeotermal Enerji
+  - Hidroelektrik
+  - Biyokütle
+  - Biyoyakıt
+  - Biyometan
+  - Biyoetanol
+  - Biyobütanol
+  - Biyometanol
+  - Biyodimetileter
+  - Biyohidrojen
+  - Biyometan
+  - Biyogaz
+  - Biyokömür
+  - Biyokok
+  - Biyopetrol
+  - Biyogazolin
+  - Biyodizel
+  - Biyojet
+  - Biyofuel
+  - Biyopower
+  - Biyoheat
+  - Biyocool
+  - Biyolight
+  - Biyopower
+  - Biyofuel
+  - Biyoenergy
+  - Biyopower
 
-  types:
-    # Kasa tipleri
-    - Sedan
-    - Hatchback
-    - Coupe
-    - Cabriolet
-    - Pikap
-    - Minivan
-    - Station Wagon
-    - Crossover
-    - Roadster
-    - Elektrikli
+license_plate_formats:
+  - "## ??? ###"
+  - "## ?? ###"
+  - "## ?? ##"
+  - "## ??? ##"
 
-  fuels:
-    # Yakıt tipleri
-    - Benzin
-    - Dizel
-    - Elektrik
-    - Hibrit
-    - LPG
-    - CNG
-    - Hidrojen
-
-
-  license_plate_formats:
-    # Formatlar: "#" rakam, "?" harf ile değiştirilir
-    - "## ??? ###"
-    - "## ?? ###"
-    - "## ?? ##"
-    - "## ??? ##"
-
-  colors:
-    # Renkler
-    - Siyah
-    - Beyaz
-    - Gri
-    - Gümüş
-    - Kırmızı
-    - Mavi
-    - Yeşil
-    - Kahverengi
-    - Bej
-    - Bordo
-    - Lacivert
-    - Turkuaz
-    - Sarı
-    - Turuncu
-    - Mor
-    - Pembe
-    - Altın
-    - Bronz
-    - Bakır
-    - İnci Beyaz
+colors:
+  - Siyah
+  - Beyaz
+  - Gri
+  - Gümüş
+  - Kırmızı
+  - Mavi
+  - Yeşil
+  - Kahverengi
+  - Bej
+  - Bordo
+  - Lacivert
+  - Turkuaz
+  - Sarı
+  - Turuncu
+  - Mor
+  - Pembe
+  - Altın
+  - Bronz
+  - Bakır
+  - İnci Beyaz
+  - Koyu Gri
+  - Açık Gri
+  - Antrasit
+  - Koyu Mavi
+  - Açık Mavi
+  - Deniz Mavisi
+  - Gök Mavisi
+  - Koyu Yeşil
+  - Açık Yeşil
+  - Zeytin Yeşili
+  - Koyu Kırmızı
+  - Açık Kırmızı
+  - Koyu Mor
+  - Açık Mor
+  - Koyu Turuncu
+  - Açık Turuncu
+  - Koyu Sarı
+  - Açık Sarı
+  - Koyu Kahverengi
+  - Açık Kahverengi
+  - Koyu Pembe
+  - Açık Pembe
+  - Koyu Turkuaz
+  - Açık Turkuaz
+  - Koyu Lacivert
+  - Açık Lacivert
+  - Koyu Bordo
+  - Açık Bordo
+  - Koyu Bej
+  - Açık Bej
