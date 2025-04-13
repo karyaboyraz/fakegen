@@ -2,28 +2,38 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class FoodProvider {
     private final RandomService random;
+    private List<String> ingredients;
+    private List<String> spices;
+    private List<String> measurements;
+    private List<String> dishes;
 
     public FoodProvider(RandomService random) {
         this.random = random;
     }
 
     public String ingredient() {
-        return random.randomElement(DataLoader.getListData("food", "ingredients"));
+        ingredients = LazyLoader.load("foodIngredients", () -> DataLoader.getListData("food", "ingredients"));
+        return random.randomElement(ingredients);
     }
 
     public String spice() {
-        return random.randomElement(DataLoader.getListData("food", "spices"));
+        spices = LazyLoader.load("foodSpices", () -> DataLoader.getListData("food", "spices"));
+        return random.randomElement(spices);
     }
 
     public String measurement() {
-        return random.randomElement(DataLoader.getListData("food", "measurements"));
+        measurements = LazyLoader.load("foodMeasurements", () -> DataLoader.getListData("food", "measurements"));
+        return random.randomElement(measurements);
     }
 
     public String dish() {
-        return random.randomElement(DataLoader.getListData("food", "dishes"));
+        dishes = LazyLoader.load("foodDishes", () -> DataLoader.getListData("food", "dishes"));
+        return random.randomElement(dishes);
     }
 
     public static void main(String[] args) {

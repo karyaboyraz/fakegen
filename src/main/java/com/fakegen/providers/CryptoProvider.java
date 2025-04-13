@@ -2,24 +2,32 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class CryptoProvider {
     private final RandomService random;
+    private List<String> coinNames;
+    private List<String> coinSymbols;
+    private List<String> blockchains;
 
     public CryptoProvider(RandomService random) {
         this.random = random;
     }
 
     public String coinName() {
-        return random.randomElement(DataLoader.getListData("crypto", "coin_names"));
+        coinNames = LazyLoader.load("cryptoCoinNames", () -> DataLoader.getListData("crypto", "coin_names"));
+        return random.randomElement(coinNames);
     }
 
     public String coinSymbol() {
-        return random.randomElement(DataLoader.getListData("crypto", "coin_symbols"));
+        coinSymbols = LazyLoader.load("cryptoCoinSymbols", () -> DataLoader.getListData("crypto", "coin_symbols"));
+        return random.randomElement(coinSymbols);
     }
 
     public String blockchain() {
-        return random.randomElement(DataLoader.getListData("crypto", "blockchains"));
+        blockchains = LazyLoader.load("cryptoBlockchains", () -> DataLoader.getListData("crypto", "blockchains"));
+        return random.randomElement(blockchains);
     }
 
     public String walletAddress() {

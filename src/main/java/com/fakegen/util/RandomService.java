@@ -99,21 +99,4 @@ public class RandomService {
     public String bothify(String pattern) {
         return letterify(numerify(pattern));
     }
-
-    public String formatNumber(String number) {
-        if (number == null || number.isEmpty()) {
-            throw new IllegalArgumentException("Phone format cannot be null or empty");
-        }
-        
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < number.length(); i++) {
-            char c = number.charAt(i);
-            if (c == '#') {
-                result.append(random.nextInt(10));
-            } else {
-                result.append(c);
-            }
-        }
-        return result.toString();
-    }
 }

@@ -2,16 +2,20 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class ColorProvider {
     private final RandomService random;
+    private List<String> colorNames;
 
     public ColorProvider(RandomService random) {
         this.random = random;
     }
 
     public String name() {
-        return random.randomElement(DataLoader.getListData("color", "names"));
+        colorNames = LazyLoader.load("colorNames", () -> DataLoader.getListData("color", "names"));
+        return random.randomElement(colorNames);
     }
 
     public String hex() {

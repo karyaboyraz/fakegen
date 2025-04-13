@@ -2,16 +2,25 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class MusicProvider {
     private final RandomService random;
+    private final Map<String, List<String>> musicData;
 
     public MusicProvider(RandomService random) {
         this.random = random;
+        this.musicData = new HashMap<>();
     }
 
     private String get(String category) {
-        return random.randomElement(DataLoader.getListData("music", category));
+        if (!musicData.containsKey(category)) {
+            musicData.put(category, LazyLoader.load("music" + category, () -> DataLoader.getListData("music", category)));
+        }
+        return random.randomElement(musicData.get(category));
     }
 
     public String genre() {

@@ -2,24 +2,32 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class CommerceProvider {
     private final RandomService random;
+    private List<String> productNames;
+    private List<String> departments;
+    private List<String> materials;
 
     public CommerceProvider(RandomService random) {
         this.random = random;
     }
 
     public String productName() {
-        return random.randomElement(DataLoader.getListData("commerce", "product_names"));
+        productNames = LazyLoader.load("commerceProductNames", () -> DataLoader.getListData("commerce", "product_names"));
+        return random.randomElement(productNames);
     }
 
     public String department() {
-        return random.randomElement(DataLoader.getListData("commerce", "departments"));
+        departments = LazyLoader.load("commerceDepartments", () -> DataLoader.getListData("commerce", "departments"));
+        return random.randomElement(departments);
     }
 
     public String material() {
-        return random.randomElement(DataLoader.getListData("commerce", "materials"));
+        materials = LazyLoader.load("commerceMaterials", () -> DataLoader.getListData("commerce", "materials"));
+        return random.randomElement(materials);
     }
 
     public String promotionCode() {

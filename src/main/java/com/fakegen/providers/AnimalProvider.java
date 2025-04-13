@@ -8,21 +8,28 @@ import java.util.List;
 
 public class AnimalProvider {
     private final RandomService random;
-    private final List<String> animals;
-    private final List<String> animalTypes;
+    private List<String> animals;
+    private List<String> animalTypes;
     private List<String> animalScientificName;
+    private List<String> animalFamilies;
+    private List<String> animalKingdoms;
+    private List<String> animalPhyla;
+    private List<String> animalClasses;
+    private List<String> animalOrders;
+    private List<String> animalGenera;
+    private List<String> animalSpecies;
 
     public AnimalProvider(RandomService random) {
         this.random = random;
-        this.animals = DataLoader.getListData("animal", "animal_names");
-        this.animalTypes = DataLoader.getListData("animal", "types");
-  }
+    }
 
     public String animal() {
+        animals = LazyLoader.load("animalNames", () -> DataLoader.getListData("animal", "animal_names"));
         return random.randomElement(animals);
     }
 
     public String animalType() {
+        animalTypes = LazyLoader.load("animalTypes", () -> DataLoader.getListData("animal", "types"));
         return random.randomElement(animalTypes);
     }
 
@@ -32,31 +39,38 @@ public class AnimalProvider {
     }
 
     public String animalFamily() {
-        return random.randomElement(DataLoader.getListData("animal", "families"));
+        animalFamilies = LazyLoader.load("animalFamilies", () -> DataLoader.getListData("animal", "families"));
+        return random.randomElement(animalFamilies);
     }
 
     public String animalKingdom() {
-        return random.randomElement(DataLoader.getListData("animal", "kingdoms"));
+        animalKingdoms = LazyLoader.load("animalKingdoms", () -> DataLoader.getListData("animal", "kingdoms"));
+        return random.randomElement(animalKingdoms);
     }
 
     public String animalPhylum() {
-        return random.randomElement(DataLoader.getListData("animal", "phyla"));
+        animalPhyla = LazyLoader.load("animalPhyla", () -> DataLoader.getListData("animal", "phyla"));
+        return random.randomElement(animalPhyla);
     }
 
     public String animalClass() {
-        return random.randomElement(DataLoader.getListData("animal", "classes"));
+        animalClasses = LazyLoader.load("animalClasses", () -> DataLoader.getListData("animal", "classes"));
+        return random.randomElement(animalClasses);
     }
 
     public String animalOrder() {
-        return random.randomElement(DataLoader.getListData("animal", "orders"));
+        animalOrders = LazyLoader.load("animalOrders", () -> DataLoader.getListData("animal", "orders"));
+        return random.randomElement(animalOrders);
     }
 
     public String animalGenus() {
-        return random.randomElement(DataLoader.getListData("animal", "genera"));
+        animalGenera = LazyLoader.load("animalGenera", () -> DataLoader.getListData("animal", "genera"));
+        return random.randomElement(animalGenera);
     }
 
     public String animalSpecies() {
-        return random.randomElement(DataLoader.getListData("animal", "species"));
+        animalSpecies = LazyLoader.load("animalSpecies", () -> DataLoader.getListData("animal", "species"));
+        return random.randomElement(animalSpecies);
     }
 
     public static void main(String[] args) {

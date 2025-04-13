@@ -31,7 +31,7 @@ public class AddressProvider {
     public String postalCode() {
         postalCode = LazyLoader.load("addressPostalCode", () -> DataLoader.getListData("address", "postal_codes"));
         String postCodeFormat = random.randomElement(postalCode);
-        return random.formatNumber(postCodeFormat);
+        return random.randomize(postCodeFormat);
     }
 
     public String city() {
@@ -74,15 +74,17 @@ public class AddressProvider {
     }
 
     public String state() {
-        return random.randomElement(DataLoader.getListData("address", "states"));
+        List<String> states = LazyLoader.load("addressStates", () -> DataLoader.getListData("address", "states"));
+        return random.randomElement(states);
     }
 
     public String country() {
+        countries = LazyLoader.load("addressCountries", () -> DataLoader.getListData("address", "countries"));
         return random.randomElement(countries);
     }
 
     public String zipCode() {
-        return random.numerify("#####");
+        return random.randomize("#####");
     }
 
     public String latitude() {
@@ -98,10 +100,14 @@ public class AddressProvider {
     }
 
     public String timeZone() {
-        return random.randomElement(DataLoader.getListData("address", "time_zones"));
+        List<String> timeZones = LazyLoader.load("addressTimeZones", () -> DataLoader.getListData("address", "time_zones"));
+        return random.randomElement(timeZones);
     }
 
     public String countryCode() {
-        return random.randomElement(DataLoader.getListData("address", "country_codes"));
+        List<String> countryCodes = LazyLoader.load("addressCountryCodes", () -> DataLoader.getListData("address", "country_codes"));
+        return random.randomElement(countryCodes);
     }
+
+
 }

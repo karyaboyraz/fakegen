@@ -52,7 +52,7 @@ platforms:
   - Ubuntu
   - Fedora
 
-names:
+app_names:
   - WhatsApp
   - Instagram
   - Facebook

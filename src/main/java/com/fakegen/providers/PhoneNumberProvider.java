@@ -2,9 +2,14 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class PhoneNumberProvider {
     private final RandomService random;
+    private List<String> landlineFormats;
+    private List<String> cellPhoneFormats;
+    private List<String> internationalFormats;
 
     public PhoneNumberProvider(RandomService random) {
         this.random = random;
@@ -15,18 +20,21 @@ public class PhoneNumberProvider {
     }
 
     public String landline() {
-        String format = random.randomElement(DataLoader.getListData("phone", "landlineFormats"));
-        return random.formatNumber(format);
+        landlineFormats = LazyLoader.load("phoneLandlineFormats", () -> DataLoader.getListData("phone", "landlineFormats"));
+        String format = random.randomElement(landlineFormats);
+        return random.randomize(format);
     }
 
     public String cellPhone() {
-        String format = random.randomElement(DataLoader.getListData("phone", "cellPhoneFormats"));
-        return random.formatNumber(format);
+        cellPhoneFormats = LazyLoader.load("phoneCellPhoneFormats", () -> DataLoader.getListData("phone", "cellPhoneFormats"));
+        String format = random.randomElement(cellPhoneFormats);
+        return random.randomize(format);
     }
 
     public String internationalPhoneFormat() {
-        String format = random.randomElement(DataLoader.getListData("phone", "internationalFormats"));
-        return random.formatNumber(format);
+        internationalFormats = LazyLoader.load("phoneInternationalFormats", () -> DataLoader.getListData("phone", "internationalFormats"));
+        String format = random.randomElement(internationalFormats);
+        return random.randomize(format);
     }
 
     public static void main(String[] args) {

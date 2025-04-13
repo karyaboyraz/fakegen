@@ -2,12 +2,15 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class FinanceProvider {
     private final RandomService random;
+    private List<String> ibanTemplates;
 
     public FinanceProvider(RandomService random) {
         this.random = random;
@@ -74,8 +77,9 @@ public class FinanceProvider {
     }
 
     public String ibanBuilder() {
-        String format = random.randomElement(DataLoader.getListData("finance", "ibanTemplate"));
-        return random.formatNumber(format);
+        ibanTemplates = LazyLoader.load("financeIbanTemplates", () -> DataLoader.getListData("finance", "ibanTemplate"));
+        String format = random.randomElement(ibanTemplates);
+        return random.randomize(format);
     }
 
     public String amount(double min, double max) {

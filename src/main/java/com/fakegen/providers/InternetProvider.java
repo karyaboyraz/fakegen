@@ -2,9 +2,14 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class InternetProvider {
     private final RandomService random;
+    private List<String> firstNames;
+    private List<String> lastNames;
+    private List<String> domainNames;
 
     public InternetProvider(RandomService random) {
         this.random = random;
@@ -33,14 +38,17 @@ public class InternetProvider {
     }
 
     public String username() {
-        String firstName = random.randomElement(DataLoader.getListData("name", "first_names"));
-        String lastName = random.randomElement(DataLoader.getListData("name", "last_names"));
+        firstNames = LazyLoader.load("nameFirstNames", () -> DataLoader.getListData("name", "first_names"));
+        lastNames = LazyLoader.load("nameLastNames", () -> DataLoader.getListData("name", "last_names"));
+        String firstName = random.randomElement(firstNames);
+        String lastName = random.randomElement(lastNames);
         String username = sanitizeAscii(firstName).toLowerCase() + "." + sanitizeAscii(lastName).toLowerCase();
         return sanitizeAscii(username);
     }
 
     public String domainName() {
-        return random.randomElement(DataLoader.getListData("internet", "domainNames"));
+        domainNames = LazyLoader.load("internetDomainNames", () -> DataLoader.getListData("internet", "domainNames"));
+        return random.randomElement(domainNames);
     }
 
     public String url() {

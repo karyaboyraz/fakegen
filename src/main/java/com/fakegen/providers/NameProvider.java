@@ -2,23 +2,33 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class NameProvider {
     private final RandomService random;
+    private List<String> firstNames;
+    private List<String> lastNames;
+    private List<String> prefixes;
+    private List<String> suffixes;
+    private List<String> titles;
+    private List<String> genders;
 
     public NameProvider(RandomService random) {
         this.random = random;
     }
 
     public String firstName() {
-        return random.randomElement(DataLoader.getListData("name", "first_names"));
+        firstNames = LazyLoader.load("nameFirstNames", () -> DataLoader.getListData("name", "first_names"));
+        return random.randomElement(firstNames);
     }
 
     public String lastName() {
-        return random.randomElement(DataLoader.getListData("name", "last_names"));
+        lastNames = LazyLoader.load("nameLastNames", () -> DataLoader.getListData("name", "last_names"));
+        return random.randomElement(lastNames);
     }
 
     public String fullName() {
@@ -26,27 +36,31 @@ public class NameProvider {
     }
 
     public String prefix() {
-        return random.randomElement(DataLoader.getListData("name", "prefixes"));
+        prefixes = LazyLoader.load("namePrefixes", () -> DataLoader.getListData("name", "prefixes"));
+        return random.randomElement(prefixes);
     }
 
     public String suffix() {
-        return random.randomElement(DataLoader.getListData("name", "suffixes"));
+        suffixes = LazyLoader.load("nameSuffixes", () -> DataLoader.getListData("name", "suffixes"));
+        return random.randomElement(suffixes);
     }
 
     public String title() {
-        return random.randomElement(DataLoader.getListData("name", "titles"));
+        titles = LazyLoader.load("nameTitles", () -> DataLoader.getListData("name", "titles"));
+        return random.randomElement(titles);
     }
 
     public String gender() {
-        return random.randomElement(DataLoader.getListData("name", "gender"));
+        genders = LazyLoader.load("nameGenders", () -> DataLoader.getListData("name", "gender"));
+        return random.randomElement(genders);
     }
 
     public String jobTitle() {
-        return random.randomElement(DataLoader.getListData("name", "titles"));
+        return title();
     }
 
     public String username() {
-        return (firstName().toLowerCase() + random.numerify("###")).replace(" ", "");
+        return (firstName().toLowerCase() + random.randomize("###")).replace(" ", "");
     }
 
     public String turkeyGovIDN() {

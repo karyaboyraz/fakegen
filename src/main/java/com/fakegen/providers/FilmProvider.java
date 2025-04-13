@@ -2,32 +2,44 @@ package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
+import com.fakegen.util.LazyLoader;
+import java.util.List;
 
 public class FilmProvider {
     private final RandomService random;
+    private List<String> filmTitles;
+    private List<String> filmDirectors;
+    private List<String> filmActors;
+    private List<String> filmGenres;
+    private List<String> firstNames;
 
     public FilmProvider(RandomService random) {
         this.random = random;
     }
 
     public String title() {
-        return random.randomElement(DataLoader.getListData("film", "titles"));
+        filmTitles = LazyLoader.load("filmTitles", () -> DataLoader.getListData("film", "titles"));
+        return random.randomElement(filmTitles);
     }
 
     public String director() {
-        return random.randomElement(DataLoader.getListData("film", "directors"));
+        filmDirectors = LazyLoader.load("filmDirectors", () -> DataLoader.getListData("film", "directors"));
+        return random.randomElement(filmDirectors);
     }
 
     public String actor() {
-        return random.randomElement(DataLoader.getListData("film", "actors"));
+        filmActors = LazyLoader.load("filmActors", () -> DataLoader.getListData("film", "actors"));
+        return random.randomElement(filmActors);
     }
 
     public String genre() {
-        return random.randomElement(DataLoader.getListData("film", "genres"));
+        filmGenres = LazyLoader.load("filmGenres", () -> DataLoader.getListData("film", "genres"));
+        return random.randomElement(filmGenres);
     }
 
     public String character() {
-        return random.randomElement(DataLoader.getListData("name", "first_names"));
+        firstNames = LazyLoader.load("nameFirstNames", () -> DataLoader.getListData("name", "first_names"));
+        return random.randomElement(firstNames);
     }
 
     public static void main(String[] args) {

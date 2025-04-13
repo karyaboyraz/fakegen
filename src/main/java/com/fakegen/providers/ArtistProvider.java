@@ -1,29 +1,40 @@
 package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
 import com.fakegen.util.RandomService;
+
+import java.util.List;
 
 public class ArtistProvider {
     private final RandomService random;
+    private List<String> artistName;
+    private List<String> artistGenre;
+    private List<String> artistNationality;
+    private List<String> artistArtwork;
 
     public ArtistProvider(RandomService random) {
         this.random = random;
     }
 
     public String name() {
-        return random.randomElement(DataLoader.getListData("artist", "names"));
+        artistName = LazyLoader.load("artistName", () -> DataLoader.getListData("artist", "names"));
+        return random.randomElement(artistName);
     }
 
     public String genre() {
-        return random.randomElement(DataLoader.getListData("artist", "genres"));
+        artistGenre = LazyLoader.load("artistGenre", () -> DataLoader.getListData("artist", "genres"));
+        return random.randomElement(artistGenre);
     }
 
     public String nationality() {
-        return random.randomElement(DataLoader.getListData("artist", "nationalities"));
+        artistNationality = LazyLoader.load("artistNationality", () -> DataLoader.getListData("artist", "nationalities"));
+        return random.randomElement(artistNationality);
     }
 
     public String artwork() {
-        return random.randomElement(DataLoader.getListData("artist", "artworks"));
+        artistArtwork = LazyLoader.load("artistArtwork", () -> DataLoader.getListData("artist", "artworks"));
+        return random.randomElement(artistArtwork);
     }
 
     public static void main(String[] args) {

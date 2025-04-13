@@ -2,26 +2,36 @@ package com.fakegen.providers;
 
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
 import java.time.format.DateTimeFormatter;
 import java.time.ZonedDateTime;
+import java.util.List;
 
 public class GitProvider {
     private final RandomService random;
+    private List<String> gitBranches;
+    private List<String> commitShas;
+    private List<String> commitMessages;
+    private List<String> gitAuthors;
+    private List<String> gitEmails;
 
     public GitProvider(RandomService random) {
         this.random = random;
     }
 
     public String branch() {
-        return random.randomElement(DataLoader.getListData("git", "git_branches"));
+        gitBranches = LazyLoader.load("gitBranches", () -> DataLoader.getListData("git", "git_branches"));
+        return random.randomElement(gitBranches);
     }
 
     public String commitSha() {
-        return random.randomElement(DataLoader.getListData("git", "commit_shas"));
+        commitShas = LazyLoader.load("gitCommitShas", () -> DataLoader.getListData("git", "commit_shas"));
+        return random.randomElement(commitShas);
     }
 
     public String commitMessage() {
-        return random.randomElement(DataLoader.getListData("git", "commit_messages"));
+        commitMessages = LazyLoader.load("gitCommitMessages", () -> DataLoader.getListData("git", "commit_messages"));
+        return random.randomElement(commitMessages);
     }
 
     public String commitDate() {
@@ -31,8 +41,10 @@ public class GitProvider {
 
     public String commitEntry() {
         String sha = commitSha();
-        String author = random.randomElement(DataLoader.getListData("git", "git_authors"));
-        String email = random.randomElement(DataLoader.getListData("git", "git_emails"));
+        gitAuthors = LazyLoader.load("gitAuthors", () -> DataLoader.getListData("git", "git_authors"));
+        String author = random.randomElement(gitAuthors);
+        gitEmails = LazyLoader.load("gitEmails", () -> DataLoader.getListData("git", "git_emails"));
+        String email = random.randomElement(gitEmails);
         String date = commitDate();
         String message = commitMessage();
 
