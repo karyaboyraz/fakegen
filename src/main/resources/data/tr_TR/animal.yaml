@@ -1,4 +1,4 @@
-animals:
+<file name=1 path=animal.yaml>animal_names:
   - Aslan
   - Kaplan
   - Fil
@@ -51,48 +51,6 @@ types:
   - Eklembacaklı
   - Yumuşakça
   - Kabuklu
-
-names:
-  - Simba
-  - Leo
-  - Max
-  - Charlie
-  - Rocky
-  - Duke
-  - Bear
-  - Zeus
-  - Apollo
-  - Thor
-  - Loki
-  - Odin
-  - Rex
-  - Bruno
-  - Milo
-  - Oscar
-  - Jack
-  - Toby
-  - Cooper
-  - Bentley
-  - Winston
-  - Oliver
-  - Teddy
-  - Gus
-  - Louie
-  - Jax
-  - Hank
-  - Ollie
-  - Bo
-  - Finn
-  - Harley
-  - Gunner
-  - Tyson
-  - Dexter
-  - Winston
-  - Sam
-  - Tucker
-  - Murphy
-  - Henry
-  - Riley
 
 scientific_names:
   - Panthera leo
@@ -318,4 +276,4 @@ habitats:
   Denizanası: [Okyanus, Deniz]
   Ahtapot: [Okyanus, Deniz]
   Istakoz: [Okyanus, Deniz]
-  Karides: [Okyanus, Deniz] 
+  Karides: [Okyanus, Deniz] </file>

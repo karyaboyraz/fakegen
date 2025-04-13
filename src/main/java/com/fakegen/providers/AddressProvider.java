@@ -1,31 +1,32 @@
 package com.fakegen.providers;
 
 import com.fakegen.util.DataLoader;
+import com.fakegen.util.LazyLoader;
 import com.fakegen.util.RandomService;
 import com.fasterxml.jackson.core.type.TypeReference;
+
+import java.text.Normalizer;
 import java.util.List;
 import java.util.Map;
-import java.text.Normalizer;
+import java.util.stream.Collectors;
 
 public class AddressProvider {
     private final RandomService random;
-    private final List<String> cities;
-    private final List<String> countries;
-    private final List<String> streetSuffixes;
-    private final Map<String, List<String>> districts;
-    private final Map<String, List<String>> plateCode;
+    private List<String> city;
+    private List<String> countries;
+    private List<String> streetSuffixes;
+    private List<String> district;
+    private List<String> plateCode;
+    private List<String> postalCode;
+    private List<String> streets;
 
     public AddressProvider(RandomService random) {
         this.random = random;
-        this.cities = DataLoader.getListData("address", "cities");
-        this.countries = DataLoader.getListData("address", "countries");
-        this.streetSuffixes = DataLoader.getListData("address", "street_suffixes");
-        this.districts = DataLoader.getMapData("address", "districts", new TypeReference<Map<String, List<String>>>() {});
-        this.plateCode = DataLoader.getMapData("address", "plate_codes", new TypeReference<Map<String, List<String>>>() {});
     }
 
     public String streetName() {
-        return random.randomElement(DataLoader.getListData("address", "streets"));
+        streets = LazyLoader.load("addressStreets", () -> DataLoader.getListData("address", "streets"));
+        return random.randomElement(streets);
     }
 
     public String buildingNumber() {
@@ -33,30 +34,40 @@ public class AddressProvider {
     }
 
     public String postalCode() {
-        return random.randomElement(DataLoader.getListData("address", "postal_codes"));
+        postalCode = LazyLoader.load("addressPostalCode", () -> DataLoader.getListData("address", "postal_codes"));
+        String postCodeFormat = random.randomElement(postalCode);
+        return random.formatNumber(postCodeFormat);
     }
 
     public String city() {
-        return random.randomElement(cities);
+        city = LazyLoader.load("addressCities", () -> DataLoader.getListData("address", "cities"));
+        return random.randomElement(city);
     }
 
     public String district() {
-        return random.randomElement(DataLoader.getListData("address", "districts"));
+        district = LazyLoader.load("addressDistrict", () -> DataLoader.getListData("address", "districts"));
+        return random.randomElement(district);
     }
 
     public String streetSuffix() {
+        streetSuffixes = LazyLoader.load("addressStreetSuffix", () -> DataLoader.getListData("address", "street_suffixes"));
         return random.randomElement(streetSuffixes);
     }
 
     public String fullAddress() {
-        return String.format("%s %s %s, %s %s %s",
-            streetName(),
-            streetSuffix(),
-            buildingNumber(),
-            district(),
-            city(),
-            postalCode()
+        return String.format("%s %s %s, %s/%s %s",
+                streetName(),
+                streetSuffix(),
+                buildingNumber(),
+                district(),
+                city(),
+                postalCode()
         );
+    }
+
+    public static void main(String[] args) {
+        AddressProvider addressProvider = new AddressProvider(new RandomService());
+        System.out.println(addressProvider.fullAddress());
     }
 
     public String streetAddress() {
@@ -79,34 +90,6 @@ public class AddressProvider {
         return random.numerify("#####");
     }
 
-    public String plateCode(String city) {
-        String normalizedCity = Normalizer.normalize(city, Normalizer.Form.NFD)
-                                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
-                                    .toLowerCase();
-
-        for (Map.Entry<String, List<String>> entry : plateCode.entrySet()) {
-            String keyNormalized = Normalizer.normalize(entry.getKey(), Normalizer.Form.NFD)
-                                    .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
-                                    .toLowerCase();
-            if (keyNormalized.equals(normalizedCity)) {
-                List<String> cityPlateCode = entry.getValue();
-                if (cityPlateCode != null && !cityPlateCode.isEmpty()) {
-                    return random.randomElement(cityPlateCode);
-                }
-            }
-        }
-
-        throw new IllegalArgumentException("No plate codes found for city: " + city);
-    }
-
-    public String districtOfCity(String city) {
-        List<String> cityDistricts = districts.get(city);
-        if (cityDistricts == null || cityDistricts.isEmpty()) {
-            throw new IllegalArgumentException("No districts found for city: " + city);
-        }
-        return random.randomElement(cityDistricts);
-    }
-
     public String latitude() {
         return String.format("%.6f", random.nextDouble(-90, 90));
     }
@@ -125,13 +108,5 @@ public class AddressProvider {
 
     public String countryCode() {
         return random.randomElement(DataLoader.getListData("address", "country_codes"));
-    }
-
-    public Map<String, List<String>> loadDataAsMap(String path) {
-        return DataLoader.getMapData("address", path, new TypeReference<Map<String, List<String>>>() {});
-    }
-
-    public List<String> loadDataAsList(String path) {
-        return DataLoader.getListData("address", path);
     }
 }

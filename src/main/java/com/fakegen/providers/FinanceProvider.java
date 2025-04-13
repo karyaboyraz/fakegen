@@ -1,28 +1,24 @@
 package com.fakegen.providers;
 
+import com.fakegen.util.DataLoader;
+import com.fakegen.util.RandomService;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 
 public class FinanceProvider {
-    private final Random random;
+    private final RandomService random;
 
-    public FinanceProvider() {
-        this.random = new Random();
+    public FinanceProvider(RandomService random) {
+        this.random = random;
     }
 
-    /**
-     * Generates a valid credit card number using Luhn algorithm
-     * @param prefix Card prefix (e.g., "4" for Visa, "5" for MasterCard)
-     * @param length Total length of the card number
-     * @return Valid credit card number
-     */
     public String creditCardNumber(String prefix, int length) {
         StringBuilder number = new StringBuilder(prefix);
         while (number.length() < length - 1) {
-            number.append(random.nextInt(10));
+            number.append(random.nextInt(0, 9));
         }
-        
+
         int sum = 0;
         boolean alternate = false;
         for (int i = number.length() - 1; i >= 0; i--) {
@@ -38,90 +34,64 @@ public class FinanceProvider {
         }
         int checkDigit = (10 - (sum % 10)) % 10;
         number.append(checkDigit);
-        
+
         return number.toString();
     }
 
-    /**
-     * Generates a random Visa card number
-     * @return Valid Visa card number
-     */
     public String visaCardNumber() {
         return creditCardNumber("4", 16);
     }
 
-    /**
-     * Generates a random MasterCard number
-     * @return Valid MasterCard number
-     */
     public String masterCardNumber() {
         return creditCardNumber("5", 16);
     }
 
-    /**
-     * Generates a random American Express card number
-     * @return Valid American Express card number
-     */
     public String amexCardNumber() {
         return creditCardNumber("34", 15);
     }
 
-    /**
-     * Generates a valid future expiry date for a credit card
-     * @return Expiry date in MM/YY format
-     */
     public String creditCardExpiryDate() {
         LocalDate now = LocalDate.now();
-        int monthsToAdd = random.nextInt(48) + 1; // 1 to 48 months from now
+        int monthsToAdd = random.nextInt(1, 48); // 1 to 48 months from now
         LocalDate expiryDate = now.plusMonths(monthsToAdd);
         return DateTimeFormatter.ofPattern("MM/yy").format(expiryDate);
     }
 
-    /**
-     * Generates a random CVV number
-     * @param digits Number of digits (3 for Visa/MC, 4 for Amex)
-     * @return CVV number
-     */
     public String cvv(int digits) {
         StringBuilder cvv = new StringBuilder();
         for (int i = 0; i < digits; i++) {
-            cvv.append(random.nextInt(10));
+            cvv.append(random.nextInt(0, 9));
         }
         return cvv.toString();
     }
 
-    /**
-     * Generates a random bank account number
-     * @return Bank account number
-     */
     public String bankAccountNumber() {
         StringBuilder accountNumber = new StringBuilder();
         for (int i = 0; i < 10; i++) {
-            accountNumber.append(random.nextInt(10));
+            accountNumber.append(random.nextInt(0, 9));
         }
         return accountNumber.toString();
     }
 
-    /**
-     * Generates a random IBAN for Turkey
-     * @return Turkish IBAN
-     */
-    public String turkishIBAN() {
-        StringBuilder iban = new StringBuilder("TR");
-        for (int i = 0; i < 24; i++) {
-            iban.append(random.nextInt(10));
-        }
-        return iban.toString();
+    public String ibanBuilder() {
+        String format = random.randomElement(DataLoader.getListData("finance", "ibanTemplate"));
+        return random.formatNumber(format);
     }
 
-    /**
-     * Generates a random amount between min and max with 2 decimal places
-     * @param min Minimum amount
-     * @param max Maximum amount
-     * @return Formatted amount string
-     */
     public String amount(double min, double max) {
-        double amount = min + (random.nextDouble() * (max - min));
+        double amount = random.nextDouble(min, max);
         return String.format("%.2f", amount);
+    }
+
+    public static void main(String[] args) {
+        FinanceProvider financeProvider = new FinanceProvider(new RandomService());
+        System.out.println("Random Visa Card Number: " + financeProvider.visaCardNumber());
+        System.out.println("Random MasterCard Number: " + financeProvider.masterCardNumber());
+        System.out.println("Random Amex Card Number: " + financeProvider.amexCardNumber());
+        System.out.println("Random Expiry Date: " + financeProvider.creditCardExpiryDate());
+        System.out.println("Random CVV: " + financeProvider.cvv(3));
+        System.out.println("Random Bank Account Number: " + financeProvider.bankAccountNumber());
+        System.out.println("Random Turkish IBAN: " + financeProvider.ibanBuilder());
+        System.out.println("Random Amount: " + financeProvider.amount(1000, 5000));
     }
 }

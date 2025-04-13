@@ -25,4 +25,12 @@ public class ArtistProvider {
     public String artwork() {
         return random.randomElement(DataLoader.getListData("artist", "artworks"));
     }
+
+    public static void main(String[] args) {
+        ArtistProvider artistProvider = new ArtistProvider(new RandomService());
+        System.out.println("Random Artist Name: " + artistProvider.name());
+        System.out.println("Random Artist Genre: " + artistProvider.genre());
+        System.out.println("Random Artist Nationality: " + artistProvider.nationality());
+        System.out.println("Random Artwork: " + artistProvider.artwork());
+    }
 }

@@ -17,7 +17,6 @@ public class FakeGen {
     private final MusicProvider musicProvider;
     private final PhoneNumberProvider phoneNumberProvider;
     private final WeatherProvider weatherProvider;
-    private final LoremProvider loremProvider;
     private final FilmProvider filmProvider;
     private final AnimalProvider animalProvider;
     private final VehicleProvider vehicleProvider;
@@ -38,7 +37,6 @@ public class FakeGen {
         this.musicProvider = new MusicProvider(random);
         this.phoneNumberProvider = new PhoneNumberProvider(random);
         this.weatherProvider = new WeatherProvider(random);
-        this.loremProvider = new LoremProvider(random);
         this.filmProvider = new FilmProvider(random);
         this.animalProvider = new AnimalProvider(random);
         this.vehicleProvider = new VehicleProvider(random);
@@ -85,10 +83,6 @@ public class FakeGen {
 
     public WeatherProvider weather() {
         return weatherProvider;
-    }
-
-    public LoremProvider lorem() {
-        return loremProvider;
     }
 
     public FilmProvider film() {

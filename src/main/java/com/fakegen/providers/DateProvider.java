@@ -89,6 +89,21 @@ public class DateProvider {
 
     public static void main(String[] args) {
         DateProvider dateProvider = new DateProvider(new RandomService());
-        System.out.println("Today's date: " + dateProvider.RandomHoursAndMinutes());
+        System.out.println("Today: " + dateProvider.today());
+        System.out.println("Tomorrow: " + dateProvider.tomorrow());
+        System.out.println("Yesterday: " + dateProvider.yesterday());
+        System.out.println("Random Date in Past: " + dateProvider.randomDateInPast());
+        System.out.println("Random Date in Future: " + dateProvider.randomDateInFuture());
+        System.out.println("Random Date Between: " + dateProvider.randomDateBetween(LocalDate.of(2020, 1, 1), LocalDate.of(2023, 1, 1)));
+        System.out.println("Random Hours: " + dateProvider.randomHours());
+        System.out.println("Random Hours and Minutes: " + dateProvider.RandomHoursAndMinutes());
+        System.out.println("Random Date: " + dateProvider.date());
+        System.out.println("Random Time: " + dateProvider.time());
+        System.out.println("Random DateTime: " + dateProvider.dateTime());
+        System.out.println("Random Date String: " + dateProvider.dateString("yyyy-MM-dd"));
+        System.out.println("Random Time String: " + dateProvider.timeString("HH:mm:ss"));
+        System.out.println("Random DateTime String: " + dateProvider.dateTimeString("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("Random Date String: " + dateProvider.dateString("dd/MM/yyyy"));
+
     }
 }

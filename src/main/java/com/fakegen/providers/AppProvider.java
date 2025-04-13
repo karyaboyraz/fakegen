@@ -28,4 +28,12 @@ public class AppProvider {
     public String category() {
         return random.randomElement(DataLoader.getListData("app", "categories"));
     }
+
+    public static void main(String[] args) {
+        AppProvider appProvider = new AppProvider(new RandomService());
+        System.out.println("Random App Name: " + appProvider.name());
+        System.out.println("Random App Version: " + appProvider.version());
+        System.out.println("Random App Platform: " + appProvider.platform());
+        System.out.println("Random App Category: " + appProvider.category());
+    }
 }

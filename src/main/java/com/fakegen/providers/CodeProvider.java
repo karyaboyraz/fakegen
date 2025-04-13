@@ -1,62 +1,72 @@
 package com.fakegen.providers;
 
-import com.fakegen.RandomService;
-
-import java.util.Random;
+import com.fakegen.util.DataLoader;
+import com.fakegen.util.RandomService;
 
 public class CodeProvider {
-    private static final Random RAND = new Random();
+    private final RandomService random;
+    private static final int[] ISBN_EAN_WEIGHTS = {1,3,1,3,1,3,1,3,1,3,1,3,0};
 
     public CodeProvider(RandomService random) {
-
+        this.random = random;
     }
 
     private String generateWithCheckDigit(int length, int[] weights) {
-        int[] digits = new int[length];
-        for (int i = 0; i < length - 1; i++) {
-            digits[i] = RAND.nextInt(10);
-        }
+        StringBuilder result = new StringBuilder();
         int sum = 0;
+        
         for (int i = 0; i < length - 1; i++) {
-            sum += digits[i] * weights[i];
+            int digit = random.nextInt(0, 9);
+            result.append(digit);
+            sum += digit * weights[i];
         }
-        int check = (10 - (sum % 10)) % 10;
-        digits[length - 1] = check;
-        StringBuilder sb = new StringBuilder(length);
-        for (int d : digits) sb.append(d);
-        return sb.toString();
+        
+        int checkDigit = (10 - (sum % 10)) % 10;
+        result.append(checkDigit);
+        
+        return result.toString();
     }
 
     public String isbn() {
-        return generateWithCheckDigit(13, new int[] {1,3,1,3,1,3,1,3,1,3,1,3,0});
+        return generateWithCheckDigit(13, ISBN_EAN_WEIGHTS);
     }
 
     public String ean() {
-        return generateWithCheckDigit(13, new int[] {1,3,1,3,1,3,1,3,1,3,1,3,0});
+        return generateWithCheckDigit(13, ISBN_EAN_WEIGHTS);
     }
 
     public String asin() {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return RAND.ints(10, 0, chars.length())
-                   .mapToObj(chars::charAt)
-                   .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
-                   .toString();
+        String chars = DataLoader.getAlphabet().toUpperCase() + DataLoader.getNumeric();
+        StringBuilder result = new StringBuilder();
+        
+        for (int i = 0; i < 10; i++) {
+            result.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
+        }
+        
+        return result.toString();
     }
 
     public String issn() {
-        int[] digits = new int[8];
-        for (int i = 0; i < 7; i++) {
-            digits[i] = RAND.nextInt(10);
-        }
+        StringBuilder result = new StringBuilder();
         int sum = 0;
+        
         for (int i = 0; i < 7; i++) {
-            sum += digits[i] * (8 - i);
+            int digit = random.nextInt(0, 9);
+            result.append(digit);
+            sum += digit * (8 - i);
         }
+        
         int rem = sum % 11;
-        digits[7] = rem == 0 ? 0 : rem == 1 ? 'X' : 11 - rem;
-        StringBuilder sb = new StringBuilder(9);
-        for (int i = 0; i < 7; i++) sb.append(digits[i]);
-        sb.append('-').append(digits[7] == 'X' ? 'X' : digits[7]);
-        return sb.toString();
+        char checkDigit = rem == 0 ? '0' : rem == 1 ? 'X' : (char) ('0' + (11 - rem));
+        
+        return result.append('-').append(checkDigit).toString();
+    }
+
+    public static void main(String[] args) {
+        CodeProvider codeProvider = new CodeProvider(new RandomService());
+        System.out.println("ISBN: " + codeProvider.isbn());
+        System.out.println("EAN: " + codeProvider.ean());
+        System.out.println("ASIN: " + codeProvider.asin());
+        System.out.println("ISSN: " + codeProvider.issn());
     }
 }

@@ -25,4 +25,12 @@ public class FoodProvider {
     public String dish() {
         return random.randomElement(DataLoader.getListData("food", "dishes"));
     }
+
+    public static void main(String[] args) {
+        FoodProvider foodProvider = new FoodProvider(new RandomService());
+        System.out.println("Random Ingredient: " + foodProvider.ingredient());
+        System.out.println("Random Spice: " + foodProvider.spice());
+        System.out.println("Random Measurement: " + foodProvider.measurement());
+        System.out.println("Random Dish: " + foodProvider.dish());
+    }
 } 

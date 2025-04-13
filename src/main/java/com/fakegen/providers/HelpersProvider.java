@@ -43,4 +43,24 @@ public class HelpersProvider {
     public String bothify(String pattern) {
         return random.bothify(pattern);
     }
+
+    public static void main(String[] args) {
+        HelpersProvider helpersProvider = new HelpersProvider(new RandomService());
+        List<String> list = List.of("apple", "banana", "cherry");
+        System.out.println("Random element from list: " + helpersProvider.randomElement(list));
+
+        String[] array = {"dog", "cat", "mouse"};
+        System.out.println("Random element from array: " + helpersProvider.randomElement(array));
+
+        Map<String, Integer> map = Map.of("one", 1, "two", 2, "three", 3);
+        System.out.println("Random key from map: " + helpersProvider.randomKey(map));
+        System.out.println("Random value from map: " + helpersProvider.randomValue(map));
+
+        String pattern = "##-##-##";
+        System.out.println("Randomized pattern: " + helpersProvider.randomize(pattern));
+        System.out.println("Numerified pattern: " + helpersProvider.numerify(pattern));
+        System.out.println("Letterified pattern: " + helpersProvider.letterify(pattern));
+        System.out.println("Bothified pattern: " + helpersProvider.bothify(pattern));
+
+    }
 } 

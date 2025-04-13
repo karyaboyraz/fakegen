@@ -4,6 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
 
 public class GitProvider {
     private final RandomService random;
@@ -13,7 +14,7 @@ public class GitProvider {
     }
 
     public String branch() {
-        return random.randomElement(DataLoader.getListData("git", "branches"));
+        return random.randomElement(DataLoader.getListData("git", "git_branches"));
     }
 
     public String commitSha() {
@@ -25,17 +26,32 @@ public class GitProvider {
     }
 
     public String commitDate() {
-        LocalDateTime now = LocalDateTime.now();
+        ZonedDateTime now = ZonedDateTime.now();
         return now.format(DateTimeFormatter.ofPattern("EEE MMM d HH:mm:ss yyyy Z"));
     }
 
     public String commitEntry() {
-        return String.format("commit %s%nAuthor: %s <%s>%nDate: %s%n%n    %s",
-            commitSha(),
-            random.randomElement(DataLoader.getListData("git", "authors")),
-            random.randomElement(DataLoader.getListData("git", "emails")),
-            commitDate(),
-            commitMessage()
+        String sha = commitSha();
+        String author = random.randomElement(DataLoader.getListData("git", "git_authors"));
+        String email = random.randomElement(DataLoader.getListData("git", "git_emails"));
+        String date = commitDate();
+        String message = commitMessage();
+
+        return String.format("commit %s | Author: %s <%s> | Date: %s | %s",
+            sha,
+            author,
+            email,
+            date,
+            message
         );
     }
-} 
+
+    public static void main(String[] args) {
+        GitProvider gitProvider = new GitProvider(new RandomService());
+        System.out.println("Branch: " + gitProvider.branch());
+        System.out.println("Commit SHA: " + gitProvider.commitSha());
+        System.out.println("Commit Message: " + gitProvider.commitMessage());
+        System.out.println("Commit Date: " + gitProvider.commitDate());
+        System.out.println("Commit Entry: " + gitProvider.commitEntry());
+    }
+}

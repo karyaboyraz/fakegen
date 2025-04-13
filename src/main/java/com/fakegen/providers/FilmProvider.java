@@ -26,11 +26,16 @@ public class FilmProvider {
         return random.randomElement(DataLoader.getListData("film", "genres"));
     }
 
-    public String quote() {
-        return random.randomElement(DataLoader.getListData("film", "quotes"));
+    public String character() {
+        return random.randomElement(DataLoader.getListData("name", "first_names"));
     }
 
-    public String character() {
-        return random.randomElement(DataLoader.getListData("film", "characters"));
+    public static void main(String[] args) {
+        FilmProvider filmProvider = new FilmProvider(new RandomService());
+        System.out.println("Title: " + filmProvider.title());
+        System.out.println("Director: " + filmProvider.director());
+        System.out.println("Actor: " + filmProvider.actor());
+        System.out.println("Genre: " + filmProvider.genre());
+        System.out.println("Character: " + filmProvider.character());
     }
 } 

@@ -10,85 +10,87 @@ public class MusicProvider {
         this.random = random;
     }
 
+    private String get(String category) {
+        return random.randomElement(DataLoader.getListData("music", category));
+    }
+
     public String genre() {
-        return random.randomElement(DataLoader.getListData("music", "genres"));
+        return get("genres");
     }
 
     public String artist() {
-        return random.randomElement(DataLoader.getListData("music", "artists"));
+        return get("artists");
     }
 
     public String album() {
-        return random.randomElement(DataLoader.getListData("music", "albums"));
+        return get("albums");
     }
 
     public String song() {
-        return random.randomElement(DataLoader.getListData("music", "songs"));
+        return get("songs");
     }
 
     public String instrument() {
-        return random.randomElement(DataLoader.getListData("music", "instruments"));
+        return get("instruments");
     }
 
     public String key() {
-        String note = random.randomElement(DataLoader.getListData("music", "notes"));
-        String scale = random.randomElement(DataLoader.getListData("music", "scales"));
-        return note + " " + scale;
+        return get("notes") + " " + get("scales");
     }
 
     public String chord() {
-        String note = random.randomElement(DataLoader.getListData("music", "notes"));
-        String chordType = random.randomElement(DataLoader.getListData("music", "chordTypes"));
-        return note + " " + chordType;
+        String base = note();
+        String chordType = get("chordTypes");
+        return base + " " + chordType;
     }
 
     public String note() {
-        return random.randomElement(DataLoader.getListData("music", "notes"));
+        return get("notes");
     }
 
     public String scale() {
-        String note = note();
-        String scaleType = random.randomElement(DataLoader.getListData("music", "scales"));
-        return note + " " + scaleType;
+        String base = note();
+        String scaleType = get("scales");
+        return base + " " + scaleType;
     }
 
     public String tempo() {
-        return random.randomElement(DataLoader.getListData("music", "tempos"));
+        return get("tempos");
     }
 
     public String dynamic() {
-        return random.randomElement(DataLoader.getListData("music", "dynamics"));
+        return get("dynamics");
     }
 
     public String timeSignature() {
-        return random.randomElement(DataLoader.getListData("music", "timeSignatures"));
+        return get("timeSignatures");
     }
 
     public String chordProgression() {
         StringBuilder progression = new StringBuilder();
         int progressionLength = random.nextInt(3, 6);
-        
+
         for (int i = 0; i < progressionLength; i++) {
             if (i > 0) {
                 progression.append(" - ");
             }
             progression.append(chord());
         }
-        
+
         return progression.toString();
     }
 
     public String musicalPhrase() {
         StringBuilder phrase = new StringBuilder();
         int phraseLength = random.nextInt(4, 8);
-        
+
         for (int i = 0; i < phraseLength; i++) {
             if (i > 0) {
                 phrase.append(" ");
             }
             phrase.append(note());
         }
-        
+
         return phrase.toString();
     }
 
@@ -109,4 +111,4 @@ public class MusicProvider {
         System.out.println("Akor Progresyonu: " + musicProvider.chordProgression());
         System.out.println("Müzikal Cümle: " + musicProvider.musicalPhrase());
     }
-} 
+}

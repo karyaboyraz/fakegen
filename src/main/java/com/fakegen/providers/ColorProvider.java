@@ -42,4 +42,13 @@ public class ColorProvider {
             random.nextInt(0, 100)
         );
     }
+
+    public static void main(String[] args) {
+        ColorProvider colorProvider = new ColorProvider(new RandomService());
+        System.out.println("Color Name: " + colorProvider.name());
+        System.out.println("Hex: " + colorProvider.hex());
+        System.out.println("RGB: " + colorProvider.rgb());
+        System.out.println("RGBA: " + colorProvider.rgba());
+        System.out.println("HSL: " + colorProvider.hsl());
+    }
 } 
