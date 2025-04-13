@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,28 +17,28 @@ class CommerceProviderTest {
         commerceProvider = new CommerceProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void department_ShouldReturnValidDepartment() {
         String department = commerceProvider.department();
         assertNotNull(department);
         assertFalse(department.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void productName_ShouldReturnValidName() {
         String productName = commerceProvider.productName();
         assertNotNull(productName);
         assertFalse(productName.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void material_ShouldReturnValidMaterial() {
         String material = commerceProvider.material();
         assertNotNull(material);
         assertFalse(material.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void promotionCode_ShouldReturnValidCode() {
         String code = commerceProvider.promotionCode();
         assertNotNull(code);

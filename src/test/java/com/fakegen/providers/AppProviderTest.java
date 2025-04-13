@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class AppProviderTest {
         appProvider = new AppProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void name_ShouldReturnValidName() {
         String name = appProvider.name();
         assertNotNull(name);
         assertFalse(name.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void version_ShouldReturnValidVersion() {
         String version = appProvider.version();
         assertNotNull(version);
@@ -32,14 +32,14 @@ class AppProviderTest {
         assertTrue(version.matches("^\\d+\\.\\d+\\.\\d+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void platform_ShouldReturnValidPlatform() {
         String platform = appProvider.platform();
         assertNotNull(platform);
         assertFalse(platform.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void category_ShouldReturnValidCategory() {
         String category = appProvider.category();
         assertNotNull(category);

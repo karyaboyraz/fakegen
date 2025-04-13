@@ -66,10 +66,10 @@
 
   license_plate_formats:
     # Formatlar: "#" rakam, "?" harf ile değiştirilir
-    - "## !!! ###"
-    - "## !! ###"
-    - "## !! ##"
-    - "## !!! ##"
+    - "## ??? ###"
+    - "## ?? ###"
+    - "## ?? ##"
+    - "## ??? ##"
 
   colors:
     # Renkler

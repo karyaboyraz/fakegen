@@ -39,6 +39,98 @@ animal_names:
   - Ahtapot
   - Istakoz
   - Karides
+  - Vaşak
+  - Sırtlan
+  - Rakun
+  - Gelincik
+  - Sansar
+  - Samur
+  - Kunduz
+  - Kirpi
+  - Tavşan
+  - Sincap
+  - Fare
+  - Sıçan
+  - Köstebek
+  - Yarasa
+  - Tilki
+  - Çakal
+  - Kokarca
+  - Misk sıçanı
+  - Su samuru
+  - Deniz aslanı
+  - Mors
+  - Fok
+  - Deniz ayısı
+  - Dugong
+  - Manati
+  - Yaban domuzu
+  - Geyik
+  - Karaca
+  - Ceylan
+  - Antilop
+  - Bizon
+  - Bufalo
+  - Keçi
+  - Koyun
+  - İnek
+  - Manda
+  - At
+  - Eşek
+  - Katır
+  - Zebra
+  - Gergedan
+  - Tapir
+  - Zürafa
+  - Okapi
+  - Fil
+  - Mamut
+  - Mastodon
+  - Deniz fili
+  - Deniz ineği
+  - Deniz kaplumbağası
+  - Deniz yılanı
+  - Deniz kertenkelesi
+  - Deniz iguanası
+  - Deniz timsahı
+  - Deniz aslanı
+  - Deniz ayısı
+  - Deniz foku
+  - Deniz morsu
+  - Deniz dugongu
+  - Deniz manatisi
+  - Deniz yunusu
+  - Deniz balinası
+  - Deniz köpekbalığı
+  - Deniz vatozu
+  - Deniz anemonu
+  - Deniz mercanı
+  - Deniz süngeri
+  - Deniz yıldızı
+  - Deniz kestanesi
+  - Deniz hıyarı
+  - Deniz salyangozu
+  - Deniz midyesi
+  - Deniz istiridyesi
+  - Deniz tarak
+  - Deniz kalamarı
+  - Deniz mürekkep balığı
+  - Deniz ahtapotu
+  - Deniz ıstakozu
+  - Deniz yengeci
+  - Deniz karidesi
+  - Deniz kereviti
+  - Deniz pavuryası
+  - Deniz ıstakozu
+  - Deniz yengeci
+  - Deniz karidesi
+  - Deniz kereviti
+  - Deniz pavuryası
+  - Deniz ıstakozu
+  - Deniz yengeci
+  - Deniz karidesi
+  - Deniz kereviti
+  - Deniz pavuryası
 
 types:
   - Memeli
@@ -51,6 +143,46 @@ types:
   - Eklembacaklı
   - Yumuşakça
   - Kabuklu
+  - Deniz memelisi
+  - Deniz kuşu
+  - Deniz sürüngeni
+  - Deniz balığı
+  - Deniz omurgasızı
+  - Deniz amfibisi
+  - Deniz böceği
+  - Deniz eklembacaklısı
+  - Deniz yumuşakçası
+  - Deniz kabuklusu
+  - Kara memelisi
+  - Kara kuşu
+  - Kara sürüngeni
+  - Kara balığı
+  - Kara omurgasızı
+  - Kara amfibisi
+  - Kara böceği
+  - Kara eklembacaklısı
+  - Kara yumuşakçası
+  - Kara kabuklusu
+  - Tatlı su memelisi
+  - Tatlı su kuşu
+  - Tatlı su sürüngeni
+  - Tatlı su balığı
+  - Tatlı su omurgasızı
+  - Tatlı su amfibisi
+  - Tatlı su böceği
+  - Tatlı su eklembacaklısı
+  - Tatlı su yumuşakçası
+  - Tatlı su kabuklusu
+  - Tuzlu su memelisi
+  - Tuzlu su kuşu
+  - Tuzlu su sürüngeni
+  - Tuzlu su balığı
+  - Tuzlu su omurgasızı
+  - Tuzlu su amfibisi
+  - Tuzlu su böceği
+  - Tuzlu su eklembacaklısı
+  - Tuzlu su yumuşakçası
+  - Tuzlu su kabuklusu
 
 scientific_names:
   - Panthera leo
@@ -93,6 +225,87 @@ scientific_names:
   - Octopus vulgaris
   - Homarus gammarus
   - Penaeus monodon
+  - Lynx lynx
+  - Crocuta crocuta
+  - Procyon lotor
+  - Mustela putorius
+  - Martes martes
+  - Martes zibellina
+  - Castor fiber
+  - Erinaceus europaeus
+  - Oryctolagus cuniculus
+  - Sciurus vulgaris
+  - Mus musculus
+  - Rattus norvegicus
+  - Talpa europaea
+  - Myotis myotis
+  - Vulpes vulpes
+  - Canis aureus
+  - Mephitis mephitis
+  - Ondatra zibethicus
+  - Enhydra lutris
+  - Zalophus californianus
+  - Odobenus rosmarus
+  - Phoca vitulina
+  - Arctocephalus pusillus
+  - Dugong dugon
+  - Trichechus manatus
+  - Sus scrofa
+  - Cervus elaphus
+  - Capreolus capreolus
+  - Gazella gazella
+  - Antilope cervicapra
+  - Bison bison
+  - Bubalus bubalis
+  - Capra hircus
+  - Ovis aries
+  - Bos taurus
+  - Bubalus bubalis
+  - Equus caballus
+  - Equus asinus
+  - Equus mulus
+  - Equus zebra
+  - Rhinoceros unicornis
+  - Tapirus terrestris
+  - Giraffa camelopardalis
+  - Okapia johnstoni
+  - Loxodonta africana
+  - Mammuthus primigenius
+  - Mammut americanum
+  - Mirounga leonina
+  - Hydrodamalis gigas
+  - Caretta caretta
+  - Hydrophis platurus
+  - Amblyrhynchus cristatus
+  - Crocodylus porosus
+  - Zalophus californianus
+  - Arctocephalus pusillus
+  - Phoca vitulina
+  - Odobenus rosmarus
+  - Dugong dugon
+  - Trichechus manatus
+  - Tursiops truncatus
+  - Balaenoptera musculus
+  - Carcharodon carcharias
+  - Manta birostris
+  - Actinia equina
+  - Acropora cervicornis
+  - Spongia officinalis
+  - Asterias rubens
+  - Echinus esculentus
+  - Holothuria forskali
+  - Buccinum undatum
+  - Mytilus edulis
+  - Ostrea edulis
+  - Pecten maximus
+  - Loligo vulgaris
+  - Sepia officinalis
+  - Octopus vulgaris
+  - Homarus gammarus
+  - Cancer pagurus
+  - Penaeus monodon
+  - Astacus astacus
+  - Carcinus maenas
 
 families:
   - Felidae
@@ -125,6 +338,68 @@ families:
   - Nephropidae
   - Penaeidae
   - Bovidae
+  - Lynxidae
+  - Hyaenidae
+  - Procyonidae
+  - Mustelidae
+  - Castoridae
+  - Erinaceidae
+  - Leporidae
+  - Sciuridae
+  - Muridae
+  - Talpidae
+  - Vespertilionidae
+  - Mephitidae
+  - Cricetidae
+  - Enhydridae
+  - Otariidae
+  - Phocidae
+  - Dugongidae
+  - Trichechidae
+  - Suidae
+  - Cervidae
+  - Antilocapridae
+  - Bisonidae
+  - Bubalidae
+  - Caprinae
+  - Bovinae
+  - Equidae
+  - Tapiridae
+  - Giraffidae
+  - Elephantidae
+  - Mammutidae
+  - Miroungidae
+  - Hydrodamalidae
+  - Cheloniidae
+  - Hydrophiidae
+  - Iguanidae
+  - Crocodylidae
+  - Otariidae
+  - Phocidae
+  - Dugongidae
+  - Trichechidae
+  - Delphinidae
+  - Balaenopteridae
+  - Lamnidae
+  - Mobulidae
+  - Actiniidae
+  - Acroporidae
+  - Spongiidae
+  - Asteriidae
+  - Echinidae
+  - Holothuriidae
+  - Buccinidae
+  - Mytilidae
+  - Ostreidae
+  - Pectinidae
+  - Loliginidae
+  - Sepiidae
+  - Octopodidae
+  - Nephropidae
+  - Cancridae
+  - Penaeidae
+  - Astacidae
+  - Carcinidae
 
 kingdoms:
   - Animalia
@@ -133,6 +408,62 @@ kingdoms:
   - Protista
   - Archaea
   - Bacteria
+  - Chromista
+  - Protozoa
+  - Archaeplastida
+  - Excavata
+  - Amoebozoa
+  - Opisthokonta
+  - Rhizaria
+  - Alveolata
+  - Stramenopiles
+  - Hacrobia
+  - Cryptista
+  - Centrohelida
+  - Telonemia
+  - Picozoa
+  - Ancyromonadida
+  - Malawimonadida
+  - Metamonada
+  - Parabasalia
+  - Fornicata
+  - Preaxostyla
+  - Jakobida
+  - Tsukubamonas
+  - Discoba
+  - Euglenozoa
+  - Percolozoa
+  - Heterolobosea
+  - Breviatea
+  - Apusomonadida
+  - Ancyromonadida
+  - Malawimonadida
+  - Metamonada
+  - Parabasalia
+  - Fornicata
+  - Preaxostyla
+  - Jakobida
+  - Tsukubamonas
+  - Discoba
+  - Euglenozoa
+  - Percolozoa
+  - Heterolobosea
+  - Breviatea
+  - Apusomonadida
+  - Ancyromonadida
+  - Malawimonadida
+  - Metamonada
+  - Parabasalia
+  - Fornicata
+  - Preaxostyla
+  - Jakobida
+  - Tsukubamonas
+  - Discoba
+  - Euglenozoa
+  - Percolozoa
+  - Heterolobosea
+  - Breviatea
+  - Apusomonadida
 
 phyla:
   - Chordata
@@ -145,6 +476,52 @@ phyla:
   - Annelida
   - Porifera
   - Ctenophora
+  - Bryozoa
+  - Brachiopoda
+  - Phoronida
+  - Chaetognatha
+  - Hemichordata
+  - Xenacoelomorpha
+  - Rotifera
+  - Acanthocephala
+  - Gastrotricha
+  - Kinorhyncha
+  - Loricifera
+  - Nematomorpha
+  - Priapulida
+  - Tardigrada
+  - Onychophora
+  - Pentastomida
+  - Tunicata
+  - Cephalochordata
+  - Myxozoa
+  - Micrognathozoa
+  - Cycliophora
+  - Gnathostomulida
+  - Orthonectida
+  - Dicyemida
+  - Monoblastozoa
+  - Placozoa
+  - Mesozoa
+  - Rhombozoa
+  - Orthonectida
+  - Dicyemida
+  - Monoblastozoa
+  - Placozoa
+  - Mesozoa
+  - Rhombozoa
+  - Orthonectida
+  - Dicyemida
+  - Monoblastozoa
+  - Placozoa
+  - Mesozoa
+  - Rhombozoa
+  - Orthonectida
+  - Dicyemida
+  - Monoblastozoa
+  - Placozoa
+  - Mesozoa
+  - Rhombozoa
 
 classes:
   - Mammalia
@@ -157,6 +534,54 @@ classes:
   - Arachnida
   - Gastropoda
   - Bivalvia
+  - Cephalopoda
+  - Polyplacophora
+  - Monoplacophora
+  - Scaphopoda
+  - Branchiopoda
+  - Remipedia
+  - Cephalocarida
+  - Maxillopoda
+  - Ostracoda
+  - Malacostraca
+  - Chilopoda
+  - Diplopoda
+  - Pauropoda
+  - Symphyla
+  - Collembola
+  - Protura
+  - Diplura
+  - Archaeognatha
+  - Zygentoma
+  - Ephemeroptera
+  - Odonata
+  - Plecoptera
+  - Orthoptera
+  - Phasmatodea
+  - Grylloblattodea
+  - Mantophasmatodea
+  - Dermaptera
+  - Embioptera
+  - Zoraptera
+  - Notoptera
+  - Blattodea
+  - Isoptera
+  - Mantodea
+  - Psocoptera
+  - Phthiraptera
+  - Thysanoptera
+  - Hemiptera
+  - Hymenoptera
+  - Coleoptera
+  - Strepsiptera
+  - Raphidioptera
+  - Megaloptera
+  - Neuroptera
+  - Mecoptera
+  - Siphonaptera
+  - Diptera
+  - Trichoptera
+  - Lepidoptera
 
 orders:
   - Carnivora
@@ -169,6 +594,48 @@ orders:
   - Chiroptera
   - Cetacea
   - Sirenia
+  - Dermoptera
+  - Scandentia
+  - Macroscelidea
+  - Tubulidentata
+  - Hyracoidea
+  - Afrosoricida
+  - Erinaceomorpha
+  - Soricomorpha
+  - Tenrecomorpha
+  - Chrysochloridea
+  - Macroscelidea
+  - Tubulidentata
+  - Hyracoidea
+  - Afrosoricida
+  - Erinaceomorpha
+  - Soricomorpha
+  - Tenrecomorpha
+  - Chrysochloridea
+  - Macroscelidea
+  - Tubulidentata
+  - Hyracoidea
+  - Afrosoricida
+  - Erinaceomorpha
+  - Soricomorpha
+  - Tenrecomorpha
+  - Chrysochloridea
+  - Macroscelidea
+  - Tubulidentata
+  - Hyracoidea
+  - Afrosoricida
+  - Erinaceomorpha
+  - Soricomorpha
+  - Tenrecomorpha
+  - Chrysochloridea
+  - Macroscelidea
+  - Tubulidentata
+  - Hyracoidea
+  - Afrosoricida
+  - Erinaceomorpha
+  - Soricomorpha
+  - Tenrecomorpha
+  - Chrysochloridea
 
 genera:
   - Panthera
@@ -181,6 +648,80 @@ genera:
   - Hippopotamus
   - Acinonyx
   - Puma
+  - Lynx
+  - Crocuta
+  - Procyon
+  - Mustela
+  - Martes
+  - Castor
+  - Erinaceus
+  - Oryctolagus
+  - Sciurus
+  - Mus
+  - Rattus
+  - Talpa
+  - Myotis
+  - Vulpes
+  - Mephitis
+  - Ondatra
+  - Enhydra
+  - Zalophus
+  - Odobenus
+  - Phoca
+  - Arctocephalus
+  - Dugong
+  - Trichechus
+  - Sus
+  - Cervus
+  - Capreolus
+  - Gazella
+  - Antilope
+  - Bison
+  - Bubalus
+  - Capra
+  - Ovis
+  - Bos
+  - Equus
+  - Tapirus
+  - Giraffa
+  - Okapia
+  - Loxodonta
+  - Mammuthus
+  - Mammut
+  - Mirounga
+  - Hydrodamalis
+  - Caretta
+  - Hydrophis
+  - Amblyrhynchus
+  - Crocodylus
+  - Zalophus
+  - Arctocephalus
+  - Phoca
+  - Odobenus
+  - Dugong
+  - Trichechus
+  - Tursiops
+  - Balaenoptera
+  - Carcharodon
+  - Manta
+  - Actinia
+  - Acropora
+  - Spongia
+  - Asterias
+  - Echinus
+  - Holothuria
+  - Buccinum
+  - Mytilus
+  - Ostrea
+  - Pecten
+  - Loligo
+  - Sepia
+  - Octopus
+  - Homarus
+  - Cancer
+  - Penaeus
+  - Astacus
+  - Carcinus
 
 species:
   - leo
@@ -193,87 +734,83 @@ species:
   - bicornis
   - amphibius
   - jubatus
-
-sounds:
-  Aslan: [Kükreme, Homurtu, Hırlama]
-  Kaplan: [Kükreme, Miyavlama, Hırlama]
-  Fil: [Trompet sesi, Homurtu]
-  Zürafa: [Homurtu, Tıslama]
-  Zebra: [Kişneme, Hırlama]
-  Gergedan: [Homurtu, Bögürme]
-  Su aygırı: [Homurtu, Bögürme]
-  Çita: [Miyavlama, Hırlama]
-  Leopar: [Kükreme, Miyavlama]
-  Puma: [Miyavlama, Hırlama]
-  Jaguar: [Kükreme, Miyavlama]
-  Kurt: [Uluma, Hırlama]
-  Ayı: [Homurtu, Kükrüme]
-  Goril: [Homurtu, Bağırma]
-  Şempanze: [Çığlık, Homurtu]
-  Orangutan: [Homurtu, Bağırma]
-  Deve: [Homurtu, Bögürme]
-  Lama: [Homurtu, Tıslama]
-  Kanguru: [Homurtu, Tıslama]
-  Koala: [Homurtu, Miyavlama]
-  Panda: [Homurtu, Miyavlama]
-  Kutup ayısı: [Homurtu, Kükrüme]
-  Penguen: [Cıvıltı, Bağırma]
-  Kartal: [Cıvıltı, Çığlık]
-  Şahin: [Cıvıltı, Çığlık]
-  Baykuş: [Cıvıltı, Ötüş]
-  Pelikan: [Cıvıltı, Bağırma]
-  Flamingo: [Cıvıltı, Ötüş]
-  Timsah: [Homurtu, Tıslama]
-  Yılan: [Tıslama]
-  Kertenkele: [Tıslama]
-  Kaplumbağa: [Homurtu]
-  Yunus: [Cıvıltı, Islık]
-  Balina: [Şarkı, Cıvıltı]
-  Köpekbalığı: [Sessiz]
-  Vatoz: [Sessiz]
-  Denizanası: [Sessiz]
-  Ahtapot: [Sessiz]
-  Istakoz: [Sessiz]
-  Karides: [Sessiz]
-
-habitats:
-  Aslan: [Savana, Orman, Çalılık]
-  Kaplan: [Orman, Çalılık, Bataklık]
-  Fil: [Savana, Orman, Bataklık]
-  Zürafa: [Savana, Orman]
-  Zebra: [Savana, Çalılık]
-  Gergedan: [Savana, Orman, Bataklık]
-  Su aygırı: [Nehir, Göl, Bataklık]
-  Çita: [Savana, Çalılık]
-  Leopar: [Orman, Savana, Çalılık]
-  Puma: [Orman, Dağ, Çalılık]
-  Jaguar: [Orman, Bataklık]
-  Kurt: [Orman, Tundra, Çalılık]
-  Ayı: [Orman, Tundra, Dağ]
-  Goril: [Orman, Dağ]
-  Şempanze: [Orman, Savana]
-  Orangutan: [Orman]
-  Deve: [Çöl, Yarı Çöl]
-  Lama: [Dağ, Yayla]
-  Kanguru: [Savana, Orman, Çalılık]
-  Koala: [Orman]
-  Panda: [Orman, Dağ]
-  Kutup ayısı: [Tundra, Buz]
-  Penguen: [Antarktika, Kıyı]
-  Kartal: [Dağ, Orman, Çalılık]
-  Şahin: [Orman, Çalılık]
-  Baykuş: [Orman, Çalılık]
-  Pelikan: [Göl, Nehir, Kıyı]
-  Flamingo: [Göl, Lagün]
-  Timsah: [Nehir, Göl, Bataklık]
-  Yılan: [Orman, Çalılık, Çöl]
-  Kertenkele: [Orman, Çalılık, Çöl]
-  Kaplumbağa: [Orman, Çalılık, Deniz]
-  Yunus: [Okyanus, Deniz]
-  Balina: [Okyanus]
-  Köpekbalığı: [Okyanus, Deniz]
-  Vatoz: [Okyanus, Deniz]
-  Denizanası: [Okyanus, Deniz]
-  Ahtapot: [Okyanus, Deniz]
-  Istakoz: [Okyanus, Deniz]
-  Karides: [Okyanus, Deniz]
+  - lynx
+  - crocuta
+  - lotor
+  - putorius
+  - martes
+  - zibellina
+  - fiber
+  - europaeus
+  - cuniculus
+  - vulgaris
+  - musculus
+  - norvegicus
+  - europaea
+  - myotis
+  - vulpes
+  - aureus
+  - mephitis
+  - zibethicus
+  - lutris
+  - californianus
+  - rosmarus
+  - vitulina
+  - pusillus
+  - dugon
+  - manatus
+  - scrofa
+  - elaphus
+  - capreolus
+  - gazella
+  - cervicapra
+  - bison
+  - bubalis
+  - hircus
+  - aries
+  - taurus
+  - caballus
+  - asinus
+  - mulus
+  - zebra
+  - unicornis
+  - terrestris
+  - camelopardalis
+  - johnstoni
+  - africana
+  - primigenius
+  - americanum
+  - leonina
+  - gigas
+  - caretta
+  - platurus
+  - cristatus
+  - porosus
+  - californianus
+  - pusillus
+  - vitulina
+  - rosmarus
+  - dugon
+  - manatus
+  - truncatus
+  - musculus
+  - carcharias
+  - birostris
+  - equina
+  - cervicornis
+  - officinalis
+  - rubens
+  - esculentus
+  - forskali
+  - undatum
+  - edulis
+  - edulis
+  - maximus
+  - vulgaris
+  - officinalis
+  - vulgaris
+  - gammarus
+  - pagurus
+  - monodon
+  - astacus
+  - maenas

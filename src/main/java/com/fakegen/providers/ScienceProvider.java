@@ -4,45 +4,66 @@ import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.LazyLoader;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
+/**
+ * A provider class for generating science-related data.
+ * This class provides methods to generate various scientific information such as
+ * chemical elements, symbols, formulas, units, and unit prefixes.
+ */
 public class ScienceProvider {
     private final RandomService random;
-    private final Map<String, List<String>> scienceData;
+    private List<String> elements;
+    private List<String> symbols;
+    private List<String> units;
+    private List<String> unitSymbols;
+    private List<String> unitPrefixes;
+    private List<String> unitPrefixSymbols;
 
+    /**
+     * Constructs a new ScienceProvider with the specified RandomService.
+     *
+     * @param random The RandomService instance to use for generating random values
+     */
     public ScienceProvider(RandomService random) {
         this.random = random;
-        this.scienceData = new HashMap<>();
     }
 
-    private String get(String category) {
-        if (!scienceData.containsKey(category)) {
-            scienceData.put(category, LazyLoader.load("science" + category, () -> DataLoader.getListData("science", category)));
-        }
-        return random.randomElement(scienceData.get(category));
-    }
-
+    /**
+     * Generates a random chemical element name.
+     *
+     * @return A random chemical element name as a string
+     */
     public String chemicalElement() {
-        return get("elements");
+        elements = LazyLoader.load("scienceElements", () -> DataLoader.getListData("science", "elements"));
+        return random.randomElement(elements);
     }
 
+    /**
+     * Generates a random chemical element symbol.
+     *
+     * @return A random chemical element symbol as a string
+     */
     public String chemicalSymbol() {
-        return get("symbols");
+        symbols = LazyLoader.load("scienceSymbols", () -> DataLoader.getListData("science", "symbols"));
+        return random.randomElement(symbols);
     }
 
+    /**
+     * Generates a random chemical formula.
+     * The formula consists of a chemical symbol (first letter capitalized, second letter lowercase if present)
+     * and optionally a random number between 1 and 9.
+     *
+     * @return A random chemical formula as a string
+     */
     public String chemicalFormula() {
         StringBuilder formula = new StringBuilder();
-        String element = chemicalElement();
         String symbol = chemicalSymbol();
         
-        // İlk harf büyük, sonraki harfler küçük
         formula.append(Character.toUpperCase(symbol.charAt(0)));
         if (symbol.length() > 1) {
             formula.append(Character.toLowerCase(symbol.charAt(1)));
         }
         
-        // Rastgele sayı ekle (0-9 arası)
         if (random.nextBoolean()) {
             formula.append(random.nextInt(1, 9));
         }
@@ -50,22 +71,51 @@ public class ScienceProvider {
         return formula.toString();
     }
 
+    /**
+     * Generates a random unit of measurement.
+     *
+     * @return A random unit of measurement as a string
+     */
     public String unit() {
-        return get("units");
+        units = LazyLoader.load("scienceUnits", () -> DataLoader.getListData("science", "units"));
+        return random.randomElement(units);
     }
 
+    /**
+     * Generates a random unit symbol.
+     *
+     * @return A random unit symbol as a string
+     */
     public String unitSymbol() {
-        return get("unit_symbols");
+        unitSymbols = LazyLoader.load("scienceUnitSymbols", () -> DataLoader.getListData("science", "unit_symbols"));
+        return random.randomElement(unitSymbols);
     }
 
+    /**
+     * Generates a random unit prefix (e.g., kilo, mega, giga).
+     *
+     * @return A random unit prefix as a string
+     */
     public String unitPrefix() {
-        return get("unit_prefixes");
+        unitPrefixes = LazyLoader.load("scienceUnitPrefixes", () -> DataLoader.getListData("science", "unit_prefixes"));
+        return random.randomElement(unitPrefixes);
     }
 
+    /**
+     * Generates a random unit prefix symbol (e.g., k, M, G).
+     *
+     * @return A random unit prefix symbol as a string
+     */
     public String unitPrefixSymbol() {
-        return get("unit_prefix_symbols");
+        unitPrefixSymbols = LazyLoader.load("scienceUnitPrefixSymbols", () -> DataLoader.getListData("science", "unit_prefix_symbols"));
+        return random.randomElement(unitPrefixSymbols);
     }
 
+    /**
+     * Generates a random unit with a prefix.
+     *
+     * @return A random unit with prefix as a string
+     */
     public String unitWithPrefix() {
         return String.format("%s%s",
             unitPrefix(),
@@ -73,6 +123,11 @@ public class ScienceProvider {
         );
     }
 
+    /**
+     * Generates a random unit symbol with a prefix symbol.
+     *
+     * @return A random unit symbol with prefix symbol as a string
+     */
     public String unitSymbolWithPrefix() {
         return String.format("%s%s",
             unitPrefixSymbol(),
@@ -80,6 +135,11 @@ public class ScienceProvider {
         );
     }
 
+    /**
+     * Main method for testing the functionality of ScienceProvider.
+     *
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
         ScienceProvider scienceProvider = new ScienceProvider(new RandomService());
         System.out.println("Chemical Element: " + scienceProvider.chemicalElement());
@@ -91,6 +151,5 @@ public class ScienceProvider {
         System.out.println("Unit Prefix Symbol: " + scienceProvider.unitPrefixSymbol());
         System.out.println("Unit with Prefix: " + scienceProvider.unitWithPrefix());
         System.out.println("Unit Symbol with Prefix: " + scienceProvider.unitSymbolWithPrefix());
-        
     }
 } 

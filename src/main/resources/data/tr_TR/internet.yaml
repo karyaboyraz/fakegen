@@ -9,15 +9,44 @@ domainNames:
   - mysite.net
   - cooldomain.dev
   - sandbox.local
-
-usernames:
-    - coolcat
-    - techguru
-    - musiclover
-    - coder123
-    - jazzman
-    - traveller
-    - foodie
-    - randomuser
-    - sample123
-    - demo_account
+  - google.com
+  - facebook.com
+  - twitter.com
+  - instagram.com
+  - linkedin.com
+  - github.com
+  - amazon.com
+  - netflix.com
+  - spotify.com
+  - youtube.com
+  - reddit.com
+  - medium.com
+  - stackoverflow.com
+  - quora.com
+  - pinterest.com
+  - tumblr.com
+  - wordpress.com
+  - blogger.com
+  - medium.com
+  - dev.to
+  - codepen.io
+  - jsfiddle.net
+  - codesandbox.io
+  - gitlab.com
+  - bitbucket.org
+  - docker.com
+  - kubernetes.io
+  - aws.amazon.com
+  - azure.microsoft.com
+  - cloud.google.com
+  - digitalocean.com
+  - heroku.com
+  - netlify.com
+  - vercel.com
+  - firebase.google.com
+  - mongodb.com
+  - redis.com
+  - elastic.co
+  - grafana.com
+  - prometheus.io
+  - sentry.io

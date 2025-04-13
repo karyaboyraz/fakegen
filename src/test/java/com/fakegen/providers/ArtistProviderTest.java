@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,28 +17,28 @@ class ArtistProviderTest {
         artistProvider = new ArtistProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void name_ShouldReturnValidName() {
         String name = artistProvider.name();
         assertNotNull(name);
         assertFalse(name.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void genre_ShouldReturnValidGenre() {
         String genre = artistProvider.genre();
         assertNotNull(genre);
         assertFalse(genre.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void nationality_ShouldReturnValidNationality() {
         String nationality = artistProvider.nationality();
         assertNotNull(nationality);
         assertFalse(nationality.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void artwork_ShouldReturnValidArtwork() {
         String artwork = artistProvider.artwork();
         assertNotNull(artwork);

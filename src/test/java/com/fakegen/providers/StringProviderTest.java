@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ class StringProviderTest {
         stringProvider = new StringProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void alpha_ShouldReturnValidAlphaString() {
         int count = 10;
         String alpha = stringProvider.alpha(count);
@@ -27,7 +27,7 @@ class StringProviderTest {
         assertTrue(alpha.matches("^[a-zA-Z]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void alphaNumeric_ShouldReturnValidAlphaNumericString() {
         int count = 10;
         String alphaNumeric = stringProvider.alphaNumeric(count);
@@ -37,7 +37,7 @@ class StringProviderTest {
         assertTrue(alphaNumeric.matches("^[a-zA-Z0-9]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void numeric_ShouldReturnValidNumericString() {
         int count = 10;
         String numeric = stringProvider.numeric(count);
@@ -47,7 +47,7 @@ class StringProviderTest {
         assertTrue(numeric.matches("^\\d+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void hex_ShouldReturnValidHexString() {
         int count = 10;
         String hex = stringProvider.hex(count);
@@ -57,7 +57,7 @@ class StringProviderTest {
         assertTrue(hex.matches("^[0-9a-f]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void binary_ShouldReturnValidBinaryString() {
         int count = 10;
         String binary = stringProvider.binary(count);

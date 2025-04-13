@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class WordProviderTest {
         wordProvider = new WordProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void word_ShouldReturnValidWord() {
         String word = wordProvider.word();
         assertNotNull(word);
         assertFalse(word.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void words_ShouldReturnValidWords() {
         String words = wordProvider.words(5);
         assertNotNull(words);
@@ -32,7 +32,7 @@ class WordProviderTest {
         assertEquals(4, words.chars().filter(ch -> ch == ' ').count());
     }
 
-    @Test
+    @RepeatedTest(20)
     void sentence_ShouldReturnValidSentence() {
         String sentence = wordProvider.sentence(5);
         assertNotNull(sentence);
@@ -42,7 +42,7 @@ class WordProviderTest {
         assertEquals(4, sentence.chars().filter(ch -> ch == ' ').count());
     }
 
-    @Test
+    @RepeatedTest(20)
     void sentences_ShouldReturnValidSentences() {
         String sentences = wordProvider.sentences(2);
         assertNotNull(sentences);
@@ -52,7 +52,7 @@ class WordProviderTest {
         assertEquals(2, sentences.chars().filter(ch -> ch == '.').count());
     }
 
-    @Test
+    @RepeatedTest(20)
     void paragraph_ShouldReturnValidParagraph() {
         String paragraph = wordProvider.paragraph(2);
         assertNotNull(paragraph);
@@ -62,7 +62,7 @@ class WordProviderTest {
         assertEquals(2, paragraph.chars().filter(ch -> ch == '.').count());
     }
 
-    @Test
+    @RepeatedTest(20)
     void paragraphs_ShouldReturnValidParagraphs() {
         String paragraphs = wordProvider.paragraphs(3);
         assertNotNull(paragraphs);
@@ -72,7 +72,7 @@ class WordProviderTest {
         assertEquals(2, paragraphs.chars().filter(ch -> ch == '\n').count() / 2);
     }
 
-    @Test
+    @RepeatedTest(20)
     void text_ShouldReturnValidText() {
         int characterCount = 100;
         String text = wordProvider.text(characterCount);

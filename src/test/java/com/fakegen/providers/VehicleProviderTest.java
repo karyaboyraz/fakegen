@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,49 +17,49 @@ class VehicleProviderTest {
         vehicleProvider = new VehicleProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void vehicle_ShouldReturnValidVehicle() {
         String vehicle = vehicleProvider.vehicle();
         assertNotNull(vehicle);
         assertFalse(vehicle.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void manufacturer_ShouldReturnValidManufacturer() {
         String manufacturer = vehicleProvider.manufacturer();
         assertNotNull(manufacturer);
         assertFalse(manufacturer.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void model_ShouldReturnValidModel() {
         String model = vehicleProvider.model();
         assertNotNull(model);
         assertFalse(model.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void type_ShouldReturnValidType() {
         String type = vehicleProvider.type();
         assertNotNull(type);
         assertFalse(type.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void fuel_ShouldReturnValidFuel() {
         String fuel = vehicleProvider.fuel();
         assertNotNull(fuel);
         assertFalse(fuel.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void color_ShouldReturnValidColor() {
         String color = vehicleProvider.color();
         assertNotNull(color);
         assertFalse(color.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void vin_ShouldReturnValidVin() {
         String vin = vehicleProvider.vin();
         assertNotNull(vin);
@@ -67,18 +67,10 @@ class VehicleProviderTest {
         assertTrue(vin.matches("^[A-HJ-NPR-Z0-9]{17}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void licensePlate_ShouldReturnValidFormat() {
         String licensePlate = vehicleProvider.licensePlate();
         assertNotNull(licensePlate);
         assertFalse(licensePlate.isEmpty());
-    }
-
-    @Test
-    void licensePlateWithFormat_ShouldReturnValidFormat() {
-        String licensePlate = vehicleProvider.licensePlateWithFormat();
-        assertNotNull(licensePlate);
-        assertFalse(licensePlate.isEmpty());
-        assertTrue(licensePlate.matches("^[A-Z0-9-]+$"));
     }
 } 

@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class ColorProviderTest {
         colorProvider = new ColorProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void name_ShouldReturnValidName() {
         String name = colorProvider.name();
         assertNotNull(name);
         assertFalse(name.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void hex_ShouldReturnValidHex() {
         String hex = colorProvider.hex();
         assertNotNull(hex);
@@ -32,7 +32,7 @@ class ColorProviderTest {
         assertTrue(hex.matches("^#[0-9a-fA-F]{6}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void rgb_ShouldReturnValidRgb() {
         String rgb = colorProvider.rgb();
         assertNotNull(rgb);
@@ -40,7 +40,7 @@ class ColorProviderTest {
         assertTrue(rgb.matches("^rgb\\(\\d{1,3}, \\d{1,3}, \\d{1,3}\\)$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void rgba_ShouldReturnValidRgba() {
         String rgba = colorProvider.rgba();
         assertNotNull(rgba);
@@ -48,7 +48,7 @@ class ColorProviderTest {
         assertTrue(rgba.matches("^rgba\\(\\d{1,3}, \\d{1,3}, \\d{1,3}, 0\\.\\d+\\)$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void hsl_ShouldReturnValidHsl() {
         String hsl = colorProvider.hsl();
         assertNotNull(hsl);

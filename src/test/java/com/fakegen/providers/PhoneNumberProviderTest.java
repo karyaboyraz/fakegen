@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ class PhoneNumberProviderTest {
         phoneNumberProvider = new PhoneNumberProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void phoneNumber_ShouldReturnValidFormat() {
         String phoneNumber = phoneNumberProvider.phoneNumber();
         assertNotNull(phoneNumber);
@@ -25,7 +25,7 @@ class PhoneNumberProviderTest {
         assertTrue(phoneNumber.matches("^\\+?[0-9\\s-()]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void cellPhone_ShouldReturnValidFormat() {
         String cellPhone = phoneNumberProvider.cellPhone();
         assertNotNull(cellPhone);
@@ -33,7 +33,7 @@ class PhoneNumberProviderTest {
         assertTrue(cellPhone.matches("^\\+?[0-9\\s-()]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void landline_ShouldReturnValidFormat() {
         String landline = phoneNumberProvider.landline();
         assertNotNull(landline);
@@ -41,7 +41,7 @@ class PhoneNumberProviderTest {
         assertTrue(landline.matches("^\\+?[0-9\\s-()]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void internationalPhoneFormat_ShouldReturnValidFormat() {
         String internationalPhone = phoneNumberProvider.internationalPhoneFormat();
         assertNotNull(internationalPhone);

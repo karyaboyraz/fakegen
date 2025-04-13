@@ -5,58 +5,77 @@ import com.fakegen.util.DataLoader;
 import com.fakegen.util.LazyLoader;
 import java.util.List;
 
+/**
+ * A provider class for generating fake internet-related data.
+ * This class provides methods to generate various components of internet information,
+ * including email addresses, usernames, domain names, URLs, IP addresses, and more.
+ */
 public class InternetProvider {
     private final RandomService random;
-    private List<String> firstNames;
-    private List<String> lastNames;
     private List<String> domainNames;
 
+    /**
+     * Constructs a new InternetProvider with the specified RandomService.
+     *
+     * @param random The RandomService instance to use for generating random values
+     */
     public InternetProvider(RandomService random) {
         this.random = random;
     }
 
-    private String sanitizeAscii(String input) {
-        String normalized = java.text.Normalizer.normalize(input, java.text.Normalizer.Form.NFD);
-        String ascii = normalized.replaceAll("\\p{M}", "");
-        ascii = ascii.replace("ı", "i")
-                     .replace("İ", "I")
-                     .replace("ş", "s")
-                     .replace("Ş", "S")
-                     .replace("ğ", "g")
-                     .replace("Ğ", "G")
-                     .replace("ü", "u")
-                     .replace("Ü", "U")
-                     .replace("ö", "o")
-                     .replace("Ö", "O")
-                     .replace("ç", "c")
-                     .replace("Ç", "C");
-        return ascii;
-    }
-
+    /**
+     * Generates a random email address using a username and domain name.
+     *
+     * @return A randomly generated email address
+     */
     public String email() {
-        return username() + "@" + domainName();
+        return new NameProvider(random).username() + "@" + domainName();
     }
 
+    /**
+     * Generates a random username.
+     *
+     * @return A randomly generated username
+     */
     public String username() {
-        firstNames = LazyLoader.load("nameFirstNames", () -> DataLoader.getListData("name", "first_names"));
-        lastNames = LazyLoader.load("nameLastNames", () -> DataLoader.getListData("name", "last_names"));
-        String firstName = random.randomElement(firstNames);
-        String lastName = random.randomElement(lastNames);
-        String username = sanitizeAscii(firstName).toLowerCase() + "." + sanitizeAscii(lastName).toLowerCase();
-        return sanitizeAscii(username);
+        return new NameProvider(random).username();
     }
 
+    /**
+     * Generates a random domain name.
+     * Ensures the generated domain name follows the standard format.
+     *
+     * @return A randomly selected domain name
+     */
     public String domainName() {
         domainNames = LazyLoader.load("internetDomainNames", () -> DataLoader.getListData("internet", "domainNames"));
-        return random.randomElement(domainNames);
+        String domain = random.randomElement(domainNames);
+        // Eğer domain adı regex formatına uymuyorsa, geçerli bir domain adı oluştur
+        if (!domain.matches("^[\\w-]+\\.[a-zA-Z]{2,}$")) {
+            String[] parts = domain.split("\\.");
+            if (parts.length >= 2) {
+                domain = parts[0] + "." + parts[1];
+            }
+        }
+        return domain;
     }
 
+    /**
+     * Generates a random URL with either http or https protocol.
+     *
+     * @return A randomly generated URL
+     */
     public String url() {
         String protocol = random.nextBoolean() ? "https" : "http";
         String domain = domainName();
         return protocol + "://www." + domain;
     }
 
+    /**
+     * Generates a random IPv4 address.
+     *
+     * @return A string representation of a random IPv4 address
+     */
     public String ipv4() {
         return random.nextInt(0, 255) + "." +
                random.nextInt(0, 255) + "." +
@@ -64,6 +83,11 @@ public class InternetProvider {
                random.nextInt(0, 255);
     }
 
+    /**
+     * Generates a random IPv6 address.
+     *
+     * @return A string representation of a random IPv6 address
+     */
     public String ipv6() {
         StringBuilder ipv6 = new StringBuilder();
         for (int i = 0; i < 8; i++) {
@@ -75,6 +99,11 @@ public class InternetProvider {
         return ipv6.toString();
     }
 
+    /**
+     * Generates a random MAC address.
+     *
+     * @return A string representation of a random MAC address
+     */
     public String macAddress() {
         StringBuilder mac = new StringBuilder();
         for (int i = 0; i < 6; i++) {
@@ -86,48 +115,54 @@ public class InternetProvider {
         return mac.toString();
     }
 
+    /**
+     * Generates a random password with default length of 10 characters.
+     * The password includes uppercase letters and digits.
+     *
+     * @return A randomly generated password
+     */
     public String password() {
-        String chars = DataLoader.getAlphabet() + DataLoader.getAlphabet().toLowerCase() + DataLoader.getSampleCharacters() + DataLoader.getNumeric();
-        StringBuilder password = new StringBuilder();
-        for (int i = 0; i < 12; i++) {
-            password.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
-        }
-        return password.toString();
+        return random.randomString(10, true, true, false, false);
     }
 
+    /**
+     * Generates a random password with the specified length.
+     * The password includes uppercase letters and digits.
+     *
+     * @param length The desired length of the password
+     * @return A randomly generated password with the specified length
+     */
     public String password(int length) {
-        String chars = DataLoader.getAlphabet() + DataLoader.getAlphabet().toLowerCase() + DataLoader.getSampleCharacters() + DataLoader.getNumeric();
-        StringBuilder password = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            password.append(chars.charAt(random.nextInt(0, chars.length() - 1)));
-        }
-        return password.toString();
+        return random.randomString(length, true, true, false, false);
     }
 
+    /**
+     * Generates a random password with custom rules.
+     *
+     * @param length The desired length of the password
+     * @param includeUpper Whether to include uppercase letters
+     * @param includeDigits Whether to include digits
+     * @param includeSymbols Whether to include special symbols
+     * @return A randomly generated password following the specified rules
+     */
     public String passwordWithRules(int length, boolean includeUpper, boolean includeDigits, boolean includeSymbols) {
-        StringBuilder charPool = new StringBuilder(DataLoader.getAlphabet().toLowerCase());
-        if (includeUpper) {
-            charPool.append(DataLoader.getAlphabet());
-        }
-        if (includeDigits) {
-            charPool.append(DataLoader.getNumeric());
-        }
-        if (includeSymbols) {
-            charPool.append(DataLoader.getSampleCharacters());
-        }
-        System.out.println("Character Pool: " + charPool);
-        String pool = charPool.toString();
-        StringBuilder password = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            password.append(pool.charAt(random.nextInt(0, pool.length())));
-        }
-        return password.toString();
+        return random.randomString(length, includeDigits, includeUpper, includeUpper, includeSymbols);
     }
 
+    /**
+     * Generates a random port number between 1 and 65535.
+     *
+     * @return A random port number
+     */
     public int randomPort() {
         return random.nextInt(1, 65536);
     }
 
+    /**
+     * Generates a random emoji from a predefined set.
+     *
+     * @return A randomly selected emoji
+     */
     public String randomEmoji() {
         String[] emojis = {
             "😀","😂","🥰","😎","🤖","🎉","🚀","🍕","🌟","🔥",
@@ -136,6 +171,12 @@ public class InternetProvider {
         return emojis[random.nextInt(0, emojis.length - 1)];
     }
 
+    /**
+     * Main method for testing the InternetProvider functionality.
+     * This method demonstrates the usage of various internet-related data generation methods.
+     *
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
         InternetProvider internetProvider = new InternetProvider(new RandomService());
         System.out.println("Email: " + internetProvider.email());

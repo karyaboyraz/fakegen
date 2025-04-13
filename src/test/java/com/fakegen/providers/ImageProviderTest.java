@@ -3,7 +3,7 @@ package com.fakegen.providers;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +16,7 @@ class ImageProviderTest {
         imageProvider = new ImageProvider();
     }
 
-    @Test
+    @RepeatedTest(20)
     void imageUrl_ShouldReturnValidUrl() {
         String url = imageProvider.imageUrl(800, 600);
         assertNotNull(url);
@@ -24,7 +24,7 @@ class ImageProviderTest {
         assertTrue(url.matches("^https://picsum\\.photos/800/600$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void imageUrlWithCategory_ShouldReturnValidUrl() {
         String url = imageProvider.imageUrl(800, 600, "nature");
         assertNotNull(url);
@@ -32,7 +32,7 @@ class ImageProviderTest {
         assertTrue(url.matches("^https://picsum\\.photos/800/600\\?category=nature$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void imageUrlWithCategoryAndSearch_ShouldReturnValidUrl() {
         String url = imageProvider.imageUrl(800, 600, "nature", "mountain");
         assertNotNull(url);
@@ -40,7 +40,7 @@ class ImageProviderTest {
         assertTrue(url.matches("^https://picsum\\.photos/800/600\\?category=nature&search=mountain$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void imageUrlWithCategorySearchAndSeed_ShouldReturnValidUrl() {
         String url = imageProvider.imageUrl(800, 600, "nature", "mountain", "sunset");
         assertNotNull(url);

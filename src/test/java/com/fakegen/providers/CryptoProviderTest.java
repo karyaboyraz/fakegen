@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,28 +17,28 @@ class CryptoProviderTest {
         cryptoProvider = new CryptoProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void coinName_ShouldReturnValidName() {
         String name = cryptoProvider.coinName();
         assertNotNull(name);
         assertFalse(name.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void coinSymbol_ShouldReturnValidSymbol() {
         String symbol = cryptoProvider.coinSymbol();
         assertNotNull(symbol);
         assertFalse(symbol.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void blockchain_ShouldReturnValidBlockchain() {
         String blockchain = cryptoProvider.blockchain();
         assertNotNull(blockchain);
         assertFalse(blockchain.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void walletAddress_ShouldReturnValidAddress() {
         String address = cryptoProvider.walletAddress();
         assertNotNull(address);
@@ -46,7 +46,7 @@ class CryptoProviderTest {
         assertEquals(34, address.length());
     }
 
-    @Test
+    @RepeatedTest(20)
     void transactionHash_ShouldReturnValidHash() {
         String hash = cryptoProvider.transactionHash();
         assertNotNull(hash);

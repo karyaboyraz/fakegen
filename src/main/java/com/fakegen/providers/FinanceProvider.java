@@ -68,6 +68,12 @@ public class FinanceProvider {
         return cvv.toString();
     }
 
+    /**
+     * Generates a random bank account number.
+     * The account number consists of 10 digits.
+     *
+     * @return A randomly generated bank account number
+     */
     public String bankAccountNumber() {
         StringBuilder accountNumber = new StringBuilder();
         for (int i = 0; i < 10; i++) {
@@ -76,17 +82,35 @@ public class FinanceProvider {
         return accountNumber.toString();
     }
 
+    /**
+     * Generates a random IBAN (International Bank Account Number) based on predefined templates.
+     *
+     * @return A randomly generated IBAN
+     */
     public String ibanBuilder() {
         ibanTemplates = LazyLoader.load("financeIbanTemplates", () -> DataLoader.getListData("finance", "ibanTemplate"));
         String format = random.randomElement(ibanTemplates);
         return random.randomize(format);
     }
 
+    /**
+     * Generates a random monetary amount within the specified range.
+     *
+     * @param min The minimum amount (inclusive)
+     * @param max The maximum amount (inclusive)
+     * @return A string representation of the amount with 2 decimal places
+     */
     public String amount(double min, double max) {
         double amount = random.nextDouble(min, max);
         return String.format("%.2f", amount);
     }
 
+    /**
+     * Main method for testing the functionality of FinanceProvider.
+     * This method demonstrates the usage of various financial data generation methods.
+     *
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
         FinanceProvider financeProvider = new FinanceProvider(new RandomService());
         System.out.println("Random Visa Card Number: " + financeProvider.visaCardNumber());

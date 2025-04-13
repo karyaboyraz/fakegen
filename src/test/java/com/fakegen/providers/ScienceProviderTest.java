@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class ScienceProviderTest {
         scienceProvider = new ScienceProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void unit_ShouldReturnValidUnit() {
         String unit = scienceProvider.unit();
         assertNotNull(unit);
         assertFalse(unit.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void chemicalFormula_ShouldReturnValidFormula() {
         String formula = scienceProvider.chemicalFormula();
         assertNotNull(formula);

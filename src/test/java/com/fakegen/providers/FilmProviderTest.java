@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,35 +17,35 @@ class FilmProviderTest {
         filmProvider = new FilmProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void title_ShouldReturnValidTitle() {
         String title = filmProvider.title();
         assertNotNull(title);
         assertFalse(title.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void genre_ShouldReturnValidGenre() {
         String genre = filmProvider.genre();
         assertNotNull(genre);
         assertFalse(genre.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void director_ShouldReturnValidDirector() {
         String director = filmProvider.director();
         assertNotNull(director);
         assertFalse(director.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void actor_ShouldReturnValidActor() {
         String actor = filmProvider.actor();
         assertNotNull(actor);
         assertFalse(actor.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void character_ShouldReturnValidCharacter() {
         String character = filmProvider.character();
         assertNotNull(character);

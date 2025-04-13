@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ class HelpersProviderTest {
         helpersProvider = new HelpersProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomElement_ShouldReturnValidElementFromList() {
         List<String> list = Arrays.asList("a", "b", "c");
         String result = helpersProvider.randomElement(list);
@@ -30,7 +30,7 @@ class HelpersProviderTest {
         assertTrue(list.contains(result));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomElement_ShouldReturnValidElementFromArray() {
         String[] array = {"a", "b", "c"};
         String result = helpersProvider.randomElement(array);
@@ -38,7 +38,7 @@ class HelpersProviderTest {
         assertTrue(Arrays.asList(array).contains(result));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomKey_ShouldReturnValidKey() {
         Map<String, Integer> map = new HashMap<>();
         map.put("a", 1);
@@ -49,7 +49,7 @@ class HelpersProviderTest {
         assertTrue(map.containsKey(result));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomValue_ShouldReturnValidValue() {
         Map<String, Integer> map = new HashMap<>();
         map.put("a", 1);
@@ -60,7 +60,7 @@ class HelpersProviderTest {
         assertTrue(map.containsValue(result));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomize_ShouldReturnValidString() {
         String input = "###???";
         String result = helpersProvider.randomize(input);
@@ -69,7 +69,7 @@ class HelpersProviderTest {
         assertTrue(result.matches("^\\d{3}[A-Z]{3}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void numerify_ShouldReturnValidNumericString() {
         String input = "###-###-####";
         String result = helpersProvider.numerify(input);
@@ -78,7 +78,7 @@ class HelpersProviderTest {
         assertTrue(result.matches("^\\d{3}-\\d{3}-\\d{4}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void letterify_ShouldReturnValidLetterString() {
         String input = "???-???-????";
         String result = helpersProvider.letterify(input);
@@ -87,7 +87,7 @@ class HelpersProviderTest {
         assertTrue(result.matches("^[A-Z]{3}-[A-Z]{3}-[A-Z]{4}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void bothify_ShouldReturnValidString() {
         String input = "##??-??##-????";
         String result = helpersProvider.bothify(input);

@@ -9,6 +9,116 @@ streets:
   - "Millet"
   - "Zafer"
   - "Barış"
+  - "Fevzi Çakmak"
+  - "Mevlana"
+  - "Yunus Emre"
+  - "Hacı Bektaş Veli"
+  - "Pir Sultan"
+  - "Şehitler"
+  - "Gaziler"
+  - "Şairler"
+  - "Yazarlar"
+  - "Bilim"
+  - "Sanat"
+  - "Kültür"
+  - "Eğitim"
+  - "Sağlık"
+  - "Çevre"
+  - "Doğa"
+  - "Yeşil"
+  - "Mavi"
+  - "Sarı"
+  - "Kırmızı"
+  - "Turgut Özal"
+  - "Süleyman Demirel"
+  - "Bülent Ecevit"
+  - "Necmettin Erbakan"
+  - "Tansu Çiller"
+  - "Mesut Yılmaz"
+  - "Kenan Evren"
+  - "Fahrettin Altay"
+  - "Kazım Karabekir"
+  - "İsmet İnönü"
+  - "Celal Bayar"
+  - "Adnan Menderes"
+  - "Cemal Gürsel"
+  - "Cevdet Sunay"
+  - "Fahri Korutürk"
+  - "Kenan Evren"
+  - "Turgut Sunalp"
+  - "Necdet Üruğ"
+  - "Doğan Güreş"
+  - "İsmail Hakkı Karadayı"
+  - "Hüseyin Kıvrıkoğlu"
+  - "Hilmi Özkök"
+  - "Yaşar Büyükanıt"
+  - "İlker Başbuğ"
+  - "Işık Koşaner"
+  - "Necdet Özel"
+  - "Hulusi Akar"
+  - "Yaşar Güler"
+  - "Mustafa Kemal"
+  - "Ziya Gökalp"
+  - "Namık Kemal"
+  - "Tevfik Fikret"
+  - "Halide Edip"
+  - "Nazım Hikmet"
+  - "Orhan Veli"
+  - "Cahit Sıtkı"
+  - "Peyami Safa"
+  - "Reşat Nuri"
+  - "Yahya Kemal"
+  - "Necip Fazıl"
+  - "Sezai Karakoç"
+  - "Cemil Meriç"
+  - "Ahmet Hamdi"
+  - "Sabahattin Ali"
+  - "Kemal Tahir"
+  - "Tarık Buğra"
+  - "Oğuz Atay"
+  - "Attila İlhan"
+  - "Can Yücel"
+  - "Cemal Süreya"
+  - "Edip Cansever"
+  - "Turgut Uyar"
+  - "Behçet Necatigil"
+  - "Sait Faik"
+  - "Haldun Taner"
+  - "Aziz Nesin"
+  - "Yaşar Kemal"
+  - "Orhan Pamuk"
+  - "Elif Şafak"
+  - "Ahmet Ümit"
+  - "İhsan Oktay Anar"
+  - "Buket Uzuner"
+  - "Murat Menteş"
+  - "Barış Bıçakçı"
+  - "Hasan Ali Toptaş"
+  - "Kemal Varol"
+  - "Şebnem İşigüzel"
+  - "Ayfer Tunç"
+  - "Murat Gülsoy"
+  - "Hakan Günday"
+  - "Zülfü Livaneli"
+  - "Ahmet Altan"
+  - "Mehmet Eroğlu"
+  - "İnci Aral"
+  - "Pınar Kür"
+  - "Tomris Uyar"
+  - "Leyla Erbil"
+  - "Tezer Özlü"
+  - "Füruzan"
+  - "Sevinç Çokum"
+  - "Ayla Kutlu"
+  - "Adalet Ağaoğlu"
+  - "Nedim Gürsel"
+  - "Enis Batur"
+  - "Erendiz Atasü"
+  - "Buket Uzuner"
+  - "Murathan Mungan"
+  - "Selim İleri"
+  - "Doğan Yarıcı"
+  - "Güven Turan"
 
 street_suffixes:
   - Caddesi
@@ -20,6 +130,45 @@ street_suffixes:
   - Sitesi
 
 districts:
+  - Kadıköy
+  - Üsküdar
+  - Beşiktaş
+  - Şişli
+  - Beyoğlu
+  - Fatih
+  - Bakırköy
+  - Maltepe
+  - Ataşehir
+  - Pendik
+  - Kartal
+  - Ümraniye
+  - Beykoz
+  - Sarıyer
+  - Eyüp
+  - Gaziosmanpaşa
+  - Zeytinburnu
+  - Bayrampaşa
+  - Kağıthane
+  - Güngören
+  - Bağcılar
+  - Esenler
+  - Bahçelievler
+  - Avcılar
+  - Küçükçekmece
+  - Büyükçekmece
+  - Silivri
+  - Çatalca
+  - Arnavutköy
+  - Sultangazi
+  - Başakşehir
+  - Beylikdüzü
+  - Esenyurt
+  - Sancaktepe
+  - Sultanbeyli
+  - Çekmeköy
+  - Tuzla
+  - Şile
+  - Adalar
   - Merkez
   - Yeni
   - Eski
@@ -138,3 +287,12 @@ countries:
 
 postal_codes:
   - "#####"
+
+states:
+  - Marmara Bölgesi
+  - Ege Bölgesi
+  - Akdeniz Bölgesi
+  - İç Anadolu Bölgesi
+  - Karadeniz Bölgesi
+  - Doğu Anadolu Bölgesi
+  - Güneydoğu Anadolu Bölgesi

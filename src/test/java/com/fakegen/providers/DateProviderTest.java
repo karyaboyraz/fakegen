@@ -1,10 +1,10 @@
 package com.fakegen.providers;
 
-import com.fakegen.RandomService;
+import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,7 +21,7 @@ class DateProviderTest {
         dateProvider = new DateProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void today_ShouldReturnValidDate() {
         String today = dateProvider.today();
         assertNotNull(today);
@@ -29,7 +29,7 @@ class DateProviderTest {
         assertEquals(LocalDate.now().toString(), today);
     }
 
-    @Test
+    @RepeatedTest(20)
     void tomorrow_ShouldReturnValidDate() {
         String tomorrow = dateProvider.tomorrow();
         assertNotNull(tomorrow);
@@ -37,7 +37,7 @@ class DateProviderTest {
         assertEquals(LocalDate.now().plusDays(1).toString(), tomorrow);
     }
 
-    @Test
+    @RepeatedTest(20)
     void yesterday_ShouldReturnValidDate() {
         String yesterday = dateProvider.yesterday();
         assertNotNull(yesterday);
@@ -45,7 +45,7 @@ class DateProviderTest {
         assertEquals(LocalDate.now().minusDays(1).toString(), yesterday);
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomDateInPast_ShouldReturnValidDate() {
         String randomDate = dateProvider.randomDateInPast();
         assertNotNull(randomDate);
@@ -54,7 +54,7 @@ class DateProviderTest {
         assertTrue(date.isBefore(LocalDate.now()));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomDateInFuture_ShouldReturnValidDate() {
         String randomDate = dateProvider.randomDateInFuture();
         assertNotNull(randomDate);
@@ -63,7 +63,7 @@ class DateProviderTest {
         assertTrue(date.isAfter(LocalDate.now()));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomDateBetween_ShouldReturnValidDate() {
         LocalDate start = LocalDate.now().minusYears(1);
         LocalDate end = LocalDate.now().plusYears(1);
@@ -75,7 +75,7 @@ class DateProviderTest {
         assertTrue(date.isBefore(end) || date.isEqual(end));
     }
 
-    @Test
+    @RepeatedTest(20)
     void randomHours_ShouldReturnValidTime() {
         String time = dateProvider.randomHours();
         assertNotNull(time);
@@ -83,7 +83,7 @@ class DateProviderTest {
         assertTrue(time.matches("^\\d{2}:00$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void RandomHoursAndMinutes_ShouldReturnValidTime() {
         String time = dateProvider.RandomHoursAndMinutes();
         assertNotNull(time);
@@ -91,25 +91,25 @@ class DateProviderTest {
         assertTrue(time.matches("^\\d{2}:\\d{2}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void date_ShouldReturnValidDate() {
         LocalDate date = dateProvider.date();
         assertNotNull(date);
     }
 
-    @Test
+    @RepeatedTest(20)
     void time_ShouldReturnValidTime() {
         LocalTime time = dateProvider.time();
         assertNotNull(time);
     }
 
-    @Test
+    @RepeatedTest(20)
     void dateTime_ShouldReturnValidDateTime() {
         LocalDateTime dateTime = dateProvider.dateTime();
         assertNotNull(dateTime);
     }
 
-    @Test
+    @RepeatedTest(20)
     void dateString_ShouldReturnValidDateString() {
         String dateString = dateProvider.dateString("yyyy-MM-dd");
         assertNotNull(dateString);
@@ -117,7 +117,7 @@ class DateProviderTest {
         assertTrue(dateString.matches("^\\d{4}-\\d{2}-\\d{2}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void timeString_ShouldReturnValidTimeString() {
         String timeString = dateProvider.timeString("HH:mm:ss");
         assertNotNull(timeString);
@@ -125,7 +125,7 @@ class DateProviderTest {
         assertTrue(timeString.matches("^\\d{2}:\\d{2}:\\d{2}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void dateTimeString_ShouldReturnValidDateTimeString() {
         String dateTimeString = dateProvider.dateTimeString("yyyy-MM-dd HH:mm:ss");
         assertNotNull(dateTimeString);

@@ -3,92 +3,189 @@ package com.fakegen.providers;
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
 import com.fakegen.util.LazyLoader;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
+/**
+ * A provider class for generating music-related data.
+ * This class provides methods to generate various music-related information such as
+ * genres, artists, albums, songs, instruments, musical notes, scales, chords, and more.
+ */
 public class MusicProvider {
     private final RandomService random;
-    private final Map<String, List<String>> musicData;
+    private List<String> genres;
+    private List<String> artists;
+    private List<String> albums;
+    private List<String> songs;
+    private List<String> instruments;
+    private List<String> notes;
+    private final List<String> scales = Arrays.asList("major", "minor", "harmonic minor", "melodic minor", "pentatonic", "blues", "dorian", "phrygian", "lydian", "mixolydian", "locrian");
+    private List<String> chordTypes;
+    private List<String> tempos;
+    private List<String> dynamics;
+    private final List<String> timeSignatures = Arrays.asList("4/4", "3/4", "2/4", "6/8", "5/4", "7/8", "12/8");
 
+    /**
+     * Constructs a new MusicProvider with the specified RandomService.
+     *
+     * @param random The RandomService instance to use for generating random values
+     */
     public MusicProvider(RandomService random) {
         this.random = random;
-        this.musicData = new HashMap<>();
     }
 
-    private String get(String category) {
-        if (!musicData.containsKey(category)) {
-            musicData.put(category, LazyLoader.load("music" + category, () -> DataLoader.getListData("music", category)));
-        }
-        return random.randomElement(musicData.get(category));
-    }
-
+    /**
+     * Generates a random music genre.
+     *
+     * @return A random music genre as a string
+     */
     public String genre() {
-        return get("genres");
+        genres = LazyLoader.load("musicGenres", () -> DataLoader.getListData("music", "genres"));
+        return random.randomElement(genres);
     }
 
+    /**
+     * Generates a random artist name.
+     *
+     * @return A random artist name as a string
+     */
     public String artist() {
-        return get("artists");
+        artists = LazyLoader.load("musicArtists", () -> DataLoader.getListData("music", "artists"));
+        return random.randomElement(artists);
     }
 
+    /**
+     * Generates a random album name.
+     *
+     * @return A random album name as a string
+     */
     public String album() {
-        return get("albums");
+        albums = LazyLoader.load("musicAlbums", () -> DataLoader.getListData("music", "albums"));
+        return random.randomElement(albums);
     }
 
+    /**
+     * Generates a random song title.
+     *
+     * @return A random song title as a string
+     */
     public String song() {
-        return get("songs");
+        songs = LazyLoader.load("musicSongs", () -> DataLoader.getListData("music", "songs"));
+        return random.randomElement(songs);
     }
 
+    /**
+     * Generates a random musical instrument name.
+     *
+     * @return A random musical instrument name as a string
+     */
     public String instrument() {
-        return get("instruments");
+        instruments = LazyLoader.load("musicInstruments", () -> DataLoader.getListData("music", "instruments"));
+        return random.randomElement(instruments);
     }
 
+    /**
+     * Generates a random musical key (note and scale combination).
+     *
+     * @return A random musical key as a string
+     */
     public String key() {
-        return get("notes") + " " + get("scales");
+        notes = LazyLoader.load("musicNotes", () -> DataLoader.getListData("music", "notes"));
+        return random.randomElement(notes) + " " + scale();
     }
 
+    /**
+     * Generates a random chord (note and chord type combination).
+     *
+     * @return A random chord as a string
+     */
     public String chord() {
-        String base = note();
-        String chordType = get("chordTypes");
-        return base + " " + chordType;
+        notes = LazyLoader.load("musicNotes", () -> DataLoader.getListData("music", "notes"));
+        chordTypes = LazyLoader.load("musicChordTypes", () -> DataLoader.getListData("music", "chordTypes"));
+        return random.randomElement(notes) + " " + random.randomElement(chordTypes);
     }
 
+    /**
+     * Generates a random musical note.
+     *
+     * @return A randomly selected musical note
+     */
     public String note() {
-        return get("notes");
+        notes = LazyLoader.load("musicNotes", () -> DataLoader.getListData("music", "notes"));
+        return random.randomElement(notes);
     }
 
+    /**
+     * Generates a random musical scale.
+     *
+     * @return A randomly selected musical scale
+     */
     public String scale() {
-        String base = note();
-        String scaleType = get("scales");
-        return base + " " + scaleType;
+        return random.randomElement(scales);
     }
 
+    /**
+     * Generates a random tempo marking.
+     *
+     * @return A randomly selected tempo marking
+     */
     public String tempo() {
-        return get("tempos");
+        tempos = LazyLoader.load("musicTempos", () -> DataLoader.getListData("music", "tempos"));
+        return random.randomElement(tempos);
     }
 
+    /**
+     * Generates a random dynamic marking.
+     *
+     * @return A randomly selected dynamic marking
+     */
     public String dynamic() {
-        return get("dynamics");
+        dynamics = LazyLoader.load("musicDynamics", () -> DataLoader.getListData("music", "dynamics"));
+        return random.randomElement(dynamics);
     }
 
+    /**
+     * Generates a random time signature.
+     *
+     * @return A randomly selected time signature
+     */
     public String timeSignature() {
-        return get("timeSignatures");
+        return random.randomElement(timeSignatures);
     }
 
+    /**
+     * Generates a random chord type.
+     *
+     * @return A randomly selected chord type
+     */
+    public String chordType() {
+        chordTypes = LazyLoader.load("musicChordTypes", () -> DataLoader.getListData("music", "chord_types"));
+        return random.randomElement(chordTypes);
+    }
+
+    /**
+     * Generates a random chord progression.
+     * The progression consists of 4 chords.
+     *
+     * @return A string containing a random chord progression
+     */
     public String chordProgression() {
         StringBuilder progression = new StringBuilder();
-        int progressionLength = random.nextInt(3, 6);
-
-        for (int i = 0; i < progressionLength; i++) {
+        for (int i = 0; i < 4; i++) {
             if (i > 0) {
                 progression.append(" - ");
             }
-            progression.append(chord());
+            progression.append(chordType());
         }
-
         return progression.toString();
     }
 
+    /**
+     * Generates a random musical phrase.
+     * The phrase consists of 4 to 8 random notes.
+     *
+     * @return A string containing a random musical phrase
+     */
     public String musicalPhrase() {
         StringBuilder phrase = new StringBuilder();
         int phraseLength = random.nextInt(4, 8);
@@ -103,21 +200,27 @@ public class MusicProvider {
         return phrase.toString();
     }
 
+    /**
+     * Main method for testing the functionality of MusicProvider.
+     * This method demonstrates the usage of various music-related data generation methods.
+     *
+     * @param args Command line arguments (not used)
+     */
     public static void main(String[] args) {
         MusicProvider musicProvider = new MusicProvider(new RandomService());
-        System.out.println("Müzik Türü: " + musicProvider.genre());
-        System.out.println("Sanatçı: " + musicProvider.artist());
-        System.out.println("Albüm: " + musicProvider.album());
-        System.out.println("Şarkı: " + musicProvider.song());
-        System.out.println("Enstrüman: " + musicProvider.instrument());
-        System.out.println("Anahtar: " + musicProvider.key());
-        System.out.println("Akor: " + musicProvider.chord());
-        System.out.println("Nota: " + musicProvider.note());
-        System.out.println("Gam: " + musicProvider.scale());
+        System.out.println("Genre: " + musicProvider.genre());
+        System.out.println("Artist: " + musicProvider.artist());
+        System.out.println("Album: " + musicProvider.album());
+        System.out.println("Song: " + musicProvider.song());
+        System.out.println("Instrument: " + musicProvider.instrument());
+        System.out.println("Key: " + musicProvider.key());
+        System.out.println("Chord: " + musicProvider.chord());
+        System.out.println("Note: " + musicProvider.note());
+        System.out.println("Scale: " + musicProvider.scale());
         System.out.println("Tempo: " + musicProvider.tempo());
-        System.out.println("Dinamik: " + musicProvider.dynamic());
-        System.out.println("Ölçü İşareti: " + musicProvider.timeSignature());
-        System.out.println("Akor Progresyonu: " + musicProvider.chordProgression());
-        System.out.println("Müzikal Cümle: " + musicProvider.musicalPhrase());
+        System.out.println("Dynamic: " + musicProvider.dynamic());
+        System.out.println("Time Signature: " + musicProvider.timeSignature());
+        System.out.println("Chord Progression: " + musicProvider.chordProgression());
+        System.out.println("Musical Phrase: " + musicProvider.musicalPhrase());
     }
 }

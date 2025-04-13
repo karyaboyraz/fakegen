@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ class GitProviderTest {
         gitProvider = new GitProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void branch_ShouldReturnValidBranch() {
         String branch = gitProvider.branch();
         assertNotNull(branch);
@@ -25,14 +25,14 @@ class GitProviderTest {
         assertTrue(branch.matches("^[a-z0-9-]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void commitMessage_ShouldReturnValidMessage() {
         String message = gitProvider.commitMessage();
         assertNotNull(message);
         assertFalse(message.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void commitSha_ShouldReturnValidSha() {
         String sha = gitProvider.commitSha();
         assertNotNull(sha);
@@ -40,7 +40,7 @@ class GitProviderTest {
         assertTrue(sha.matches("^[a-f0-9]{40}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void commitDate_ShouldReturnValidDate() {
         String date = gitProvider.commitDate();
         assertNotNull(date);
@@ -48,7 +48,7 @@ class GitProviderTest {
         assertTrue(date.matches("^[A-Za-z]{3} [A-Za-z]{3} \\d{1,2} \\d{2}:\\d{2}:\\d{2} \\d{4} [+-]\\d{4}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void commitEntry_ShouldReturnValidEntry() {
         String entry = gitProvider.commitEntry();
         assertNotNull(entry);

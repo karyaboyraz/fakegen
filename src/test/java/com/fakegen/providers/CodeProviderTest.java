@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ class CodeProviderTest {
         codeProvider = new CodeProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void isbn_ShouldReturnValidIsbn() {
         String isbn = codeProvider.isbn();
         assertNotNull(isbn);
@@ -25,7 +25,7 @@ class CodeProviderTest {
         assertTrue(isbn.matches("^\\d{13}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void ean_ShouldReturnValidEan() {
         String ean = codeProvider.ean();
         assertNotNull(ean);
@@ -33,7 +33,7 @@ class CodeProviderTest {
         assertTrue(ean.matches("^\\d{13}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void asin_ShouldReturnValidAsin() {
         String asin = codeProvider.asin();
         assertNotNull(asin);
@@ -41,7 +41,7 @@ class CodeProviderTest {
         assertTrue(asin.matches("^[A-Z0-9]{10}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void issn_ShouldReturnValidIssn() {
         String issn = codeProvider.issn();
         assertNotNull(issn);

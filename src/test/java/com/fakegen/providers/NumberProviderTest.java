@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,27 +17,27 @@ class NumberProviderTest {
         numberProvider = new NumberProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void number_ShouldReturnValidNumber() {
         int number = numberProvider.number(0, 100);
         assertTrue(number >= 0 && number <= 100);
     }
 
-    @Test
+    @RepeatedTest(20)
     void decimal_ShouldReturnValidDecimal() {
         double decimal = numberProvider.decimal(0.0, 1.0);
         assertTrue(decimal >= 0.0 && decimal <= 1.0);
     }
 
-    @Test
+    @RepeatedTest(20)
     void decimalWithScale_ShouldReturnValidDecimal() {
-        double decimal = numberProvider.decimal(0.0, 1.0, 2);
-        assertTrue(decimal >= 0.0 && decimal <= 1.0);
-        String decimalStr = String.valueOf(decimal);
-        assertTrue(decimalStr.matches("^\\d+\\.\\d{2}$"));
+        String decimal = numberProvider.decimal(0.0, 1.0, 2);
+        assertTrue(decimal.matches("^\\d+\\.\\d{2}$"));
+        double decimalValue = Double.parseDouble(decimal);
+        assertTrue(decimalValue >= 0.0 && decimalValue <= 1.0);
     }
 
-    @Test
+    @RepeatedTest(20)
     void digit_ShouldReturnValidDigit() {
         String digit = numberProvider.digit();
         assertNotNull(digit);
@@ -45,7 +45,7 @@ class NumberProviderTest {
         assertTrue(digit.matches("^\\d$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void digits_ShouldReturnValidDigits() {
         String digits = numberProvider.digits(5);
         assertNotNull(digits);
@@ -53,7 +53,7 @@ class NumberProviderTest {
         assertTrue(digits.matches("^\\d{5}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void hex_ShouldReturnValidHex() {
         String hex = numberProvider.hex(8);
         assertNotNull(hex);
@@ -61,7 +61,7 @@ class NumberProviderTest {
         assertTrue(hex.matches("^[0-9a-f]{8}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void binary_ShouldReturnValidBinary() {
         String binary = numberProvider.binary(8);
         assertNotNull(binary);
@@ -69,7 +69,7 @@ class NumberProviderTest {
         assertTrue(binary.matches("^[01]{8}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void octal_ShouldReturnValidOctal() {
         String octal = numberProvider.octal(8);
         assertNotNull(octal);

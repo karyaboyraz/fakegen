@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,35 +17,35 @@ class BookProviderTest {
         bookProvider = new BookProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void title_ShouldReturnValidTitle() {
         String title = bookProvider.title();
         assertNotNull(title);
         assertFalse(title.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void author_ShouldReturnValidAuthor() {
         String author = bookProvider.author();
         assertNotNull(author);
         assertFalse(author.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void publisher_ShouldReturnValidPublisher() {
         String publisher = bookProvider.publisher();
         assertNotNull(publisher);
         assertFalse(publisher.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void genre_ShouldReturnValidGenre() {
         String genre = bookProvider.genre();
         assertNotNull(genre);
         assertFalse(genre.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void isbn_ShouldReturnValidIsbn() {
         String isbn = bookProvider.isbn();
         assertNotNull(isbn);

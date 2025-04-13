@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class WeatherProviderTest {
         weatherProvider = new WeatherProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void getDescription_ShouldReturnValidDescription() {
         String description = weatherProvider.getDescription();
         assertNotNull(description);
         assertFalse(description.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void temperatureCelsius_ShouldReturnValidTemperature() {
         String temperature = weatherProvider.temperatureCelsius();
         assertNotNull(temperature);
@@ -35,7 +35,7 @@ class WeatherProviderTest {
         assertTrue(temp >= -30 && temp <= 60);
     }
 
-    @Test
+    @RepeatedTest(20)
     void temperatureCelsiusWithRange_ShouldReturnValidTemperature() {
         String temperature = weatherProvider.temperatureCelsius(-10, 30);
         assertNotNull(temperature);
@@ -46,7 +46,7 @@ class WeatherProviderTest {
         assertTrue(temp >= -10 && temp <= 30);
     }
 
-    @Test
+    @RepeatedTest(20)
     void temperatureFahrenheit_ShouldReturnValidTemperature() {
         String temperature = weatherProvider.temperatureFahrenheit();
         assertNotNull(temperature);
@@ -57,7 +57,7 @@ class WeatherProviderTest {
         assertTrue(temp >= -22 && temp <= 100);
     }
 
-    @Test
+    @RepeatedTest(20)
     void temperatureFahrenheitWithRange_ShouldReturnValidTemperature() {
         String temperature = weatherProvider.temperatureFahrenheit(0, 100);
         assertNotNull(temperature);
@@ -68,14 +68,14 @@ class WeatherProviderTest {
         assertTrue(temp >= 0 && temp <= 100);
     }
 
-    @Test
+    @RepeatedTest(20)
     void getWindDirection_ShouldReturnValidDirection() {
         String direction = weatherProvider.getWindDirection();
         assertNotNull(direction);
         assertFalse(direction.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void windSpeedKm_ShouldReturnValidSpeed() {
         String speed = weatherProvider.windSpeedKm();
         assertNotNull(speed);
@@ -86,7 +86,7 @@ class WeatherProviderTest {
         assertTrue(windSpeed >= 0 && windSpeed <= 100);
     }
 
-    @Test
+    @RepeatedTest(20)
     void windSpeedKmWithRange_ShouldReturnValidSpeed() {
         String speed = weatherProvider.windSpeedKm(0, 50);
         assertNotNull(speed);
@@ -97,7 +97,7 @@ class WeatherProviderTest {
         assertTrue(windSpeed >= 0 && windSpeed <= 50);
     }
 
-    @Test
+    @RepeatedTest(20)
     void windSpeedMph_ShouldReturnValidSpeed() {
         String speed = weatherProvider.windSpeedMph();
         assertNotNull(speed);
@@ -108,7 +108,7 @@ class WeatherProviderTest {
         assertTrue(windSpeed >= 0 && windSpeed <= 70);
     }
 
-    @Test
+    @RepeatedTest(20)
     void windSpeedMphWithRange_ShouldReturnValidSpeed() {
         String speed = weatherProvider.windSpeedMph(0, 30);
         assertNotNull(speed);
@@ -119,7 +119,7 @@ class WeatherProviderTest {
         assertTrue(windSpeed >= 0 && windSpeed <= 30);
     }
 
-    @Test
+    @RepeatedTest(20)
     void getRelativeHumidity_ShouldReturnValidHumidity() {
         String humidity = weatherProvider.getRelativeHumidity();
         assertNotNull(humidity);
@@ -130,7 +130,7 @@ class WeatherProviderTest {
         assertTrue(humidityValue >= 0 && humidityValue <= 100);
     }
 
-    @Test
+    @RepeatedTest(20)
     void getAbsoluteHumidity_ShouldReturnValidHumidity() {
         String humidity = weatherProvider.getAbsoluteHumidity();
         assertNotNull(humidity);

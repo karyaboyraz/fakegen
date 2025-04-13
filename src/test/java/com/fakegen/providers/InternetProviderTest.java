@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,7 +17,7 @@ class InternetProviderTest {
         internetProvider = new InternetProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void email_ShouldReturnValidEmail() {
         String email = internetProvider.email();
         assertNotNull(email);
@@ -25,7 +25,7 @@ class InternetProviderTest {
         assertTrue(email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void username_ShouldReturnValidUsername() {
         String username = internetProvider.username();
         assertNotNull(username);
@@ -33,7 +33,7 @@ class InternetProviderTest {
         assertTrue(username.matches("^[a-z0-9.]+$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void domainName_ShouldReturnValidDomain() {
         String domain = internetProvider.domainName();
         assertNotNull(domain);
@@ -41,7 +41,7 @@ class InternetProviderTest {
         assertTrue(domain.matches("^[\\w-]+\\.[a-zA-Z]{2,}$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void url_ShouldReturnValidUrl() {
         String url = internetProvider.url();
         assertNotNull(url);
@@ -49,7 +49,7 @@ class InternetProviderTest {
         assertTrue(url.matches("^https?://[\\w\\-]+(\\.[\\w\\-]+)+[/#?]?.*$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void macAddress_ShouldReturnValidMac() {
         String mac = internetProvider.macAddress();
         assertNotNull(mac);
@@ -57,7 +57,7 @@ class InternetProviderTest {
         assertTrue(mac.matches("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void password_ShouldReturnValidPassword() {
         String password = internetProvider.password();
         assertNotNull(password);

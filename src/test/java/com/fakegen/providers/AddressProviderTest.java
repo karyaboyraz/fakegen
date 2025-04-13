@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,14 +17,14 @@ class AddressProviderTest {
         addressProvider = new AddressProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void streetName_ShouldReturnValidStreetName() {
         String streetName = addressProvider.streetName();
         assertNotNull(streetName);
         assertFalse(streetName.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void buildingNumber_ShouldReturnValidNumber() {
         String buildingNumber = addressProvider.buildingNumber();
         assertNotNull(buildingNumber);
@@ -33,35 +33,35 @@ class AddressProviderTest {
         assertTrue(number >= 1 && number <= 50);
     }
 
-    @Test
+    @RepeatedTest(20)
     void postalCode_ShouldReturnValidPostalCode() {
         String postalCode = addressProvider.postalCode();
         assertNotNull(postalCode);
         assertTrue(postalCode.matches("\\d{5}"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void city_ShouldReturnValidCity() {
         String city = addressProvider.city();
         assertNotNull(city);
         assertFalse(city.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void district_ShouldReturnValidDistrict() {
         String district = addressProvider.district();
         assertNotNull(district);
         assertFalse(district.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void streetSuffix_ShouldReturnValidSuffix() {
         String suffix = addressProvider.streetSuffix();
         assertNotNull(suffix);
         assertFalse(suffix.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void fullAddress_ShouldReturnValidFormat() {
         String fullAddress = addressProvider.fullAddress();
         assertNotNull(fullAddress);
@@ -70,7 +70,7 @@ class AddressProviderTest {
         assertTrue(fullAddress.contains("/"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void streetAddress_ShouldReturnValidFormat() {
         String streetAddress = addressProvider.streetAddress();
         assertNotNull(streetAddress);
@@ -78,7 +78,7 @@ class AddressProviderTest {
         assertTrue(streetAddress.matches("\\d+ .+"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void streetNumber_ShouldReturnValidNumber() {
         String streetNumber = addressProvider.streetNumber();
         assertNotNull(streetNumber);
@@ -87,28 +87,28 @@ class AddressProviderTest {
         assertTrue(number >= 1 && number <= 999);
     }
 
-    @Test
+    @RepeatedTest(20)
     void state_ShouldReturnValidState() {
         String state = addressProvider.state();
         assertNotNull(state);
         assertFalse(state.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void country_ShouldReturnValidCountry() {
         String country = addressProvider.country();
         assertNotNull(country);
         assertFalse(country.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void zipCode_ShouldReturnValidFormat() {
         String zipCode = addressProvider.zipCode();
         assertNotNull(zipCode);
         assertTrue(zipCode.matches("\\d{5}"));
     }
 
-    @Test
+    @RepeatedTest(20)
     void latitude_ShouldReturnValidFormat() {
         String latitude = addressProvider.latitude();
         assertNotNull(latitude);
@@ -117,7 +117,7 @@ class AddressProviderTest {
         assertTrue(lat >= -90 && lat <= 90);
     }
 
-    @Test
+    @RepeatedTest(20)
     void longitude_ShouldReturnValidFormat() {
         String longitude = addressProvider.longitude();
         assertNotNull(longitude);
@@ -126,7 +126,7 @@ class AddressProviderTest {
         assertTrue(lon >= -180 && lon <= 180);
     }
 
-    @Test
+    @RepeatedTest(20)
     void coordinates_ShouldReturnValidFormat() {
         String coordinates = addressProvider.coordinates();
         assertNotNull(coordinates);

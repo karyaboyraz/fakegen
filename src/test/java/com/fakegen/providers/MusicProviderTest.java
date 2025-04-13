@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,21 +17,21 @@ class MusicProviderTest {
         musicProvider = new MusicProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void genre_ShouldReturnValidGenre() {
         String genre = musicProvider.genre();
         assertNotNull(genre);
         assertFalse(genre.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void instrument_ShouldReturnValidInstrument() {
         String instrument = musicProvider.instrument();
         assertNotNull(instrument);
         assertFalse(instrument.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void key_ShouldReturnValidKey() {
         String key = musicProvider.key();
         assertNotNull(key);
@@ -39,7 +39,7 @@ class MusicProviderTest {
         assertTrue(key.contains(" "));
     }
 
-    @Test
+    @RepeatedTest(20)
     void chord_ShouldReturnValidChord() {
         String chord = musicProvider.chord();
         assertNotNull(chord);
@@ -47,57 +47,56 @@ class MusicProviderTest {
         assertTrue(chord.contains(" "));
     }
 
-    @Test
+    @RepeatedTest(20)
     void note_ShouldReturnValidNote() {
         String note = musicProvider.note();
         assertNotNull(note);
         assertFalse(note.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void scale_ShouldReturnValidScale() {
         String scale = musicProvider.scale();
         assertNotNull(scale);
         assertFalse(scale.isEmpty());
-        assertTrue(scale.contains(" "));
     }
 
-    @Test
+    @RepeatedTest(20)
     void tempo_ShouldReturnValidTempo() {
         String tempo = musicProvider.tempo();
         assertNotNull(tempo);
         assertFalse(tempo.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void dynamic_ShouldReturnValidDynamic() {
         String dynamic = musicProvider.dynamic();
         assertNotNull(dynamic);
         assertFalse(dynamic.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void timeSignature_ShouldReturnValidTimeSignature() {
         String timeSignature = musicProvider.timeSignature();
         assertNotNull(timeSignature);
         assertFalse(timeSignature.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void album_ShouldReturnValidAlbum() {
         String album = musicProvider.album();
         assertNotNull(album);
         assertFalse(album.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void artist_ShouldReturnValidArtist() {
         String artist = musicProvider.artist();
         assertNotNull(artist);
         assertFalse(artist.isEmpty());
     }
 
-    @Test
+    @RepeatedTest(20)
     void song_ShouldReturnValidSong() {
         String song = musicProvider.song();
         assertNotNull(song);

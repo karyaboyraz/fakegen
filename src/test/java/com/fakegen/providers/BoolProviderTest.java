@@ -4,7 +4,7 @@ import com.fakegen.util.RandomService;
 import com.fakegen.locale.FakerLocale;
 import com.fakegen.util.DataLoader;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,13 +17,13 @@ class BoolProviderTest {
         boolProvider = new BoolProvider(new RandomService());
     }
 
-    @Test
+    @RepeatedTest(20)
     void bool_ShouldReturnValidBoolean() {
         boolean result = boolProvider.bool();
         assertTrue(result || !result); // Her zaman true veya false dönmeli
     }
 
-    @Test
+    @RepeatedTest(20)
     void boolWithProbability_ShouldReturnValidBoolean() {
         boolean result = boolProvider.bool(0.7);
         assertTrue(result || !result); // Her zaman true veya false dönmeli
