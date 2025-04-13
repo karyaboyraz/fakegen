@@ -3,9 +3,6 @@ package com.fakegen.providers;
 import com.fakegen.util.RandomService;
 import com.fakegen.util.DataLoader;
 
-import javax.xml.crypto.Data;
-
-
 public class InternetProvider {
     private final RandomService random;
 

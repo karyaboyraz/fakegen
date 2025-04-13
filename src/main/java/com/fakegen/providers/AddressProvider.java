@@ -3,12 +3,8 @@ package com.fakegen.providers;
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.LazyLoader;
 import com.fakegen.util.RandomService;
-import com.fasterxml.jackson.core.type.TypeReference;
 
-import java.text.Normalizer;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class AddressProvider {
     private final RandomService random;
@@ -16,7 +12,6 @@ public class AddressProvider {
     private List<String> countries;
     private List<String> streetSuffixes;
     private List<String> district;
-    private List<String> plateCode;
     private List<String> postalCode;
     private List<String> streets;
 

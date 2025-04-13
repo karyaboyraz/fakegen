@@ -5,9 +5,6 @@ import com.fakegen.util.LazyLoader;
 import com.fakegen.util.RandomService;
 
 import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 
 public class AnimalProvider {
     private final RandomService random;
