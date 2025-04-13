@@ -24,6 +24,7 @@ ingredients:
   - mısır
   - bezelye
   - fasulye
+  
 spices:
   - karabiber
   - kırmızı toz biber
@@ -49,6 +50,7 @@ spices:
   - kakule
   - karanfil
   - kakao tozu
+
 measurements:
   - tatlı kaşığı
   - yemek kaşığı
@@ -70,6 +72,7 @@ measurements:
   - kutu
   - kavanoz
   - şişe
+
 dishes:
   - menemen
   - mercimek çorbası

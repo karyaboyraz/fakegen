@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.LinkedHashMap;
 
 /**
  * A utility class for loading and caching YAML data files.
@@ -21,6 +22,7 @@ public final class DataLoader {
     private static final Map<String, Map<String, Object>> dataCache = new ConcurrentHashMap<>();
     private static FakerLocale currentLocale = FakerLocale.TR_TR;
     private static final String DATA_PATH = "data/";
+    private static final String COMMON_PATH = "data/common/";
 
     /**
      * Private constructor to prevent instantiation of this utility class.
@@ -54,40 +56,52 @@ public final class DataLoader {
     /**
      * Retrieves a list of strings from the specified category and field in the YAML data.
      * The field can be specified using dot notation for nested fields.
+     * First tries to get the field from locale-specific data, if not found tries common data.
      *
      * @param category The category of data to load
      * @param field The field to retrieve, using dot notation for nested fields
      * @return An unmodifiable list of strings from the specified field
-     * @throws RuntimeException if the field is not found or is not a list
+     * @throws RuntimeException if the field is not found in both locale-specific and common data
      */
     @SuppressWarnings("unchecked")
     public static List<String> getListData(String category, String field) {
         Map<String, Object> data = loadYamlData(category);
+        Object result = getFieldValue(data, field);
+        if (result != null && result instanceof List) {
+            return Collections.unmodifiableList((List<String>) result);
+        }
+        throw new RuntimeException("Field " + field + " not found in data for " + category);
+    }
+
+    /**
+     * Gets the value of a field from a map using dot notation.
+     *
+     * @param data The map containing the data
+     * @param field The field to retrieve, using dot notation for nested fields
+     * @return The value of the field, or null if not found
+     */
+    @SuppressWarnings("unchecked")
+    private static Object getFieldValue(Map<String, Object> data, String field) {
         String[] fieldParts = field.split("\\.");
         Object current = data;
-        
+
         for (String part : fieldParts) {
             if (current instanceof Map) {
                 current = ((Map<String, Object>) current).get(part);
                 if (current == null) {
-                    System.out.println("Field " + part + " not found in current map");
-                    throw new RuntimeException("Field " + field + " not found in " + category);
+                    return null;
                 }
             } else {
-                System.out.println("Current object is not a map: " + current);
-                throw new RuntimeException("Field " + field + " is not a map in " + category);
+                return null;
             }
         }
-        
-        if (current instanceof List) {
-            return Collections.unmodifiableList((List<String>) current);
-        }
-        System.out.println("Current object is not a list: " + current);
-        throw new RuntimeException("Field " + field + " is not a list in " + category);
+
+        return current;
     }
 
     /**
      * Loads YAML data for the specified category from the appropriate locale directory.
+     * First tries to load from the locale-specific directory, then falls back to common directory.
      * The data is cached to improve performance on subsequent requests.
      *
      * @param category The category of data to load
@@ -97,18 +111,54 @@ public final class DataLoader {
     private static Map<String, Object> loadYamlData(String category) {
         String cacheKey = currentLocale.getCode() + "/" + category;
         return dataCache.computeIfAbsent(cacheKey, key -> {
-            try {
-                String fullPath = DATA_PATH + currentLocale.getCode() + "/" + category + ".yaml";
-                InputStream is = DataLoader.class.getClassLoader().getResourceAsStream(fullPath);
-                if (is == null) {
-                    System.out.println("Resource not found: " + fullPath);
-                    throw new RuntimeException("Data file not found: " + fullPath);
+            Map<String, Object> mergedData = new LinkedHashMap<>();
+
+            // Load common data first
+            String commonPath = COMMON_PATH + category + ".yaml";
+            InputStream commonIs = DataLoader.class.getClassLoader().getResourceAsStream(commonPath);
+            if (commonIs != null) {
+                try {
+                    Map<String, Object> commonData = objectMapper.readValue(commonIs, new TypeReference<>() {});
+                    deepMerge(mergedData, commonData);
+                } catch (IOException e) {
+                    System.out.println("Error loading common data from " + commonPath + ": " + e.getMessage());
                 }
-                return objectMapper.readValue(is, new TypeReference<>() {});
-            } catch (IOException e) {
-                System.out.println("Error loading data: " + e.getMessage());
-                throw new RuntimeException("Error loading data from " + category, e);
             }
+
+            // Load locale-specific data, which should override common data if keys conflict
+            String localePath = DATA_PATH + currentLocale.getCode() + "/" + category + ".yaml";
+            InputStream localeIs = DataLoader.class.getClassLoader().getResourceAsStream(localePath);
+            if (localeIs != null) {
+                try {
+                    Map<String, Object> localeData = objectMapper.readValue(localeIs, new TypeReference<>() {});
+                    deepMerge(mergedData, localeData);
+                } catch (IOException e) {
+                    System.out.println("Error loading locale data from " + localePath + ": " + e.getMessage());
+                }
+            }
+
+            if (mergedData.isEmpty()) {
+                System.out.println("Resource not found in both: " + localePath + " and " + commonPath);
+                throw new RuntimeException("Data file not found: " + category);
+            }
+            return mergedData;
         });
+    }
+
+    private static void deepMerge(Map<String, Object> original, Map<String, Object> newData) {
+        for (Map.Entry<String, Object> entry : newData.entrySet()) {
+            String key = entry.getKey();
+            Object newValue = entry.getValue();
+            if (original.containsKey(key)) {
+                Object existingValue = original.get(key);
+                if (existingValue instanceof Map && newValue instanceof Map) {
+                    deepMerge((Map<String, Object>) existingValue, (Map<String, Object>) newValue);
+                } else {
+                    original.put(key, newValue);
+                }
+            } else {
+                original.put(key, newValue);
+            }
+        }
     }
 }

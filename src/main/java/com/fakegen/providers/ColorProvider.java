@@ -29,7 +29,7 @@ public class ColorProvider {
      * @return A randomly selected color name
      */
     public String name() {
-        colorNames = LazyLoader.load("colorNames", () -> DataLoader.getListData("color", "names"));
+        colorNames = LazyLoader.load("colorNames", () -> DataLoader.getListData("color", "color_names"));
         return random.randomElement(colorNames);
     }
 

@@ -3,7 +3,6 @@ package com.fakegen.providers;
 import com.fakegen.util.DataLoader;
 import com.fakegen.util.RandomService;
 import com.fakegen.util.LazyLoader;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +22,6 @@ public class MusicProvider {
     private List<String> chordTypes;
     private List<String> tempos;
     private List<String> dynamics;
-    private List<String> timeSignatures;
 
     /**
      * Constructs a new MusicProvider with the specified RandomService.

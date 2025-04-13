@@ -1,211 +1,176 @@
-genres:
-  - Rock
-  - Pop
-  - Caz
-  - Klasik
-  - Blues
-  - Hip Hop
-  - Elektronik
-  - Country
-  - Metal
-  - Reggae
-  - Funk
-  - Soul
-  - R&B
-  - Jazz
-  - Folk
-  - Punk
-  - Grunge
-  - Indie
-  - Alternative
-  - Progressive
-  - Psychedelic
-  - Hard Rock
-  - Soft Rock
-  - Heavy Metal
-  - Death Metal
-  - Black Metal
-  - Thrash Metal
-  - Power Metal
-  - Symphonic Metal
-  - Folk Metal
-  - Nu Metal
-  - Industrial
-  - Ambient
-  - Techno
-  - House
-  - Trance
-  - Drum and Bass
-  - Dubstep
-  - Trap
-  - Lo-Fi
-  - Chillout
-  - Downtempo
-  - Trip Hop
-  - Breakbeat
-  - IDM
-  - Experimental
-  - Avant-garde
-  - Minimal
-  - Post-rock
-  - Math Rock
-  - Shoegaze
-
 artists:
-  - The Beatles
-  - Michael Jackson
-  - Queen
-  - Elvis Presley
-  - Madonna
-  - Bob Marley
-  - David Bowie
-  - Prince
-  - Whitney Houston
-  - Stevie Wonder
-  - Led Zeppelin
-  - Pink Floyd
-  - The Rolling Stones
-  - Jimi Hendrix
-  - Bob Dylan
-  - John Lennon
-  - Paul McCartney
-  - George Harrison
-  - Ringo Starr
-  - Eric Clapton
-  - B.B. King
-  - Ray Charles
-  - Aretha Franklin
-  - James Brown
-  - Marvin Gaye
-  - Otis Redding
-  - Sam Cooke
-  - Nina Simone
-  - Ella Fitzgerald
-  - Louis Armstrong
-  - Miles Davis
-  - John Coltrane
-  - Charlie Parker
-  - Duke Ellington
-  - Thelonious Monk
-  - Dizzy Gillespie
-  - Billie Holiday
-  - Frank Sinatra
-  - Nat King Cole
-  - Tony Bennett
-  - Elvis Costello
-  - Bruce Springsteen
-  - Bob Seger
-  - Tom Petty
-  - Neil Young
-  - Joni Mitchell
-  - Carole King
-  - James Taylor
-  - Paul Simon
-  - Art Garfunkel
+  - Sezen Aksu
+  - Tarkan
+  - Barış Manço
+  - Müslüm Gürses
+  - Zeki Müren
+  - Ajda Pekkan
+  - İbrahim Tatlıses
+  - Orhan Gencebay
+  - Cem Karaca
+  - Bülent Ersoy
+  - Kenan Doğulu
+  - Sertab Erener
+  - MFÖ
+  - Yeni Türkü
+  - Mor ve Ötesi
+  - Duman
+  - Kargo
+  - Teoman
+  - Manga
+  - Athena
+  - Yüksek Sadakat
+  - Pentagram
+  - Şebnem Ferah
+  - Nilüfer
+  - Aşkın Nur Yengi
+  - Sıla
+  - Gülşen
+  - Hadise
+  - Demet Akalın
+  - Burak Kut
+  - Mustafa Ceceli
+  - Ozan Doğulu
+  - Simge
+  - Derya Uluğ
+  - Ebru Gündeş
+  - Sibel Can
+  - Gülben Ergen
+  - İrem Derici
+  - Bengü
+  - Hande Yener
 
 albums:
-  - Thriller
-  - The Dark Side of the Moon
-  - Abbey Road
-  - Back in Black
-  - Nevermind
-  - Rumours
-  - Born to Run
-  - Purple Rain
-  - Hotel California
-  - Sgt. Pepper's Lonely Hearts Club Band
-  - Led Zeppelin IV
-  - The Wall
-  - Wish You Were Here
-  - Animals
-  - The Joshua Tree
-  - Achtung Baby
-  - OK Computer
-  - Kid A
-  - In Rainbows
-  - The Bends
-  - Revolver
-  - Rubber Soul
-  - Let It Be
-  - White Album
-  - Magical Mystery Tour
-  - Help!
-  - A Hard Day's Night
-  - Please Please Me
-  - With the Beatles
-  - Meet the Beatles
-  - Pet Sounds
-  - Good Vibrations
-  - What's Going On
-  - Songs in the Key of Life
-  - Innervisions
-  - Talking Book
-  - Music of My Mind
-  - Off the Wall
-  - Bad
-  - Dangerous
-  - HIStory
-  - Invincible
-  - The Rise and Fall of Ziggy Stardust
-  - Aladdin Sane
-  - Hunky Dory
-  - Low
-  - Heroes
-  - Station to Station
-  - Young Americans
-  - Diamond Dogs
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Aşkın Masalı
+  - Tam Zamanı
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
 
 songs:
-  - Bohemian Rhapsody
-  - Stairway to Heaven
-  - Imagine
-  - Sweet Child O' Mine
-  - Billie Jean
-  - Smells Like Teen Spirit
-  - Like a Rolling Stone
-  - Hey Jude
-  - Yesterday
-  - Purple Haze
-  - Hotel California
-  - Sweet Home Alabama
-  - Free Bird
-  - Comfortably Numb
-  - Wish You Were Here
-  - Another Brick in the Wall
-  - Money
-  - Time
-  - Shine On You Crazy Diamond
-  - Welcome to the Jungle
-  - Paradise City
-  - November Rain
-  - Don't Cry
-  - Knockin' on Heaven's Door
-  - Sweet Child O' Mine
-  - Patience
-  - Civil War
-  - You Could Be Mine
-  - Estranged
-  - Live and Let Die
-  - Let It Be
-  - Come Together
-  - Here Comes the Sun
-  - Something
-  - While My Guitar Gently Weeps
-  - Blackbird
-  - Yesterday
-  - Help!
-  - A Hard Day's Night
-  - Can't Buy Me Love
-  - Twist and Shout
-  - I Want to Hold Your Hand
-  - She Loves You
-  - All You Need Is Love
-  - Strawberry Fields Forever
-  - Penny Lane
-  - Lucy in the Sky with Diamonds
-  - A Day in the Life
-  - Eleanor Rigby
-  - Yellow Submarine
+  - Gülümse
+  - Düş Bahçeleri
+  - Şımarık
+  - Kuzu Kuzu
+  - Dağlar Dağlar
+  - Beni Biraz Anlasaydın
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
+  - Gülümse
+  - Karma
+  - 2023
+  - Ben Bazen
+  - Dönence
+  - Aşkın Masalı
+  - Sakin Ol
+  - Yeni Ay
+  - Tam Zamanı
+  - Aşk Bu
+  - Yolun Açık Olsun
+  - İyi Ki Varsın
+  - Aşk İçin
+  - Beni Biraz Anlasaydın
+  - Yeni
 
 instruments:
   - Gitar
@@ -258,279 +223,3 @@ instruments:
   - Cajon
   - Djembe
   - Tabla
-
-notes:
-  - Do
-  - Do#
-  - Re
-  - Re#
-  - Mi
-  - Fa
-  - Fa#
-  - Sol
-  - Sol#
-  - La
-  - La#
-  - Si
-  - Do2
-  - Do#2
-  - Re2
-  - Re#2
-  - Mi2
-  - Fa2
-  - Fa#2
-  - Sol2
-  - Sol#2
-  - La2
-  - La#2
-  - Si2
-  - Do3
-  - Do#3
-  - Re3
-  - Re#3
-  - Mi3
-  - Fa3
-  - Fa#3
-  - Sol3
-  - Sol#3
-  - La3
-  - La#3
-  - Si3
-  - Do4
-  - Do#4
-  - Re4
-  - Re#4
-  - Mi4
-  - Fa4
-  - Fa#4
-  - Sol4
-  - Sol#4
-  - La4
-  - La#4
-  - Si4
-  - Do5
-  - Do#5
-  - Re5
-  - Re#5
-  - Mi5
-  - Fa5
-  - Fa#5
-  - Sol5
-  - Sol#5
-  - La5
-  - La#5
-  - Si5
-
-scales:
-  - Majör
-  - Minör
-  - Pentatonik
-  - Blues
-  - Caz
-  - Armonik Minör
-  - Melodik Minör
-  - Dorian
-  - Phrygian
-  - Lydian
-  - Mixolydian
-  - Aeolian
-  - Locrian
-  - Bebop
-  - Diminished
-  - Whole Tone
-  - Augmented
-  - Hungarian Minor
-  - Persian
-  - Arabian
-  - Japanese
-  - Chinese
-  - Indian
-  - Egyptian
-  - Spanish
-  - Gypsy
-  - Klezmer
-  - Flamenco
-  - Blues Pentatonik
-  - Major Pentatonik
-  - Minor Pentatonik
-  - Major Blues
-  - Minor Blues
-  - Major Bebop
-  - Minor Bebop
-  - Major Hexatonic
-  - Minor Hexatonic
-  - Major Heptatonic
-  - Minor Heptatonic
-  - Major Octatonic
-  - Minor Octatonic
-  - Major Nonatonic
-  - Minor Nonatonic
-  - Major Decatonic
-  - Minor Decatonic
-  - Major Undecatonic
-  - Minor Undecatonic
-  - Major Dodecatonic
-  - Minor Dodecatonic
-
-chordTypes:
-  - Majör
-  - Minör
-  - 7'li
-  - Maj7'li
-  - Min7'li
-  - 6'lı
-  - 9'lu
-  - 11'li
-  - 13'lü
-  - Artırılmış
-  - Eksiltilmiş
-  - Sus2
-  - Sus4
-  - Add9
-  - Add11
-  - Add13
-  - Maj6
-  - Min6
-  - Maj9
-  - Min9
-  - Maj11
-  - Min11
-  - Maj13
-  - Min13
-  - 7b5
-  - 7#5
-  - Maj7b5
-  - Maj7#5
-  - Min7b5
-  - Min7#5
-  - 7b9
-  - 7#9
-  - Maj7b9
-  - Maj7#9
-  - Min7b9
-  - Min7#9
-  - 7b13
-  - 7#13
-  - Maj7b13
-  - Maj7#13
-  - Min7b13
-  - Min7#13
-  - 9b5
-  - 9#5
-  - Maj9b5
-  - Maj9#5
-  - Min9b5
-  - Min9#5
-  - 11b5
-  - 11#5
-  - Maj11b5
-  - Maj11#5
-
-tempos:
-  - Largo (40-60 BPM)
-  - Lento (60-66 BPM)
-  - Adagio (66-76 BPM)
-  - Andante (76-108 BPM)
-  - Moderato (108-120 BPM)
-  - Allegro (120-168 BPM)
-  - Presto (168-200 BPM)
-  - Prestissimo (200+ BPM)
-  - Grave (20-40 BPM)
-  - Larghetto (60-66 BPM)
-  - Adagietto (70-80 BPM)
-  - Andantino (80-108 BPM)
-  - Marcia moderato (83-85 BPM)
-  - Andante moderato (92-112 BPM)
-  - Moderato assai (108-120 BPM)
-  - Allegretto (112-120 BPM)
-  - Allegro moderato (120-168 BPM)
-  - Allegro ma non troppo (120-168 BPM)
-  - Allegro ma non tanto (120-168 BPM)
-  - Molto allegro (124-168 BPM)
-  - Allegro con brio (132-168 BPM)
-  - Allegro con spirito (132-168 BPM)
-  - Allegro con fuoco (132-168 BPM)
-  - Allegro con moto (132-168 BPM)
-  - Allegro con anima (132-168 BPM)
-  - Allegro con grazia (132-168 BPM)
-  - Allegro con passione (132-168 BPM)
-  - Allegro con forza (132-168 BPM)
-  - Allegro con energia (132-168 BPM)
-  - Allegro con vivacità (132-168 BPM)
-  - Allegro con brillantezza (132-168 BPM)
-  - Allegro con eleganza (132-168 BPM)
-  - Allegro con maestà (132-168 BPM)
-  - Allegro con nobiltà (132-168 BPM)
-  - Allegro con dignità (132-168 BPM)
-  - Allegro con grandezza (132-168 BPM)
-  - Allegro con magnificenza (132-168 BPM)
-  - Allegro con splendore (132-168 BPM)
-  - Allegro con gloria (132-168 BPM)
-  - Allegro con trionfo (132-168 BPM)
-  - Allegro con vittoria (132-168 BPM)
-  - Allegro con successo (132-168 BPM)
-  - Allegro con prosperità (132-168 BPM)
-  - Allegro con fortuna (132-168 BPM)
-  - Allegro con felicità (132-168 BPM)
-  - Allegro con gioia (132-168 BPM)
-  - Allegro con allegrezza (132-168 BPM)
-  - Allegro con contentezza (132-168 BPM)
-  - Allegro con soddisfazione (132-168 BPM)
-  - Allegro con piacere (132-168 BPM)
-  - Allegro con diletto (132-168 BPM)
-  - Allegro con divertimento (132-168 BPM)
-
-dynamics:
-  - Pianissimo (pp)
-  - Piano (p)
-  - Mezzo Piano (mp)
-  - Mezzo Forte (mf)
-  - Forte (f)
-  - Fortissimo (ff)
-  - Crescendo
-  - Decrescendo
-  - Sforzando
-  - Rinforzando
-  - Pianississimo (ppp)
-  - Fortississimo (fff)
-  - Mezzo Piano Mezzo Forte (mp-mf)
-  - Mezzo Forte Mezzo Piano (mf-mp)
-  - Piano Forte (pf)
-  - Forte Piano (fp)
-  - Sforzando Piano (sfp)
-  - Sforzando Forte (sff)
-  - Sforzando Fortissimo (sfff)
-  - Sforzando Pianissimo (sfpp)
-  - Sforzando Mezzo Piano (sfmp)
-  - Sforzando Mezzo Forte (sfmf)
-  - Sforzando Crescendo (sfc)
-  - Sforzando Decrescendo (sfd)
-  - Sforzando Diminuendo (sfdim)
-  - Sforzando Morendo (sfm)
-  - Sforzando Perdendosi (sfp)
-  - Sforzando Smorzando (sfs)
-  - Sforzando Calando (sfc)
-  - Sforzando Rallentando (sfr)
-  - Sforzando Accelerando (sfa)
-  - Sforzando Stringendo (sfs)
-  - Sforzando Allargando (sfa)
-  - Sforzando Stretto (sfs)
-  - Sforzando Largo (sfl)
-  - Sforzando Lento (sfl)
-  - Sforzando Adagio (sfa)
-  - Sforzando Andante (sfa)
-  - Sforzando Moderato (sfm)
-  - Sforzando Allegro (sfa)
-  - Sforzando Presto (sfp)
-  - Sforzando Prestissimo (sfp)
-  - Sforzando Vivace (sfv)
-  - Sforzando Presto Vivace (sfpv)
-  - Sforzando Allegro Vivace (sfav)
-  - Sforzando Allegro Con Brio (sfacb)
-  - Sforzando Allegro Con Spirito (sfacs)
-  - Sforzando Allegro Con Fuoco (sfacf)
-  - Sforzando Allegro Con Moto (sfacm)
-  - Sforzando Allegro Con Anima (sfaca)
-  - Sforzando Allegro Con Grazia (sfacg)
-  - Sforzando Allegro Con Passione (sfacp)
-  - Sforzando Allegro Con Forza (sfacf)

@@ -128,7 +128,7 @@ public class VehicleProvider {
      * @return A random vehicle color as a string
      */
     public String color() {
-        colors = LazyLoader.load("vehicleColors", () -> DataLoader.getListData("vehicle", "colors"));
+        colors = LazyLoader.load("vehicleColors", () -> DataLoader.getListData("color", "color_names"));
         return random.randomElement(colors);
     }
 
